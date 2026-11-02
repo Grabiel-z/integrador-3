@@ -1,0 +1,18 @@
+{
+  "ruc": "20605820817",
+  "razon_social": "BA & ES SEGURINDUSTRIA S.A.C.",
+  "fecha": "01/02/2020",
+  "fecha_iso": "2020-02-01",
+  "valor_observado": "1 de febrero de 2020",
+  "inscripcion_observada": "28 de enero de 2020",
+  "verificacion_declarada_por_fuente": "1 de noviembre de 2026",
+  "url": "https://elruc.pe/ruc/20605820817-ba-y-es-segurindustria-s-a-c",
+  "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+  "fecha_consulta": "2026-11-02T09:46:17-05:00",
+  "http_status": 200,
+  "sha256_respuesta": "ff78d2c6b3694826b6e16477c368119d2fbf0b9e704f9e67ab9c835bc2f6efe2",
+  "robots_url": "https://elruc.pe/robots.txt",
+  "robots_permite_ficha": true,
+  "requiere_token": false,
+  "intervencion_humana": false
+}

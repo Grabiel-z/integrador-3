@@ -1,0 +1,22 @@
+{
+  "ruc": "20377339461",
+  "razon_social": "B.BRAUN MEDICAL PERU S.A.",
+  "fecha": "01/10/1997",
+  "fecha_iso": "1997-10-01",
+  "valor_observado": "1 de octubre de 1997",
+  "inscripcion_observada": "2 de octubre de 1997",
+  "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+  "url": "https://elruc.pe/ruc/20377339461-b-braun-medical-peru-s-a",
+  "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+  "fecha_consulta": "2026-11-02T09:46:13-05:00",
+  "http_status": 200,
+  "sha256_respuesta": "927c99018922cfd1e447bf754175d970957c50a66a2837437e0003624eb5a9b0",
+  "robots_url": "https://elruc.pe/robots.txt",
+  "robots_permite_ficha": true,
+  "requiere_token": false,
+  "intervencion_humana": false,
+  "contraste_con_ficha_oficial_guardada": {
+    "coincide": true,
+    "archivo": "evidencias/sunat_asistido/20377339461.json"
+  }
+}

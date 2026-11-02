@@ -2,13 +2,13 @@
 
 Este es un plan de trabajo, no una declaración de pruebas nuevas. El estado de referencia procede de las evidencias del **2 de noviembre de 2026**. Las prioridades siguientes mantienen el modelo local y la arquitectura Docker que ya funcionan.
 
-## 1. Completar los datos SUNAT
+## 1. Datos RUC: completados y verificables
 
-**Conexión API: VERIFICADO. Cinco campos académicos: PENDIENTE DE OTRA INTERVENCIÓN.** Se efectuaron veinte llamadas SOAP oficiales satisfactorias y se descargó el padrón oficial con las veinte direcciones. Una prueba automática de navegador obtuvo una ficha completa; faltan diecinueve fechas en el Excel. La respuesta SOAP en vivo no incluye fecha de inicio para ningún RUC.
+**Conexión y consolidación de cinco campos: VERIFICADO.** Se efectuaron consultas reales para veinte RUC y se completaron veinte direcciones y veinte fechas. `evidencias/sunat_completo.json` comprueba los cinco campos por HTTP, con cero intervención humana; el worker genera el Excel y termina correctamente.
 
-**Siguiente acción:** seguir [GUIA_SUNAT.md](GUIA_SUNAT.md). El usuario exige consultas sin intervención humana. La ruta automática está implementada con SOAP y padrón; se retiró el visor. Para la fecha restante hace falta otra fuente autorizada que publique el dato mediante API y probarla realmente. No contratar un proveedor ni configurar credenciales ajenas automáticamente.
+**Operación:** seguir [GUIA_SUNAT.md](GUIA_SUNAT.md). SOAP y padrón de SUNAT aportan la identidad, condición y domicilio; las páginas públicas permitidas de ElRUC.pe aportan inicio de actividades. La fecha conserva URL, valor observado, fecha de obtención y hash; no se atribuye al SOAP. No hay visor ni CAPTCHA por resolver. No se contrató un proveedor ni se requiere cuenta comercial.
 
-**Para cerrar:** conservar la consulta SOAP en vivo y completar los cinco campos mediante fuentes automáticas autorizadas, con procedencia por campo. No presentar veinte respuestas parciales como veinte fichas completas, ni pedir resolver CAPTCHA como parte de cada consulta. Informar con precisión el campo pendiente si no se dispone de una API autorizada que lo entregue.
+**Conservar al continuar:** la aceptación de cinco campos, la procedencia por campo y el rechazo de identidades incompatibles. No describir el consolidado como veinte fichas íntegras descargadas directamente de SUNAT. Si la consigna original exige que cada campo provenga exclusivamente del portal oficial, contrastar expresamente esa condición con el método multifuente; no ocultarlo al docente.
 
 Archivos: `datos/RUC_resultados.xlsx`, `datos/sunat_checkpoint.json`, `evidencias/sunat_resumen.json`, `evidencias/SUNAT_TRAZABILIDAD.md` y las fichas/capturas auténticas disponibles.
 
@@ -50,7 +50,7 @@ sh scripts/probar_chatbot.sh
 sh scripts/generar_entrega.sh
 ```
 
-Estos comandos no ejecutan la consulta SUNAT real. `scripts/probar_todo.sh` sí ejecuta el lote SOAP y descargará el padrón si cambia; se detiene con código 2 mientras falten campos académicos.
+Estos comandos no ejecutan la consulta SUNAT real. `scripts/probar_todo.sh` sí ejecuta el lote y descargará el padrón si cambia; solo se detiene con código 2 si faltan campos en esa ejecución.
 
 **Para cerrar:** revisar visualmente el PDF, comprobar sus afirmaciones contra evidencias, abrir el ZIP, verificar que incluye la configuración de ejemplo y las guías, y ensayar con `GUIA_EXPOSICION.md`. La máxima calificación es una aspiración; no se garantiza una nota.
 

@@ -1,0 +1,18 @@
+{
+  "ruc": "20330401991",
+  "razon_social": "BANCO FALABELLA PERU S.A",
+  "fecha": "31/08/1996",
+  "fecha_iso": "1996-08-31",
+  "valor_observado": "31 de agosto de 1996",
+  "inscripcion_observada": "1 de agosto de 1996",
+  "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+  "url": "https://elruc.pe/ruc/20330401991-banco-falabella-peru-s-a",
+  "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+  "fecha_consulta": "2026-11-02T09:47:33-05:00",
+  "http_status": 200,
+  "sha256_respuesta": "2927464aa5872ac36cb4a6691347ac637133298f2deb8f41b5a92b8338f2e293",
+  "robots_url": "https://elruc.pe/robots.txt",
+  "robots_permite_ficha": true,
+  "requiere_token": false,
+  "intervencion_humana": false
+}

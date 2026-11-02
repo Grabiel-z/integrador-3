@@ -21,16 +21,19 @@ def test_api_reports_missing_fields_and_live_source(monkeypatch, tmp_path):
         return {'ruc': ruc, 'fuente': SOAP_URL, 'fecha_consulta': 'FECHA SINTETICA', 'http_status': 200,
                 'campos': {'nombre': 'EMPRESA SINTETICA', 'estadoDesc': 'ACTIVO', 'flag22Desc': 'HABIDO', 'ubigeoRuc': '150114'}}
     monkeypatch.setattr(api, 'query_soap', query)
+    monkeypatch.setattr(api, 'get_activity', lambda *args: {'ruc': '20100047218', 'razon_social': 'EMPRESA SINTETICA',
+        'fecha': '01/01/2000', 'fecha_iso': '2000-01-01', 'url': 'https://elruc.pe/ruc/20100047218',
+        'fecha_consulta': 'FECHA SINTETICA'})
     with TestClient(api.app) as client:
         response = client.get('/ruc/20100047218')
     assert response.status_code == 200
     data = response.json()
     assert calls == ['20100047218']
     assert data['intervencion_humana'] is False
-    assert data['datos']['fecha_inicio_actividades'] is None
+    assert data['datos']['fecha_inicio_actividades'] == '2000-01-01'
     assert data['datos']['direccion_fiscal'] is None
     assert data['ficha_completa'] is False
-    assert set(data['campos_pendientes']) == {'Dirección fiscal', 'Fecha de inicio de actividades'}
+    assert set(data['campos_pendientes']) == {'Dirección fiscal'}
     assert data['fuentes']['consulta_en_vivo']['fuente'] == SOAP_URL
 
 

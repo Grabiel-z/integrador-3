@@ -10,7 +10,8 @@
   },
   "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
   "operacion": "buscarRuc",
-  "fecha_consulta": "2026-11-02T09:30:43-05:00",
+  "fecha_consulta": "2026-11-02T09:54:26-05:00",
   "http_status": 200,
-  "duracion_segundos": 0.317
+  "intentos": 1,
+  "duracion_segundos": 0.182
 }

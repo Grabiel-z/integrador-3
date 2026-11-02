@@ -1,0 +1,18 @@
+{
+  "ruc": "20605530509",
+  "razon_social": "BALDE K S.A.C.",
+  "fecha": "18/11/2019",
+  "fecha_iso": "2019-11-18",
+  "valor_observado": "18 de noviembre de 2019",
+  "inscripcion_observada": "18 de noviembre de 2019",
+  "verificacion_declarada_por_fuente": "1 de noviembre de 2026",
+  "url": "https://elruc.pe/ruc/20605530509-balde-k-s-a-c",
+  "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+  "fecha_consulta": "2026-11-02T09:46:52-05:00",
+  "http_status": 200,
+  "sha256_respuesta": "ed80945c51a03b818c619e13fc5d8ff4da737b2d56ce5a8678e2a6982cec312f",
+  "robots_url": "https://elruc.pe/robots.txt",
+  "robots_permite_ficha": true,
+  "requiere_token": false,
+  "intervencion_humana": false
+}

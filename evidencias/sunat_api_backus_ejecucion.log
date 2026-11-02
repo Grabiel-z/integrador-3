@@ -1,5 +1,5 @@
 {
-  "fecha": "2026-11-02T09:31:47-05:00",
+  "fecha": "2026-11-02T10:03:04-05:00",
   "peticion": {
     "metodo": "GET",
     "ruc": "20602207138"
@@ -8,10 +8,10 @@
   "respuesta": {
     "estado_consulta_api": "VERIFICADO",
     "intervencion_humana": false,
-    "ficha_completa": false,
-    "campos_pendientes": [
-      "Fecha de inicio de actividades"
-    ],
+    "ficha_completa": true,
+    "campos_pendientes": [],
+    "tipo_resultado": "Consolidado multifuente",
+    "ficha_oficial_directa": false,
     "datos": {
       "ruc": "20602207138",
       "razon_social": "BACKUS MARCAS Y PATENTES S.A.C.",
@@ -19,7 +19,7 @@
       "condicion": "HABIDO",
       "direccion_fiscal": "NICOLAS AYLLON; NRO. 3986; UBIGEO 150103",
       "ubigeo": "150103",
-      "fecha_inicio_actividades": null
+      "fecha_inicio_actividades": "2017-06-01"
     },
     "fuentes": {
       "consulta_en_vivo": {
@@ -34,9 +34,10 @@
         },
         "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
         "operacion": "buscarRuc",
-        "fecha_consulta": "2026-11-02T09:31:47-05:00",
+        "fecha_consulta": "2026-11-02T10:03:04-05:00",
         "http_status": 200,
-        "duracion_segundos": 0.181
+        "intentos": 1,
+        "duracion_segundos": 0.194
       },
       "padron": {
         "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
@@ -47,10 +48,29 @@
         "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
         "http_status": 200,
         "cache_reutilizada": true,
-        "comprobacion_version": "2026-11-02T09:30:22-05:00"
+        "comprobacion_version": "2026-11-02T09:54:05-05:00"
+      },
+      "inicio_actividades": {
+        "ruc": "20602207138",
+        "razon_social": "BACKUS MARCAS Y PATENTES S.A.C.",
+        "fecha": "01/06/2017",
+        "fecha_iso": "2017-06-01",
+        "valor_observado": "1 de junio de 2017",
+        "inscripcion_observada": "12 de junio de 2017",
+        "verificacion_declarada_por_fuente": "1 de noviembre de 2026",
+        "url": "https://elruc.pe/ruc/20602207138-backus-marcas-y-patentes-s-a-c",
+        "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+        "fecha_consulta": "2026-11-02T09:46:22-05:00",
+        "http_status": 200,
+        "sha256_respuesta": "2897c6b15af72283fce30922b07d3955273f0219bea74805f148a3c8c4e40feb",
+        "robots_url": "https://elruc.pe/robots.txt",
+        "robots_permite_ficha": true,
+        "requiere_token": false,
+        "intervencion_humana": false,
+        "cache_reutilizada": true
       }
     },
-    "aviso": "SOAP en vivo; domicilio del padrón descargado para el lote. La API oficial consultada no entrega fecha de inicio de actividades."
+    "aviso": "RUC, razón social y condición: SUNAT SOAP en vivo. Domicilio: padrón oficial. Inicio: ficha pública ElRUC.pe, fuente independiente identificada por campo. No equivale a una ficha íntegra obtenida directamente del portal SUNAT."
   },
   "passed": true
 }

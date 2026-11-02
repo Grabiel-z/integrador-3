@@ -7,7 +7,7 @@
 5. Esperar el final de `docker compose logs -f model-init`. La descarga de pesos está en un volumen Docker y no se repite si el modelo ya existe.
 6. Abrir http://localhost:5678 y crear tu cuenta administradora. No se entrega una identidad ficticia ni una contraseña común.
 7. Verificar `docker compose ps -a`, `sh scripts/probar_ia.sh` y `sh scripts/probar_chatbot.sh`.
-8. Seguir `GUIA_SUNAT.md` para probar la API automática. `sh scripts/probar_sunat.sh` consulta SOAP y padrón reales; devuelve código 2 mientras falten fechas de inicio en el requisito académico. No requiere intervención humana durante las consultas.
+8. Seguir `GUIA_SUNAT.md` para probar la API automática. `sh scripts/probar_sunat.sh` consulta SOAP, padrón y fecha pública complementaria. El worker devuelve 0 cuando están los cinco campos y 2 si falla alguna fila. `tools.verify_sunat_complete` verifica los veinte RUC por HTTP. No requiere intervención humana durante las consultas.
 9. Seguir `CONECTAR_TELEGRAM.md` para el único secreto externo previsto.
 
 La primera construcción requiere conectividad a Docker Hub, al registro oficial de n8n, a PyPI, Debian y al repositorio de Chromium. Ollama necesita acceso a su registro de modelos. Errores de DNS, proxy, certificados o espacio deben resolverse en el entorno y quedan registrados si ocurren.

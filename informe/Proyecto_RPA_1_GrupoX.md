@@ -69,38 +69,38 @@ Los beneficios esperados son uniformidad y disponibilidad de información básic
 
 # 6. Automatización SUNAT
 
-El worker lee RUC como texto y verifica longitud, dígito de control y duplicados. Su ruta principal realiza consultas SOAP oficiales en vivo y descarga el padrón diario de SUNAT para las direcciones. La API interna permite consumir ese resultado desde n8n sin navegador, CAPTCHA ni intervención humana. Cada dato conserva su procedencia y se guarda un checkpoint y un Excel de forma progresiva. La fecha de inicio de actividades no está publicada en estas dos fuentes: queda pendiente y no se sustituye por inscripción ni por fecha de descarga.
+El worker lee RUC como texto y verifica longitud, dígito de control y duplicados. Consulta SOAP oficial de SUNAT en vivo, utiliza el padrón diario oficial para las direcciones y completa inicio de actividades desde las fichas públicas de ElRUC.pe. La fuente complementaria permite esa lectura en robots.txt; no se utiliza su API autenticada. RUC y razón social deben coincidir antes de consolidar. La fecha completa se distingue de inscripción y del resumen anual; se guarda el valor observado, URL, fecha de obtención y hash, con caché de 24 horas y renovación automática.
 
-El formulario público fue diagnosticado con Chromium actualizado: obtuvo una ficha completa automáticamente y luego mostró una verificación humana. Ese método fue retirado de la ruta operativa por requisito del usuario. El proceso actual no evade CAPTCHA ni controles y no ofrece intervención manual como solución. Se distinguen veinte respuestas SOAP reales de veinte fichas completas con los cinco campos académicos. Los RUC de entrada proceden de una publicación oficial de agentes de retención, contrastados posteriormente mediante las llamadas SOAP.
+La API y el worker entregan un consolidado multifuente de cinco campos, con procedencia explícita. No equivale a veinte fichas íntegras obtenidas directamente del portal SUNAT. Una fecha complementaria se contrastó con la ficha oficial guardada de B. Braun, con coincidencia exacta. El navegador fue retirado de la ruta operativa tras mostrar un control humano. El proceso actual no evade controles ni requiere una persona durante las consultas. Se rechazan identidades incompatibles y se permite un único reintento frente a una respuesta SOAP cruzada o un fallo transitorio; 401, 403 y 429 no se reintentan. El checkpoint permite reanudar únicamente filas incompletas.
 
 ![Diagrama: sunat](diagramas/sunat.png)
 
 # 7. Resultados de RUC
 
-Estado: PENDIENTE DE OTRA INTERVENCIÓN. Veinte RUC de entrada contrastados en publicación oficial. Fichas completas: 1 de veinte. El Excel diferencia una ficha completa de una restricción externa y conserva fecha y observaciones. Se realizaron 20 consultas SOAP oficiales HTTP 200, sin navegador ni intervención humana. Los 20 domicilios proceden de la ficha guardada o del padrón diario oficial. Fechas de inicio observadas: 1; las restantes siguen pendientes porque SOAP y padrón no las publican. La API no presenta la fecha guardada de navegador como un campo entregado en vivo por SOAP.
+Estado del consolidado: VERIFICADO. Veinte RUC de entrada contrastados en publicación oficial. Registros con cinco campos: 20 de veinte. El Excel conserva estados, fechas de consulta, observaciones y procedencia por campo. Se verificaron 20 RUC mediante SOAP oficial HTTP 200, sin navegador ni intervención humana. Los 20 domicilios proceden del padrón diario oficial. Fechas de inicio observadas: 20, de fichas públicas complementarias de ElRUC.pe cotejadas por identidad. Es un consolidado multifuente; la fecha no se atribuye al SOAP y no se afirma haber obtenido veinte fichas íntegras directamente del portal SUNAT.
 
 | RUC | Estado de consulta |
 |---|---|
 | 20377339461 | VERIFICADO |
-| 20605820817 | PENDIENTE DE OTRA INTERVENCIÓN |
-| 20602207138 | PENDIENTE DE OTRA INTERVENCIÓN |
-| 20342347950 | PENDIENTE DE OTRA INTERVENCIÓN |
-| 20523491840 | PENDIENTE DE OTRA INTERVENCIÓN |
-| 20538658368 | PENDIENTE DE OTRA INTERVENCIÓN |
-| 20607481491 | PENDIENTE DE OTRA INTERVENCIÓN |
-| 20517320570 | PENDIENTE DE OTRA INTERVENCIÓN |
-| 20102179898 | PENDIENTE DE OTRA INTERVENCIÓN |
-| 20605530509 | PENDIENTE DE OTRA INTERVENCIÓN |
-| 20609986442 | PENDIENTE DE OTRA INTERVENCIÓN |
-| 20504565794 | PENDIENTE DE OTRA INTERVENCIÓN |
-| 20100130204 | PENDIENTE DE OTRA INTERVENCIÓN |
-| 20608551701 | PENDIENTE DE OTRA INTERVENCIÓN |
-| 20100053455 | PENDIENTE DE OTRA INTERVENCIÓN |
-| 20509507199 | PENDIENTE DE OTRA INTERVENCIÓN |
-| 20100047218 | PENDIENTE DE OTRA INTERVENCIÓN |
-| 20100030595 | PENDIENTE DE OTRA INTERVENCIÓN |
-| 20330401991 | PENDIENTE DE OTRA INTERVENCIÓN |
-| 20513074370 | PENDIENTE DE OTRA INTERVENCIÓN |
+| 20605820817 | VERIFICADO |
+| 20602207138 | VERIFICADO |
+| 20342347950 | VERIFICADO |
+| 20523491840 | VERIFICADO |
+| 20538658368 | VERIFICADO |
+| 20607481491 | VERIFICADO |
+| 20517320570 | VERIFICADO |
+| 20102179898 | VERIFICADO |
+| 20605530509 | VERIFICADO |
+| 20609986442 | VERIFICADO |
+| 20504565794 | VERIFICADO |
+| 20100130204 | VERIFICADO |
+| 20608551701 | VERIFICADO |
+| 20100053455 | VERIFICADO |
+| 20509507199 | VERIFICADO |
+| 20100047218 | VERIFICADO |
+| 20100030595 | VERIFICADO |
+| 20330401991 | VERIFICADO |
+| 20513074370 | VERIFICADO |
 
 # 8. Implementación del chatbot
 
@@ -138,7 +138,7 @@ CORE_CHATBOT centraliza la lógica. PRUEBAS_CHATBOT ofrece webhook local y trigg
 
 # 15. Pruebas
 
-La suite unitaria registró 50 casos, 0 fallos y 0 errores. Incluye checksum, entradas inválidas, duplicados, extracción con fixture sintético, separación de fechas y condición, exportación segura y contratos de cuatro adaptadores. Estos casos no son consultas SUNAT ni llamadas comerciales reales. Las pruebas reales mediante n8n registraron 18 de 18 casos aprobados; cada caso comprueba contenido y uso de IA cuando corresponde. Se incluyen las quince consultas requeridas, mensaje largo, instrucciones maliciosas y una pregunta con datos contradictorios.
+La suite unitaria registró 63 casos, 0 fallos y 0 errores. Incluye checksum, entradas inválidas, duplicados, extracción con fixture sintético, separación de fechas y condición, exportación segura y contratos de cuatro adaptadores. Estos casos no son consultas SUNAT ni llamadas comerciales reales. Las pruebas reales mediante n8n registraron 18 de 18 casos aprobados; cada caso comprueba contenido y uso de IA cuando corresponde. Se incluyen las quince consultas requeridas, mensaje largo, instrucciones maliciosas y una pregunta con datos contradictorios.
 
 # 16. Resultados y evidencias
 
@@ -154,7 +154,7 @@ Ollama informó 1.01 GiB de tamaño de memoria del modelo cargado. La memoria de
 
 Telegram: PENDIENTE DE TOKEN TELEGRAM. Sus capturas se incorporarán cuando el equipo conecte un bot y complete una prueba real.
 
-![Ficha completa obtenida automáticamente durante el diagnóstico con Chromium. El navegador fue retirado de la ruta operativa; la API actual usa SOAP y padrón.](evidencias/sunat_asistido/20377339461.png)
+![Ficha oficial obtenida durante el diagnóstico con Chromium; su fecha se contrastó con la fuente complementaria. El navegador fue retirado de la ruta operativa.](evidencias/sunat_asistido/20377339461.png)
 
 ![Interfaz real de n8n de esta instalación.](evidencias/n8n_interfaz.png)
 
@@ -184,36 +184,40 @@ Revisión de fuentes: 2 de noviembre de 2026.
 
 [7] SUNAT: definición de campos del padrón reducido. https://orientacion.sunat.gob.pe/padron-reducido-del-ruc-para-descarga
 
-[8] Ollama: modelo exacto Gemma 4 E2B Q4_K_M. https://ollama.com/library/gemma4:e2b-it-q4_K_M
+[8] ElRUC.pe: ficha pública complementaria con inicio de actividades (BCP). https://elruc.pe/ruc/20100047218-banco-de-credito-del-peru
 
-[9] Ollama: contrato de chat. https://docs.ollama.com/api/chat
+[9] ElRUC.pe: política de lectura de páginas públicas. https://elruc.pe/robots.txt
 
-[10] Ollama: releases oficiales. https://github.com/ollama/ollama/releases/tag/v0.40.13
+[10] Ollama: modelo exacto Gemma 4 E2B Q4_K_M. https://ollama.com/library/gemma4:e2b-it-q4_K_M
 
-[11] n8n: releases oficiales. https://github.com/n8n-io/n8n/releases/tag/n8n%402.45.7
+[11] Ollama: contrato de chat. https://docs.ollama.com/api/chat
 
-[12] n8n: importación y publicación por CLI. https://docs.n8n.io/hosting/cli-commands/
+[12] Ollama: releases oficiales. https://github.com/ollama/ollama/releases/tag/v0.40.13
 
-[13] n8n: workflows. https://docs.n8n.io/workflows/
+[13] n8n: releases oficiales. https://github.com/n8n-io/n8n/releases/tag/n8n%402.45.7
 
-[14] UiPath: carrera de desarrollador. https://academy.uipath.com/career-paths/automation-developer
+[14] n8n: importación y publicación por CLI. https://docs.n8n.io/hosting/cli-commands/
 
-[15] Microsoft: ingeniería de IA. https://learn.microsoft.com/en-us/training/career-paths/ai-engineer
+[15] n8n: workflows. https://docs.n8n.io/workflows/
 
-[16] AWS: DevOps. https://aws.amazon.com/devops/what-is-devops/
+[16] UiPath: carrera de desarrollador. https://academy.uipath.com/career-paths/automation-developer
 
-[17] UiPath: certificaciones. https://academy.uipath.com/certifications
+[17] Microsoft: ingeniería de IA. https://learn.microsoft.com/en-us/training/career-paths/ai-engineer
 
-[18] AWS Certified AI Practitioner. https://aws.amazon.com/certification/certified-ai-practitioner/
+[18] AWS: DevOps. https://aws.amazon.com/devops/what-is-devops/
 
-[19] CNCF: Certified Kubernetes Administrator. https://www.cncf.io/training/certification/cka/
+[19] UiPath: certificaciones. https://academy.uipath.com/certifications
 
-[20] OpenAI: generación de texto y Responses API. https://developers.openai.com/api/docs/guides/text
+[20] AWS Certified AI Practitioner. https://aws.amazon.com/certification/certified-ai-practitioner/
 
-[21] Google: modelos Gemini API. https://ai.google.dev/gemini-api/docs/models
+[21] CNCF: Certified Kubernetes Administrator. https://www.cncf.io/training/certification/cka/
 
-[22] Anthropic: modelos Claude. https://platform.claude.com/docs/en/models/overview
+[22] OpenAI: generación de texto y Responses API. https://developers.openai.com/api/docs/guides/text
 
-[23] Telegram: webhooks de bots. https://core.telegram.org/bots/api#setwebhook
+[23] Google: modelos Gemini API. https://ai.google.dev/gemini-api/docs/models
 
-[24] Cloudflare: Quick Tunnels. https://developers.cloudflare.com/tunnel/get-started/quick-tunnels/
+[24] Anthropic: modelos Claude. https://platform.claude.com/docs/en/models/overview
+
+[25] Telegram: webhooks de bots. https://core.telegram.org/bots/api#setwebhook
+
+[26] Cloudflare: Quick Tunnels. https://developers.cloudflare.com/tunnel/get-started/quick-tunnels/

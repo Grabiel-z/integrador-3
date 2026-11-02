@@ -1,19 +1,23 @@
 {
-  "fecha": "2026-11-02T09:32:21-05:00",
+  "fecha": "2026-11-02T10:08:57-05:00",
   "tests_unitarios": {
-    "tests": 50,
+    "tests": 63,
     "failures": 0,
     "errors": 0,
     "skipped": 0
   },
   "sunat": {
     "total": 20,
-    "completos": 1,
+    "completos": 20,
     "bloqueados": 0,
     "manuales_importados": null,
     "soap_exitosas": 20,
     "domicilios_con_datos": 20,
-    "fechas_inicio_obtenidas": 1
+    "fechas_inicio_obtenidas": 20,
+    "consolidados_multifuente": 20,
+    "fichas_oficiales_guardadas": 1,
+    "tipo_resultado": "Consolidado multifuente",
+    "fuente_inicio_actividades": "ElRUC.pe, ficha pública complementaria"
   },
   "modelo": "gemma4:e2b-it-q4_K_M",
   "docker": {
@@ -53,7 +57,7 @@
     "Docker": "VERIFICADO",
     "Tests unitarios": "VERIFICADO",
     "API SUNAT automática": "VERIFICADO",
-    "SUNAT": "PENDIENTE DE OTRA INTERVENCIÓN",
+    "SUNAT": "VERIFICADO",
     "Gemma": "VERIFICADO",
     "Chatbot n8n + IA": "VERIFICADO",
     "APIs comerciales": "IMPLEMENTADO, NO VERIFICADO",

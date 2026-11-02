@@ -1,0 +1,16 @@
+# Buscadores y asistentes de IA son bienvenidos. Resumen del sitio para IA: https://elruc.pe/llms.txt
+User-agent: *
+Allow: /
+Disallow: /buscar
+Disallow: /verificar?
+Disallow: /api/
+Disallow: /ruc/*.pdf$
+Disallow: /sello?
+Disallow: /og/
+Disallow: /cuenta
+Disallow: /estudio-de-mercado/ir
+Disallow: /estudio-de-mercado/comparar
+Disallow: /estudio-de-mercado/*.pdf$
+
+Sitemap: https://elruc.pe/sitemap-empresas.xml
+Sitemap: https://elruc.pe/sitemap-personas.xml

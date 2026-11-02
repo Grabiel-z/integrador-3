@@ -1,0 +1,18 @@
+{
+  "ruc": "20504565794",
+  "razon_social": "BANCO AGROPECUARIO",
+  "fecha": "24/06/2002",
+  "fecha_iso": "2002-06-24",
+  "valor_observado": "24 de junio de 2002",
+  "inscripcion_observada": "21 de junio de 2002",
+  "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+  "url": "https://elruc.pe/ruc/20504565794-banco-agropecuario",
+  "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+  "fecha_consulta": "2026-11-02T09:47:02-05:00",
+  "http_status": 200,
+  "sha256_respuesta": "d6822e46ceca7f410724b364d9cd3bee119c015e47b7101e778942416b1af643",
+  "robots_url": "https://elruc.pe/robots.txt",
+  "robots_permite_ficha": true,
+  "requiere_token": false,
+  "intervencion_humana": false
+}

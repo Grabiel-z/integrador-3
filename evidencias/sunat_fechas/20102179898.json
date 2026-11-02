@@ -1,0 +1,18 @@
+{
+  "ruc": "20102179898",
+  "razon_social": "BAKELS PERU S.A.C.",
+  "fecha": "20/11/1990",
+  "fecha_iso": "1990-11-20",
+  "valor_observado": "20 de noviembre de 1990",
+  "inscripcion_observada": "9 de marzo de 1993",
+  "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+  "url": "https://elruc.pe/ruc/20102179898-bakels-peru-s-a-c",
+  "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+  "fecha_consulta": "2026-11-02T09:46:48-05:00",
+  "http_status": 200,
+  "sha256_respuesta": "306532394cde774f41a8a754b4f56e46df1a758c35cac40f0f90130145136e06",
+  "robots_url": "https://elruc.pe/robots.txt",
+  "robots_permite_ficha": true,
+  "requiere_token": false,
+  "intervencion_humana": false
+}

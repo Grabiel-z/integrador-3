@@ -17,4 +17,16 @@ En la auditoría de los datos de entrada se retiró al Banco Central de Reserva,
 5. Con Playwright 1.64.1 y Chromium completo actualizado, el navegador obtuvo automáticamente la ficha de 20377339461, con inicio de actividades `01/10/1997`. Se conservan HTML, captura y campos extraídos en `sunat_asistido/`; el nombre histórico del directorio no significa que una persona haya resuelto un control. En la segunda ficha apareció una verificación humana. No se pulsó ni resolvió. El usuario exige cero intervención durante consultas, por lo que el visor y su servicio fueron retirados.
 6. `sunat-api` expone un cliente automático HTTP: cada RUC válido genera un POST SOAP oficial nuevo. Se probó realmente el endpoint y su acceso desde el runtime Docker de n8n. No se afirma que esa comprobación sea una conversación o una ejecución de workflow; ver `sunat_api/` y `sunat_n8n_http.json`.
 
-Resultado: veinte consultas SOAP reales, veinte domicilios con datos y una ficha con los cinco campos. Faltan diecinueve fechas en el Excel. La API en vivo devuelve fecha `null` para todos, porque SOAP no la publica; tampoco utiliza la fecha de una ficha guardada como si acabara de devolverla SUNAT. Se necesita otra fuente autorizada que exponga ese campo automáticamente para cerrar el requisito completo. Ver `GUIA_SUNAT.md`.
+Resultado de esa versión: veinte consultas SOAP reales, veinte domicilios con datos y una ficha con los cinco campos. Faltaban diecinueve fechas. Este estado histórico fue superado por la integración complementaria siguiente.
+
+## Cierre automático de inicio de actividades
+
+Se añadió la lectura normal de las páginas públicas `/ruc/{RUC}` de ElRUC.pe, permitidas por su robots.txt. No se usa su API autenticada, rutas prohibidas, evasión ni CAPTCHA. El bloque tributario identifica por separado inscripción e inicio completo; la tarjeta superior que solo contiene el año se descarta. Se validan RUC y razón social contra la respuesta oficial antes de incorporar la fecha.
+
+Se obtuvieron las veinte fechas con HTTP 200, pausas entre empresas y cero intervención humana. Los JSON en `sunat_fechas/` conservan URL canónica, texto observado, fecha normalizada, timestamp y hash de respuesta. La fecha de B. Braun coincide exactamente con la ficha oficial guardada: `01/10/1997`; su inscripción es distinta. La caché de `datos/sunat_fechas_inicio.json` caduca a las 24 horas y se renueva por código.
+
+La aceptación `tools.verify_sunat_complete` pasó 20/20 consultas HTTP con los cinco campos y `intervencion_humana=false`. El worker generó veinte registros completos y terminó correctamente. Una respuesta SOAP cruzada fue rechazada; una reanudación recuperó esa fila y se añadieron pruebas para el reintento acotado. No se incorporaron datos del RUC equivocado.
+
+`sunat_oficial_ejecucion.log` conserva el lote que rechazó esa respuesta, `sunat_reanudacion_ejecucion.log` acredita la recuperación de una sola fila y `sunat_oficial_final.log` registra el lote posterior completo 20/20. `sunat_completo_ejecucion.log` corresponde a la aceptación HTTP más reciente. Los logs históricos con errores no reemplazan el estado final ni se borran para aparentar un éxito.
+
+El resultado es un **consolidado multifuente**: identidad y condición oficiales en vivo, domicilio del padrón oficial y fecha de ElRUC.pe. No son veinte fichas íntegras descargadas directamente del portal SUNAT. Esa procedencia está visible en la API, checkpoint, observaciones del Excel e informe. Ver `GUIA_SUNAT.md` e `investigacion/sunat_integracion.md`.

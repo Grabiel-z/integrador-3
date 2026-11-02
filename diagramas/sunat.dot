@@ -7,14 +7,14 @@ digraph SUNAT {
   navegador [label="Cliente SOAP oficial dentro de Docker"];
   control [shape=diamond,label="¿Respuesta válida y RUC correcto?"];
   consulta [label="SOAP en vivo + padrón diario versionado"];
-  extraer [label="Razón social / domicilio / condición\nInicio pendiente: fuente no lo publica"];
-  guardar [label="Guardar checkpoint y Excel por cada fila"];
+  extraer [label="Inicio: ficha pública ElRUC.pe\nComprobar robots, RUC, razón social y fecha"];
+  guardar [label="Cinco campos + procedencia\nGuardar checkpoint y Excel por cada fila"];
   bloqueo [label="Registrar restricción sin eludir controles"];
-  manual [label="Otra API autorizada para inicio\nPendiente: no sustituir por inscripción"];
+  manual [label="Aceptación HTTP: cinco campos en 20 RUC\nCero intervención humana"];
   entrada -> validar -> navegador -> control;
   control -> consulta [label="sí"];
   control -> bloqueo [label="no"];
   consulta -> extraer -> guardar;
   bloqueo -> guardar;
-  extraer -> manual [style=dashed,label="inicio pendiente"];
+  guardar -> manual [label="verificar"];
 }

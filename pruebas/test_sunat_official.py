@@ -7,6 +7,7 @@ import httpx
 import pytest
 from openpyxl import Workbook
 from sunat import official
+from sunat.activity import ActivitySourceError
 
 from sunat.official import (OfficialServiceError, SOAP_URL, assemble, fiscal_address,
                             parse_soap, query_soap, select_padron)
@@ -53,6 +54,31 @@ def test_blocked_service_not_retried_or_reported_success():
     assert len(calls) == 1
 
 
+def test_crossed_upstream_ruc_rejected_then_retried_once(monkeypatch):
+    calls = []
+    monkeypatch.setattr(official.time, 'sleep', lambda *args: None)
+    def handle(request):
+        calls.append(request)
+        return httpx.Response(200, content=XML.replace(b'20100047218', b'20100130204') if len(calls) == 1 else XML)
+    with httpx.Client(transport=httpx.MockTransport(handle)) as client:
+        result = query_soap(RUC, client)
+    assert len(calls) == 2
+    assert result['campos']['numRuc'] == RUC
+    assert result['intentos'] == 2
+
+
+def test_persistent_crossed_response_fails_after_two_attempts(monkeypatch):
+    calls = []
+    monkeypatch.setattr(official.time, 'sleep', lambda *args: None)
+    def handle(request):
+        calls.append(request)
+        return httpx.Response(200, content=XML.replace(b'20100047218', b'20100130204'))
+    with httpx.Client(transport=httpx.MockTransport(handle)) as client:
+        with pytest.raises(OfficialServiceError, match='RUC distinto'):
+            query_soap(RUC, client)
+    assert len(calls) == 2
+
+
 def test_selected_padron_rows_and_source_fields(tmp_path):
     path = tmp_path / 'fixture.zip'
     lines = ('RUC|NOMBRE O RAZÓN SOCIAL|CONDICIÓN DE DOMICILIO|UBIGEO|NOMBRE DE VÍA|\n'
@@ -93,6 +119,9 @@ def batch_fixture(monkeypatch, tmp_path):
     monkeypatch.setattr(official, 'download_padron', lambda: (tmp_path / 'fixture.zip', {'last_modified': 'VERSION SINTETICA'}))
     monkeypatch.setattr(official, 'select_padron', lambda *args: {})
     monkeypatch.setattr(official.time, 'sleep', lambda *args: None)
+    def unavailable(*args):
+        raise ActivitySourceError('Fuente no disponible en este fixture sintético')
+    monkeypatch.setattr(official, 'get_activity', unavailable)
 
 
 def test_batch_stops_requests_after_access_rejection(monkeypatch, tmp_path):

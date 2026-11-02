@@ -1,0 +1,18 @@
+{
+  "ruc": "20509507199",
+  "razon_social": "BANCO DE COMERCIO",
+  "fecha": "27/09/2004",
+  "fecha_iso": "2004-09-27",
+  "valor_observado": "27 de septiembre de 2004",
+  "inscripcion_observada": "27 de septiembre de 2004",
+  "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+  "url": "https://elruc.pe/ruc/20509507199-banco-de-comercio",
+  "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+  "fecha_consulta": "2026-11-02T09:47:20-05:00",
+  "http_status": 200,
+  "sha256_respuesta": "47a11166e3eddd0bdae832d39efa6574af50d8ba971b64f88f7b5e857c748935",
+  "robots_url": "https://elruc.pe/robots.txt",
+  "robots_permite_ficha": true,
+  "requiere_token": false,
+  "intervencion_humana": false
+}

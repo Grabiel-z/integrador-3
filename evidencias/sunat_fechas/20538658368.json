@@ -1,0 +1,18 @@
+{
+  "ruc": "20538658368",
+  "razon_social": "BAGUETERÍA  Y PASTELERÍA JIMMY´S   S.A.C",
+  "fecha": "01/03/2011",
+  "fecha_iso": "2011-03-01",
+  "valor_observado": "1 de marzo de 2011",
+  "inscripcion_observada": "29 de diciembre de 2010",
+  "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+  "url": "https://elruc.pe/ruc/20538658368-bagueteria-y-pasteleria-jimmy-s-s-a-c",
+  "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+  "fecha_consulta": "2026-11-02T09:46:36-05:00",
+  "http_status": 200,
+  "sha256_respuesta": "8a950f7810f7668bc31e31080a4353016adecbd5acb8192d64b8e425f6dd3a55",
+  "robots_url": "https://elruc.pe/robots.txt",
+  "robots_permite_ficha": true,
+  "requiere_token": false,
+  "intervencion_humana": false
+}

@@ -5,6 +5,7 @@ for (const ruc of cases) {
   const response = await fetch(`http://sunat-api:8001/ruc/${ruc}`, {signal: AbortSignal.timeout(40000)});
   const data = await response.json();
   const passed = response.status === 200 && data.datos?.ruc === ruc
+    && data.ficha_completa === true && Boolean(data.datos.fecha_inicio_actividades)
     && data.estado_consulta_api === 'VERIFICADO' && data.intervencion_humana === false
     && data.fuentes?.consulta_en_vivo?.http_status === 200
     && Boolean(data.datos.razon_social) && Boolean(data.datos.condicion);

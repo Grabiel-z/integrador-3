@@ -1,0 +1,18 @@
+{
+  "ruc": "20513074370",
+  "razon_social": "BANCO GNB PERU S.A.",
+  "fecha": "04/05/2006",
+  "fecha_iso": "2006-05-04",
+  "valor_observado": "4 de mayo de 2006",
+  "inscripcion_observada": "4 de mayo de 2006",
+  "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+  "url": "https://elruc.pe/ruc/20513074370-banco-gnb-peru-s-a",
+  "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+  "fecha_consulta": "2026-11-02T09:47:38-05:00",
+  "http_status": 200,
+  "sha256_respuesta": "442f8c6cf3b1c874e61721a5d31f7402c497dfe18457d72380045769cadbf098",
+  "robots_url": "https://elruc.pe/robots.txt",
+  "robots_permite_ficha": true,
+  "requiere_token": false,
+  "intervencion_humana": false
+}

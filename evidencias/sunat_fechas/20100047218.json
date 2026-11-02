@@ -1,0 +1,18 @@
+{
+  "ruc": "20100047218",
+  "razon_social": "BANCO DE CREDITO DEL PERU",
+  "fecha": "09/04/1889",
+  "fecha_iso": "1889-04-09",
+  "valor_observado": "9 de abril de 1889",
+  "inscripcion_observada": "9 de octubre de 1992",
+  "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+  "url": "https://elruc.pe/ruc/20100047218-banco-de-credito-del-peru",
+  "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+  "fecha_consulta": "2026-11-02T09:47:24-05:00",
+  "http_status": 200,
+  "sha256_respuesta": "1a1144a229d50d34a780af006d790d4af40c1be20017bdeef289191f3feb6c9a",
+  "robots_url": "https://elruc.pe/robots.txt",
+  "robots_permite_ficha": true,
+  "requiere_token": false,
+  "intervencion_humana": false
+}

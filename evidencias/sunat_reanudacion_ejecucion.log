@@ -1,0 +1,15 @@
+20605820817 BA & ES SEGURINDUSTRIA S.A.C. VERIFICADO
+{
+  "fecha": "2026-11-02T09:51:03-05:00",
+  "total": 20,
+  "completos": 20,
+  "bloqueados": 0,
+  "soap_consultas_reales": 21,
+  "soap_solicitudes_esta_ejecucion": 1,
+  "soap_exitosas": 20,
+  "domicilios_padron": 20,
+  "domicilios_con_datos": 20,
+  "fechas_inicio_obtenidas": 20,
+  "consolidados_multifuente": 20,
+  "fichas_oficiales_guardadas": 1
+}

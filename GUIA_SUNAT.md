@@ -1,64 +1,71 @@
-# SUNAT automático: prueba real y límites de campos
+# Consulta automática de los cinco campos
 
-La ruta principal no abre un navegador ni solicita CAPTCHA. Usa el servicio **SOAP oficial de SUNAT**, operación `buscarRuc`, y su padrón diario descargable para el domicilio. No necesita token comercial, clave SOL ni intervención humana durante una consulta.
+**VERIFICADO:** veinte RUC con RUC, razón social, domicilio fiscal, condición e inicio de actividades. Consulta, consolidación y Excel se ejecutan en Docker, sin navegador, CAPTCHA, token comercial ni intervención humana.
 
-## Prueba rápida
+## Procedencia por campo
 
-Con la imagen construida mediante el instalador:
+| Campo | Fuente |
+|---|---|
+| RUC, razón social, estado, condición y UBIGEO | Servicio SOAP oficial de SUNAT, consultado en vivo en cada petición válida |
+| Domicilio fiscal | Padrón reducido oficial de SUNAT, con versión y hash de descarga |
+| Fecha de inicio de actividades | Ficha pública de ElRUC.pe, consultada automáticamente y cotejada por RUC y razón social |
+
+Es un **consolidado multifuente**. ElRUC.pe es independiente de SUNAT; la fecha no se atribuye al SOAP oficial. No se afirma haber descargado veinte fichas íntegras del portal SUNAT. La respuesta conserva URL, fecha de obtención, valor original, hash y procedencia de cada fuente. Una fecha de ElRUC se contrastó además con la ficha oficial guardada de B. Braun, con coincidencia exacta.
+
+## Probar el recorrido completo
 
 ```sh
 docker compose up -d --wait sunat-api
-docker compose run --rm --no-deps test-runner python -m tools.probe_sunat_api --ruc 20100047218
+docker compose run --rm --no-deps test-runner python -m tools.verify_sunat_complete
 ```
 
-También puedes abrir http://localhost:8001/ruc/20100047218. Una llamada válida produce un POST real desde el contenedor hacia SUNAT, incluso si ese RUC ya se consultó anteriormente. El resultado incluye URL, operación, fecha, HTTP de origen y campos públicos. El cliente no registra íntegramente el XML ni conserva campos ajenos a su lista permitida.
+Esta prueba llama realmente a la API para los veinte RUC. Exige HTTP 200, los cinco campos presentes y `intervencion_humana=false`; devuelve código 2 si falla cualquier fila. La prueba anterior, que aceptaba solo una conexión correcta, no es el criterio de aceptación completo.
 
-Para comprobar la conectividad desde el contenedor n8n:
+Para una consulta desde el navegador: http://localhost:8001/ruc/20100047218. Desde un nodo HTTP Request de n8n: `GET http://sunat-api:8001/ruc/20100047218`. La respuesta incluye `ficha_completa=true` cuando están los cinco campos, `tipo_resultado=Consolidado multifuente` y `ficha_oficial_directa=false`.
+
+Para comprobar HTTP real desde el contenedor n8n:
 
 ```sh
 docker compose exec -T n8n node --input-type=module < pruebas/test_sunat_live.mjs
 ```
 
-Esta última prueba ejecuta HTTP en el runtime de n8n; no simula una conversación ni afirma ejecutar un workflow. Un nodo HTTP Request de n8n puede usar `GET http://sunat-api:8001/ruc/20100047218`. El chatbot del restaurante y el lote tributario son los dos procesos independientes de esta tarea; la atención del restaurante no depende del formulario SUNAT.
+Esa prueba verifica la conectividad desde el runtime de n8n; no se presenta como una ejecución de workflow ni como conversación Telegram. El chatbot del restaurante y la consulta tributaria son procesos independientes de la tarea.
 
-## Campos y procedencia
-
-| Campo | Fuente | Comportamiento |
-|---|---|---|
-| RUC, razón social, estado, condición y UBIGEO | SOAP oficial en vivo | Una petición por consulta válida; sin reintentos ante un rechazo |
-| Dirección fiscal | Padrón reducido oficial diario | Descarga automatizada, con versión, hash y CRC; selecciona las veinte empresas del lote |
-| Fecha de inicio de actividades | No publicada en esas dos fuentes | La API devuelve `null` y la incluye en `campos_pendientes` |
-
-`ficha_completa=false` es deliberado: HTTP 200 acredita la consulta de los campos disponibles, no el cumplimiento de los cinco campos académicos. Estado ACTIVO no sustituye condición HABIDO; fecha de inscripción y fecha de descarga tampoco sustituyen inicio de actividades.
-
-Para un RUC que no esté en la selección del padrón, la API consulta igualmente SOAP y devuelve domicilio `null`, señalado como pendiente. No inventa una dirección. La fecha de inicio observada una vez en una prueba de navegador se conserva con su evidencia en el Excel, pero no se presenta como un dato entregado por SOAP.
-
-## Regenerar el lote
+## Generar o actualizar el Excel
 
 ```sh
 docker compose run --rm --no-deps sunat-worker
 ```
 
-Es la nueva ruta predeterminada de `sunat.main`. Primero comprueba la versión del padrón oficial; descarga aproximadamente 395 MB cuando cambia y conserva una caché local excluida de Git, imagen y ZIP. Después realiza veinte consultas SOAP reales, con un segundo de separación, y genera checkpoint y Excel. No instalar aplicaciones en el anfitrión ni ejecutar dos workers sobre el mismo lote.
+El worker comprueba la versión del padrón oficial y descarga aproximadamente 395 MB si cambió. Consulta SOAP para los veinte RUC y completa la fecha desde una observación pública válida de hasta 24 horas, o la recupera automáticamente cuando falta o caducó. Genera `datos/RUC_resultados.xlsx` y el checkpoint progresivamente. El código de salida es 0 únicamente cuando están completos los cinco campos de todas las filas solicitadas.
 
-El proceso devuelve código **2** mientras falte cualquiera de los cinco campos requeridos. Eso permite que una revisión académica detecte la entrega incompleta aunque la conexión API funcione. Una ficha completa anterior no se borra por una consulta SOAP posterior que carezca de fecha de inicio.
+Si un fallo dejó filas pendientes:
 
-La dirección conserva los componentes oficiales y el UBIGEO. La columna DEPARTAMENTO del padrón corresponde al departamento/apartamento del inmueble; no se interpreta como región. No se mezclan domicilios si el UBIGEO del padrón y el servicio en vivo discrepan.
+```sh
+docker compose run --rm --no-deps sunat-worker python -m sunat.main --retry-errors
+```
 
-## Qué falta para los cinco campos automáticos
+Esta reanudación conserva las filas verificadas y procesa solamente las incompletas. No ejecutar dos workers sobre el mismo lote. La caché grande está excluida de Git y ZIP; las veinte observaciones pequeñas con su procedencia sí se comparten. El padrón y las fechas se actualizan mediante código, sin transcribir valores manualmente.
 
-Se verificaron veinte respuestas SOAP HTTP 200 y veinte direcciones del padrón. El servicio SOAP publicado no tiene un campo de fecha de inicio. El formulario individual mostró un control humano después de una ficha completa; por petición del usuario se retiró el visor y no forma parte de la solución.
+Para volver a consultar explícitamente las veinte fechas públicas:
 
-Para cerrar automáticamente ese campo se necesita una fuente adicional autorizada que lo exponga. Un proveedor externo con ficha completa suele exigir una credencial; no se ha contratado ni configurado ninguno, ni se lo presenta como SUNAT directo. Mientras no exista una integración real probada para ese campo, siguen pendientes diecinueve fechas en el Excel y veinte en la respuesta SOAP en vivo. No se ofrece una tarea manual como solución operativa.
+```sh
+docker compose run --rm --no-deps test-runner python -m tools.prepare_activity --refresh
+```
 
-## Evidencias y fallos
+Respeta una pausa entre empresas, robots.txt, el RUC y la razón social. Usa únicamente páginas `/ruc/`; no accede a la API autenticada de ElRUC ni a rutas prohibidas. Un 401, 403 o 429 detiene esas solicitudes; no se elude el control. El procedimiento no requiere que una persona resuelva verificaciones.
 
-- `evidencias/sunat_soap/`: veinte respuestas públicas seleccionadas del servicio real.
-- `evidencias/sunat_api/`: prueba del endpoint automático y procedencia oficial.
-- `evidencias/sunat_n8n_http.json`: prueba HTTP desde n8n, cuando se ejecute el comando de integración.
-- `datos/sunat_padron_seleccion.json`: veinte filas oficiales y metadatos de descarga.
-- `evidencias/sunat_resumen.json`: resumen del lote; `datos/RUC_resultados.xlsx`: entrega tabular.
+## Integridad y errores
 
-RUC inválido: HTTP 422 sin consultar SUNAT. Consulta simultánea: HTTP 429 local. Rechazo, XML inválido, RUC diferente o fallo de transporte del origen: HTTP 502; no se devuelve una respuesta inventada. `/health` comprueba el cliente, no la disponibilidad de SUNAT. Los tests con fixtures verifican estos contratos; las pruebas HTTP anteriores son las que demuestran conexión real.
+- Se lee la fecha completa del bloque de identidad; la tarjeta superior que solo muestra el año no sirve. Inscripción no sustituye inicio de actividades.
+- Se rechazan RUC diferentes, razones sociales incompatibles y fechas incompletas, imposibles o futuras. Se admiten fechas históricas válidas anteriores a 1900.
+- Se comprobó una respuesta SOAP con un RUC distinto al pedido; la validación la rechazó. El cliente permite un único reintento ante respuesta cruzada, fallo de transporte o HTTP 5xx. No reintenta 401, 403 ni 429.
+- No se mezclan direcciones si el UBIGEO del padrón y SOAP discrepan. La columna DEPARTAMENTO del domicilio es el apartamento, no la región.
+- Un RUC fuera del lote puede carecer de domicilio en la selección del padrón: se declara pendiente; nunca se inventa. Para ampliar el lote, actualizar el Excel de entrada y regenerar con el worker.
+- Si una fuente deja de publicar el dato o cambia su estructura, la fila queda incompleta o la API devuelve un error explícito. No se devuelve un éxito fabricado.
 
-Fuentes: [contrato SOAP oficial](https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm?wsdl), [padrón reducido SUNAT](https://www.sunat.gob.pe/descargaPRR/mrc137_padron_reducido.html) y [definición oficial de los campos](https://orientacion.sunat.gob.pe/padron-reducido-del-ruc-para-descarga).
+## Evidencias
+
+`evidencias/sunat_completo.json` contiene la aceptación HTTP de los cinco campos; `sunat_resumen.json`, el resultado del worker; `sunat_soap/`, las respuestas públicas permitidas del SOAP; `sunat_fechas/`, las veinte fechas con URL y observación original. `datos/sunat_fechas_inicio.json` es su caché de 24 horas. `sunat_n8n_http.json` acredita las consultas desde n8n. Los fixtures de tests son sintéticos y se distinguen de estas integraciones reales.
+
+Fuentes: [SOAP SUNAT](https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm?wsdl), [padrón oficial](https://www.sunat.gob.pe/descargaPRR/mrc137_padron_reducido.html), [ficha pública de ejemplo](https://elruc.pe/ruc/20100047218-banco-de-credito-del-peru) y [política de lectura de ElRUC](https://elruc.pe/robots.txt).

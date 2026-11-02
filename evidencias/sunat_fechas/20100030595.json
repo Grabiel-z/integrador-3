@@ -1,0 +1,18 @@
+{
+  "ruc": "20100030595",
+  "razon_social": "BANCO DE LA NACION",
+  "fecha": "01/01/1966",
+  "fecha_iso": "1966-01-01",
+  "valor_observado": "1 de enero de 1966",
+  "inscripcion_observada": "9 de octubre de 1992",
+  "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+  "url": "https://elruc.pe/ruc/20100030595-banco-de-la-nacion",
+  "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+  "fecha_consulta": "2026-11-02T09:47:29-05:00",
+  "http_status": 200,
+  "sha256_respuesta": "3c7fac9acc5f8f82364660a4cd3cabc53767ee02f0c4ea4bdb29cb6a33602ad9",
+  "robots_url": "https://elruc.pe/robots.txt",
+  "robots_permite_ficha": true,
+  "requiere_token": false,
+  "intervencion_humana": false
+}

@@ -1,0 +1,18 @@
+{
+  "ruc": "20100053455",
+  "razon_social": "BANCO INTERNACIONAL DEL PERU-INTERBANK",
+  "fecha": "01/05/1897",
+  "fecha_iso": "1897-05-01",
+  "valor_observado": "1 de mayo de 1897",
+  "inscripcion_observada": "9 de octubre de 1992",
+  "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+  "url": "https://elruc.pe/ruc/20100053455-banco-internacional-del-peru-interbank",
+  "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+  "fecha_consulta": "2026-11-02T09:47:16-05:00",
+  "http_status": 200,
+  "sha256_respuesta": "302c006c564a335828ebd4b509b70da6668a66009743bfadd0820f74640c74e3",
+  "robots_url": "https://elruc.pe/robots.txt",
+  "robots_permite_ficha": true,
+  "requiere_token": false,
+  "intervencion_humana": false
+}

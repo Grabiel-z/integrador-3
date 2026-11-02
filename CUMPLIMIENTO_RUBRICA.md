@@ -13,7 +13,7 @@ La lista original no estuvo disponible. Esta matriz cubre los requisitos del tex
 - Docker: **VERIFICADO**.
 - Tests unitarios: **VERIFICADO**.
 - API SUNAT automática: **VERIFICADO**.
-- SUNAT: **PENDIENTE DE OTRA INTERVENCIÓN**.
+- SUNAT: **VERIFICADO**.
 - Gemma: **VERIFICADO**.
 - Chatbot n8n + IA: **VERIFICADO**.
 - APIs comerciales: **IMPLEMENTADO, NO VERIFICADO**.

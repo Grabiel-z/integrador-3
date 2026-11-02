@@ -4,7 +4,7 @@
 
 Estamos construyendo una entrega académica de automatización. Hay dos procesos independientes:
 
-- **SUNAT:** veinte RUC → SOAP oficial y padrón diario → Excel. Las veinte llamadas reales fueron satisfactorias, sin intervención humana. Faltan diecinueve fechas de inicio, que esas fuentes no publican; ver **[GUIA_SUNAT.md](GUIA_SUNAT.md)**.
+- **RUC:** veinte empresas → SOAP y padrón oficiales de SUNAT + fecha pública ElRUC.pe → Excel. Los cinco campos pasaron la aceptación real 20/20 sin intervención humana. Es un consolidado multifuente; ver **[GUIA_SUNAT.md](GUIA_SUNAT.md)**.
 - **Restaurante Sabor Peruano:** pregunta → workflow n8n → conocimiento estructurado → Gemma local → respuesta validada. Este recorrido pasó **18 pruebas reales** sin Telegram.
 
 El negocio del restaurante es ficticio. Las empresas de entrada son reales. No confundir esos dos tipos de datos. La siguiente meta es completar los pendientes con evidencia, conservar la reproducibilidad Docker y preparar la entrega del grupo.

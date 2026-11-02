@@ -1,0 +1,18 @@
+{
+  "ruc": "20100130204",
+  "razon_social": "BANCO BBVA PERU",
+  "fecha": "20/08/1951",
+  "fecha_iso": "1951-08-20",
+  "valor_observado": "20 de agosto de 1951",
+  "inscripcion_observada": "9 de octubre de 1992",
+  "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+  "url": "https://elruc.pe/ruc/20100130204-banco-bbva-peru",
+  "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+  "fecha_consulta": "2026-11-02T09:47:06-05:00",
+  "http_status": 200,
+  "sha256_respuesta": "bdde56a71b54713c4b16e8c1b3f44ff2fba8c771f9f93507c6380a89374a3cdd",
+  "robots_url": "https://elruc.pe/robots.txt",
+  "robots_permite_ficha": true,
+  "requiere_token": false,
+  "intervencion_humana": false
+}

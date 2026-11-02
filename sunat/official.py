@@ -16,6 +16,7 @@ import httpx
 
 from sunat.excel import now, read_input, valid_ruc, write_results
 from sunat.storage import worker_lock, save_json
+from sunat.activity import ActivitySourceError, get_activity, cached_activity, enrich
 
 SOAP_URL = 'https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm'
 PADRON_URL = 'https://www2.sunat.gob.pe/padron_reducido_ruc.zip'
@@ -25,9 +26,10 @@ PENDING = 'PENDIENTE DE OTRA INTERVENCIÓN'
 
 
 class OfficialServiceError(RuntimeError):
-    def __init__(self, message, http_status=None):
+    def __init__(self, message, http_status=None, retryable=False):
         super().__init__(message)
         self.http_status = http_status
+        self.retryable = retryable
 
 
 def parse_soap(content, expected_ruc):
@@ -43,7 +45,7 @@ def parse_soap(content, expected_ruc):
     if public.get('indError') != '0':
         raise OfficialServiceError('SUNAT devolvió error o un RUC no disponible')
     if public.get('numRuc') != expected_ruc:
-        raise OfficialServiceError('SUNAT devolvió un RUC distinto al solicitado')
+        raise OfficialServiceError('SUNAT devolvió un RUC distinto al solicitado', retryable=True)
     if not all(public.get(k) for k in ('nombre', 'estadoDesc', 'flag22Desc')):
         raise OfficialServiceError('La respuesta SOAP carece de campos públicos obligatorios')
     return public
@@ -59,17 +61,27 @@ def query_soap(ruc, client=None):
     client = client or httpx.Client(timeout=45)
     started = time.perf_counter()
     try:
-        response = client.post(SOAP_URL, content=envelope,
-                               headers={'Content-Type': 'text/xml; charset=utf-8', 'SOAPAction': '""'})
-        if response.status_code != 200:
-            raise OfficialServiceError(f'Servicio SOAP oficial respondió HTTP {response.status_code}', response.status_code)
-        public = parse_soap(response.content, ruc)
-        return {'ruc': ruc, 'campos': public, 'fuente': SOAP_URL, 'operacion': 'buscarRuc',
-                'fecha_consulta': now(), 'http_status': response.status_code,
-                'duracion_segundos': round(time.perf_counter() - started, 3)}
-    except httpx.HTTPError as exc:
-        # No incluir cuerpos externos ni cabeceras en el mensaje de error.
-        raise OfficialServiceError('Fallo de transporte SOAP: ' + type(exc).__name__) from exc
+        for attempt in (1, 2):
+            try:
+                response = client.post(SOAP_URL, content=envelope,
+                                       headers={'Content-Type': 'text/xml; charset=utf-8', 'SOAPAction': '""'})
+                if response.status_code != 200:
+                    raise OfficialServiceError(f'Servicio SOAP oficial respondió HTTP {response.status_code}',
+                        response.status_code, retryable=response.status_code in (500, 502, 503, 504))
+                public = parse_soap(response.content, ruc)
+                return {'ruc': ruc, 'campos': public, 'fuente': SOAP_URL, 'operacion': 'buscarRuc',
+                        'fecha_consulta': now(), 'http_status': response.status_code, 'intentos': attempt,
+                        'duracion_segundos': round(time.perf_counter() - started, 3)}
+            except httpx.HTTPError as exc:
+                # No se registra el cuerpo ni cabeceras de una respuesta ajena.
+                if attempt == 2:
+                    raise OfficialServiceError('Fallo de transporte SOAP: ' + type(exc).__name__) from exc
+            except OfficialServiceError as exc:
+                # Un RUC cruzado nunca entra en los resultados. Solo se permite
+                # un reintento; 401/403/429 y errores de contenido no se reintentan.
+                if not exc.retryable or attempt == 2:
+                    raise
+            time.sleep(1)
     finally:
         if owned:
             client.close()
@@ -200,6 +212,7 @@ def main(argv=None):
     parser.add_argument('--input', default='datos/RUC_entrada.xlsx')
     parser.add_argument('--output', default='datos/RUC_resultados.xlsx')
     parser.add_argument('--limit', type=int, default=20)
+    parser.add_argument('--retry-errors', action='store_true', help='Reprocesa solo filas incompletas y conserva las verificadas')
     args = parser.parse_args(argv)
     all_rucs = read_input(args.input)
     rucs = all_rucs[:args.limit]
@@ -212,10 +225,17 @@ def main(argv=None):
     old = {r['RUC']: r for r in json.loads(checkpoint.read_text())} if checkpoint.exists() else {}
     if checkpoint.exists() and not Path('evidencias/sunat_checkpoint_formulario_anterior.json').exists():
         Path('evidencias/sunat_checkpoint_formulario_anterior.json').write_bytes(checkpoint.read_bytes())
+    history = Path('evidencias/sunat_resumen.json')
+    previous_calls = json.loads(history.read_text()).get('llamadas', []) if args.retry_errors and history.exists() else []
     records, calls = [], []
     blocked = ''
+    activity_blocked = ''
     with httpx.Client(timeout=45) as client:
         for ruc in rucs:
+            pause = 1
+            if args.retry_errors and old.get(ruc, {}).get('Estado de consulta') == 'VERIFICADO':
+                records.append(old[ruc])
+                continue
             if blocked:
                 record = old.get(ruc) if old.get(ruc, {}).get('Estado de consulta') == 'VERIFICADO' else {
                     'RUC': ruc, 'Estado de consulta': 'BLOQUEADO POR RESTRICCIÓN EXTERNA',
@@ -226,11 +246,28 @@ def main(argv=None):
                 soap = query_soap(ruc, client)
                 (evidence / f'{ruc}.json').write_text(json.dumps(soap, ensure_ascii=False, indent=2))
                 record = assemble(soap, selected.get(ruc), metadata)
-                # Una consulta parcial posterior no borra una ficha completa con
-                # su propia fecha y evidencia. Se conserva separada de la llamada nueva.
-                if old.get(ruc, {}).get('Estado de consulta') == 'VERIFICADO':
-                    record = {**old[ruc], 'Ultima comprobacion SOAP': soap}
-                calls.append({'ruc': ruc, 'http_status': soap['http_status'], 'resultado': 'VERIFICADO'})
+                try:
+                    if activity_blocked:
+                        detail = cached_activity(ruc, record['Razón social'])
+                        if not detail:
+                            raise ActivitySourceError(activity_blocked)
+                    else:
+                        detail = get_activity(ruc, record['Razón social'], client)
+                    record = enrich(record, detail)
+                    if not detail.get('cache_reutilizada'):
+                        pause = 3
+                except ActivitySourceError as exc:
+                    # Conserva una ficha completa previa si falla la fuente
+                    # complementaria, sin fabricar una fecha para las demás.
+                    if old.get(ruc, {}).get('Estado de consulta') == 'VERIFICADO':
+                        record = {**old[ruc], 'Ultima comprobacion SOAP': soap,
+                                  'Aviso fuente complementaria': str(exc)}
+                    else:
+                        record['Observaciones'] += ' Fuente complementaria: ' + str(exc)
+                    if exc.http_status in (401, 403, 429):
+                        activity_blocked = str(exc)
+                calls.append({'ruc': ruc, 'http_status': soap['http_status'], 'resultado': 'VERIFICADO',
+                              'intentos': soap.get('intentos', 1), 'fecha_consulta': soap['fecha_consulta']})
             except OfficialServiceError as exc:
                 record = old.get(ruc) if old.get(ruc, {}).get('Estado de consulta') == 'VERIFICADO' else {'RUC': ruc, 'Estado de consulta': 'ERROR IDENTIFICADO',
                           'Fecha de consulta': now(), 'Observaciones': str(exc)}
@@ -243,19 +280,23 @@ def main(argv=None):
             merged = {**old, **{r['RUC']: r for r in records}}
             save_json(checkpoint, [merged[r] for r in all_rucs if r in merged])
             print(ruc, record.get('Razón social', ''), record['Estado de consulta'], flush=True)
-            time.sleep(1)
+            time.sleep(pause)
     # --limit no elimina del checkpoint las demás filas previamente existentes.
     merged = {**old, **{r['RUC']: r for r in records}}
     save_json(checkpoint, [merged[r] for r in all_rucs if r in merged])
     write_results(args.output, records)
     completos = sum(r.get('Estado de consulta') == 'VERIFICADO' for r in records)
+    all_calls = previous_calls + calls
     summary = {'fecha': now(), 'total': len(rucs), 'completos': completos,
                'bloqueados': sum(r.get('Estado de consulta') == 'BLOQUEADO POR RESTRICCIÓN EXTERNA' for r in records),
-               'soap_consultas_reales': len(calls), 'soap_exitosas': sum(c['resultado'] == 'VERIFICADO' for c in calls),
+               'soap_consultas_reales': len(all_calls), 'soap_solicitudes_esta_ejecucion': len(calls),
+               'soap_exitosas': len({c['ruc'] for c in all_calls if c['resultado'] == 'VERIFICADO'}),
                'domicilios_padron': sum(bool(r.get('Dirección fiscal')) for r in records),
                'domicilios_con_datos': sum(bool(r.get('Dirección fiscal')) for r in records),
                'fechas_inicio_obtenidas': sum(bool(r.get('Fecha de inicio de actividades')) for r in records),
-               'padron': metadata, 'llamadas': calls, 'registros': records}
+               'consolidados_multifuente': sum(r.get('Tipo de resultado') == 'Consolidado multifuente' for r in records),
+               'fichas_oficiales_guardadas': len(list(Path('evidencias/sunat_asistido').glob('[0-9]*.json'))),
+               'padron': metadata, 'llamadas': all_calls, 'registros': records}
     save_json('evidencias/sunat_resumen.json', summary)
     print(json.dumps({k: v for k, v in summary.items() if k not in {'registros', 'llamadas', 'padron'}}, indent=2))
     # La ejecución parcial nunca se presenta como cumplimiento de los cinco campos.

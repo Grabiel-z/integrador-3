@@ -2,7 +2,7 @@
 
 Proyecto académico del Restaurante Sabor Peruano (ficticio) y consulta de veinte RUC. Toda ejecución, pruebas y generación de entregables ocurre en Docker. El modo predeterminado usa **gemma4:e2b-it-q4_K_M** mediante Ollama y no consume APIs comerciales.
 
-**El chatbot local y veinte consultas SOAP reales a SUNAT se probaron con éxito.** SUNAT funciona automáticamente, sin navegador ni CAPTCHA; faltan fechas de inicio para completar el requisito académico y conectar un bot real de Telegram. Descargar el repositorio no ejecuta sus pruebas en tu equipo.
+**El chatbot local y la consulta automática de veinte RUC con los cinco campos se probaron con éxito.** El resultado tributario consolida SOAP y padrón oficiales de SUNAT con la fecha publicada por ElRUC.pe, sin navegador, CAPTCHA ni token comercial. Telegram todavía requiere conectar un bot real. Descargar el repositorio no ejecuta sus pruebas en tu equipo.
 
 ## Empieza aquí
 
@@ -28,9 +28,9 @@ Estado respaldado por evidencias del **2 de noviembre de 2026**, en el equipo do
 |---|---|---|
 | Docker, persistencia, n8n, gateway y Gemma | **VERIFICADO** | Arranque real, inferencia y recuperación tras reiniciar |
 | Chatbot local | **VERIFICADO** | 18/18 casos por n8n: 13 con IA y 5 mediante reglas |
-| Tests y manejo de fallos | **VERIFICADO** | Suite ampliada de 50 tests, 5 casos sintéticos de nodos y errores provocados |
+| Tests y manejo de fallos | **VERIFICADO** | Suite ampliada de 63 tests, 5 casos sintéticos de nodos y errores provocados |
 | SUNAT: conexión automática | **VERIFICADO** | Veinte respuestas SOAP oficiales HTTP 200; veinte domicilios del padrón diario |
-| SUNAT: cinco campos académicos | **PENDIENTE DE OTRA INTERVENCIÓN** | Falta inicio de actividades en 19 filas; SOAP no publica ese campo |
+| RUC: consolidación de cinco campos | **VERIFICADO** | 20/20 registros por API y Excel; fecha de fuente pública complementaria, con procedencia explícita |
 | Telegram | **PENDIENTE DE TOKEN TELEGRAM** | Flujo preparado; falta credencial y conversación real |
 | APIs comerciales | **IMPLEMENTADO, NO VERIFICADO** | Adaptadores con tests de contrato; sin llamadas comerciales |
 | Cuenta n8n, nombres del equipo y PDF original | **PENDIENTE DE OTRA INTERVENCIÓN** | Pasos de cierre en [PENDIENTES.md](PENDIENTES.md) |
@@ -75,12 +75,12 @@ Telegram o webhook local → n8n: CORE_CHATBOT
   → AI Gateway → proveedor elegido (Gemma local por defecto)
   → validación, respuesta con hechos autorizados y cierre
 
-Excel de entrada → SUNAT Worker → SOAP oficial en vivo + padrón diario
-  → datos, procedencia y campos pendientes → checkpoint y Excel
-n8n o cliente HTTP → SUNAT API interna → SOAP oficial (sin navegador)
+Excel de entrada → Worker → SOAP SUNAT + padrón oficial + fecha pública ElRUC
+  → validación de identidad y de los cinco campos → checkpoint y Excel
+n8n o cliente HTTP → API interna → las mismas fuentes (sin navegador)
 ```
 
-n8n orquesta el negocio; el gateway adapta los proveedores. Los precios y horarios salen del JSON, no de texto libre del modelo. Los servicios se comunican por nombres internos. Solo la interfaz de n8n publica un puerto en localhost. n8n y Ollama conservan sus datos en volúmenes independientes. Ver [ARQUITECTURA.md](ARQUITECTURA.md).
+n8n orquesta el negocio; el gateway adapta los proveedores. Los precios y horarios salen del JSON, no de texto libre del modelo. Los servicios se comunican por nombres internos. n8n y la API tributaria publican puertos solo en localhost. n8n y Ollama conservan sus datos en volúmenes independientes. Ver [ARQUITECTURA.md](ARQUITECTURA.md).
 
 ## Contenido
 
@@ -105,10 +105,10 @@ Editar `chatbot/conocimiento.json` y ejecutar `sh scripts/importar_workflows.sh`
 ```sh
 docker compose run --rm sunat-worker
 docker compose up -d --wait sunat-api
-docker compose run --rm --no-deps test-runner python -m tools.probe_sunat_api
+docker compose run --rm --no-deps test-runner python -m tools.verify_sunat_complete
 ```
 
-Ver **[GUIA_SUNAT.md](GUIA_SUNAT.md)**. La consulta por API no necesita intervención humana ni claves comerciales. En n8n se usa `http://sunat-api:8001/ruc/20100047218`; desde el anfitrión, http://localhost:8001/ruc/20100047218. Cada llamada válida consulta realmente el SOAP de SUNAT. El domicilio procede del padrón descargado para las veinte empresas. La fecha de inicio se devuelve como `null`, con `ficha_completa=false`, porque esas fuentes no la publican. El lote devuelve código 2 mientras falten campos académicos; esa limitación no se disfraza como éxito total.
+Ver **[GUIA_SUNAT.md](GUIA_SUNAT.md)**. La consulta no necesita intervención humana ni claves comerciales. En n8n se usa `http://sunat-api:8001/ruc/20100047218`; desde el anfitrión, http://localhost:8001/ruc/20100047218. Cada llamada válida consulta realmente el SOAP de SUNAT. El domicilio procede del padrón oficial y la fecha de la ficha pública de ElRUC.pe, cotejada por RUC y razón social y conservada hasta 24 horas. `tipo_resultado=Consolidado multifuente` distingue este resultado de una ficha íntegra obtenida directamente del portal SUNAT. La aceptación comprobó los cinco campos en 20/20 RUC. El worker devuelve 0 únicamente si están completos; `--retry-errors` reanuda solo los pendientes.
 
 ## Guías
 

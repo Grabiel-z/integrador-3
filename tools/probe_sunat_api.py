@@ -19,6 +19,7 @@ def main():
     result = {'fecha': now(), 'peticion': {'metodo': 'GET', 'ruc': args.ruc},
               'http_status': response.status_code, 'respuesta': response.json()}
     result['passed'] = (response.status_code == 200 and result['respuesta'].get('estado_consulta_api') == 'VERIFICADO'
+                        and result['respuesta'].get('ficha_completa') is True
                         and result['respuesta'].get('datos', {}).get('ruc') == args.ruc
                         and result['respuesta'].get('fuentes', {}).get('consulta_en_vivo', {}).get('http_status') == 200)
     path = Path('evidencias/sunat_api')

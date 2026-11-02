@@ -1,0 +1,18 @@
+{
+  "ruc": "20608551701",
+  "razon_social": "BANCO BCI PERU S.A. - BANCO BCI",
+  "fecha": "28/09/2021",
+  "fecha_iso": "2021-09-28",
+  "valor_observado": "28 de septiembre de 2021",
+  "inscripcion_observada": "30 de septiembre de 2021",
+  "verificacion_declarada_por_fuente": "28 de octubre de 2026",
+  "url": "https://elruc.pe/ruc/20608551701-banco-bci-peru-s-a-banco-bci",
+  "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+  "fecha_consulta": "2026-11-02T09:47:11-05:00",
+  "http_status": 200,
+  "sha256_respuesta": "b9b3edd068bee0098a36ceb42e2fbdfa073c375655c2b45553351de7e704c2da",
+  "robots_url": "https://elruc.pe/robots.txt",
+  "robots_permite_ficha": true,
+  "requiere_token": false,
+  "intervencion_humana": false
+}

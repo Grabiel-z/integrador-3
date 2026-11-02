@@ -1,0 +1,1292 @@
+{
+  "fecha": "2026-11-02T10:03:01-05:00",
+  "total": 20,
+  "completos": 20,
+  "passed": true,
+  "resultados": [
+    {
+      "ruc": "20377339461",
+      "http_status": 200,
+      "passed": true,
+      "faltantes": [],
+      "datos": {
+        "ruc": "20377339461",
+        "razon_social": "B.BRAUN MEDICAL PERU S.A.",
+        "estado": "ACTIVO",
+        "condicion": "HABIDO",
+        "direccion_fiscal": "AV. PASEO DE LA REPUBLICA; NRO. 5895; INT. 1602; URB. MIRAFLORES; UBIGEO 150122",
+        "ubigeo": "150122",
+        "fecha_inicio_actividades": "1997-10-01"
+      },
+      "fuentes": {
+        "consulta_en_vivo": {
+          "ruc": "20377339461",
+          "campos": {
+            "estadoDesc": "ACTIVO",
+            "flag22Desc": "HABIDO",
+            "indError": "0",
+            "nombre": "B.BRAUN MEDICAL PERU S.A.",
+            "numRuc": "20377339461",
+            "ubigeoRuc": "150122"
+          },
+          "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+          "operacion": "buscarRuc",
+          "fecha_consulta": "2026-11-02T10:02:58-05:00",
+          "http_status": 200,
+          "intentos": 1,
+          "duracion_segundos": 0.193
+        },
+        "padron": {
+          "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+          "fecha_descarga": "2026-11-02T08:59:55-05:00",
+          "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+          "etag": "\"6ae83e14-1783c2fc\"",
+          "bytes": 394511100,
+          "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+          "http_status": 200,
+          "cache_reutilizada": true,
+          "comprobacion_version": "2026-11-02T09:54:05-05:00"
+        },
+        "inicio_actividades": {
+          "ruc": "20377339461",
+          "razon_social": "B.BRAUN MEDICAL PERU S.A.",
+          "fecha": "01/10/1997",
+          "fecha_iso": "1997-10-01",
+          "valor_observado": "1 de octubre de 1997",
+          "inscripcion_observada": "2 de octubre de 1997",
+          "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+          "url": "https://elruc.pe/ruc/20377339461-b-braun-medical-peru-s-a",
+          "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+          "fecha_consulta": "2026-11-02T09:46:13-05:00",
+          "http_status": 200,
+          "sha256_respuesta": "927c99018922cfd1e447bf754175d970957c50a66a2837437e0003624eb5a9b0",
+          "robots_url": "https://elruc.pe/robots.txt",
+          "robots_permite_ficha": true,
+          "requiere_token": false,
+          "intervencion_humana": false,
+          "contraste_con_ficha_oficial_guardada": {
+            "coincide": true,
+            "archivo": "evidencias/sunat_asistido/20377339461.json"
+          },
+          "cache_reutilizada": true
+        }
+      }
+    },
+    {
+      "ruc": "20605820817",
+      "http_status": 200,
+      "passed": true,
+      "faltantes": [],
+      "datos": {
+        "ruc": "20605820817",
+        "razon_social": "BA & ES SEGURINDUSTRIA S.A.C.",
+        "estado": "ACTIVO",
+        "condicion": "HABIDO",
+        "direccion_fiscal": "CAL. ALBARRACIN; NRO. 397A; URB. CHICAGO; UBIGEO 130101",
+        "ubigeo": "130101",
+        "fecha_inicio_actividades": "2020-02-01"
+      },
+      "fuentes": {
+        "consulta_en_vivo": {
+          "ruc": "20605820817",
+          "campos": {
+            "estadoDesc": "ACTIVO",
+            "flag22Desc": "HABIDO",
+            "indError": "0",
+            "nombre": "BA & ES SEGURINDUSTRIA S.A.C.",
+            "numRuc": "20605820817",
+            "ubigeoRuc": "130101"
+          },
+          "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+          "operacion": "buscarRuc",
+          "fecha_consulta": "2026-11-02T10:02:58-05:00",
+          "http_status": 200,
+          "intentos": 1,
+          "duracion_segundos": 0.116
+        },
+        "padron": {
+          "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+          "fecha_descarga": "2026-11-02T08:59:55-05:00",
+          "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+          "etag": "\"6ae83e14-1783c2fc\"",
+          "bytes": 394511100,
+          "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+          "http_status": 200,
+          "cache_reutilizada": true,
+          "comprobacion_version": "2026-11-02T09:54:05-05:00"
+        },
+        "inicio_actividades": {
+          "ruc": "20605820817",
+          "razon_social": "BA & ES SEGURINDUSTRIA S.A.C.",
+          "fecha": "01/02/2020",
+          "fecha_iso": "2020-02-01",
+          "valor_observado": "1 de febrero de 2020",
+          "inscripcion_observada": "28 de enero de 2020",
+          "verificacion_declarada_por_fuente": "1 de noviembre de 2026",
+          "url": "https://elruc.pe/ruc/20605820817-ba-y-es-segurindustria-s-a-c",
+          "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+          "fecha_consulta": "2026-11-02T09:46:17-05:00",
+          "http_status": 200,
+          "sha256_respuesta": "ff78d2c6b3694826b6e16477c368119d2fbf0b9e704f9e67ab9c835bc2f6efe2",
+          "robots_url": "https://elruc.pe/robots.txt",
+          "robots_permite_ficha": true,
+          "requiere_token": false,
+          "intervencion_humana": false,
+          "cache_reutilizada": true
+        }
+      }
+    },
+    {
+      "ruc": "20602207138",
+      "http_status": 200,
+      "passed": true,
+      "faltantes": [],
+      "datos": {
+        "ruc": "20602207138",
+        "razon_social": "BACKUS MARCAS Y PATENTES S.A.C.",
+        "estado": "ACTIVO",
+        "condicion": "HABIDO",
+        "direccion_fiscal": "NICOLAS AYLLON; NRO. 3986; UBIGEO 150103",
+        "ubigeo": "150103",
+        "fecha_inicio_actividades": "2017-06-01"
+      },
+      "fuentes": {
+        "consulta_en_vivo": {
+          "ruc": "20602207138",
+          "campos": {
+            "estadoDesc": "ACTIVO",
+            "flag22Desc": "HABIDO",
+            "indError": "0",
+            "nombre": "BACKUS MARCAS Y PATENTES S.A.C.",
+            "numRuc": "20602207138",
+            "ubigeoRuc": "150103"
+          },
+          "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+          "operacion": "buscarRuc",
+          "fecha_consulta": "2026-11-02T10:02:58-05:00",
+          "http_status": 200,
+          "intentos": 1,
+          "duracion_segundos": 0.185
+        },
+        "padron": {
+          "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+          "fecha_descarga": "2026-11-02T08:59:55-05:00",
+          "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+          "etag": "\"6ae83e14-1783c2fc\"",
+          "bytes": 394511100,
+          "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+          "http_status": 200,
+          "cache_reutilizada": true,
+          "comprobacion_version": "2026-11-02T09:54:05-05:00"
+        },
+        "inicio_actividades": {
+          "ruc": "20602207138",
+          "razon_social": "BACKUS MARCAS Y PATENTES S.A.C.",
+          "fecha": "01/06/2017",
+          "fecha_iso": "2017-06-01",
+          "valor_observado": "1 de junio de 2017",
+          "inscripcion_observada": "12 de junio de 2017",
+          "verificacion_declarada_por_fuente": "1 de noviembre de 2026",
+          "url": "https://elruc.pe/ruc/20602207138-backus-marcas-y-patentes-s-a-c",
+          "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+          "fecha_consulta": "2026-11-02T09:46:22-05:00",
+          "http_status": 200,
+          "sha256_respuesta": "2897c6b15af72283fce30922b07d3955273f0219bea74805f148a3c8c4e40feb",
+          "robots_url": "https://elruc.pe/robots.txt",
+          "robots_permite_ficha": true,
+          "requiere_token": false,
+          "intervencion_humana": false,
+          "cache_reutilizada": true
+        }
+      }
+    },
+    {
+      "ruc": "20342347950",
+      "http_status": 200,
+      "passed": true,
+      "faltantes": [],
+      "datos": {
+        "ruc": "20342347950",
+        "razon_social": "BADINOTTI PERU S.A.",
+        "estado": "ACTIVO",
+        "condicion": "HABIDO",
+        "direccion_fiscal": "AV. LOS PRECURSORES; NRO. 260; Z.I. VENTANILLA; UBIGEO 070106",
+        "ubigeo": "070106",
+        "fecha_inicio_actividades": "1997-02-25"
+      },
+      "fuentes": {
+        "consulta_en_vivo": {
+          "ruc": "20342347950",
+          "campos": {
+            "estadoDesc": "ACTIVO",
+            "flag22Desc": "HABIDO",
+            "indError": "0",
+            "nombre": "BADINOTTI PERU S.A.",
+            "numRuc": "20342347950",
+            "ubigeoRuc": "070106"
+          },
+          "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+          "operacion": "buscarRuc",
+          "fecha_consulta": "2026-11-02T10:02:59-05:00",
+          "http_status": 200,
+          "intentos": 1,
+          "duracion_segundos": 0.404
+        },
+        "padron": {
+          "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+          "fecha_descarga": "2026-11-02T08:59:55-05:00",
+          "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+          "etag": "\"6ae83e14-1783c2fc\"",
+          "bytes": 394511100,
+          "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+          "http_status": 200,
+          "cache_reutilizada": true,
+          "comprobacion_version": "2026-11-02T09:54:05-05:00"
+        },
+        "inicio_actividades": {
+          "ruc": "20342347950",
+          "razon_social": "BADINOTTI PERU S.A.",
+          "fecha": "25/02/1997",
+          "fecha_iso": "1997-02-25",
+          "valor_observado": "25 de febrero de 1997",
+          "inscripcion_observada": "27 de febrero de 1997",
+          "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+          "url": "https://elruc.pe/ruc/20342347950-badinotti-peru-s-a",
+          "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+          "fecha_consulta": "2026-11-02T09:46:26-05:00",
+          "http_status": 200,
+          "sha256_respuesta": "0941cb05f72d3a6bfb1ef8d7ffafd1cce5ee804c3d38f157646682c489998e49",
+          "robots_url": "https://elruc.pe/robots.txt",
+          "robots_permite_ficha": true,
+          "requiere_token": false,
+          "intervencion_humana": false,
+          "cache_reutilizada": true
+        }
+      }
+    },
+    {
+      "ruc": "20523491840",
+      "http_status": 200,
+      "passed": true,
+      "faltantes": [],
+      "datos": {
+        "ruc": "20523491840",
+        "razon_social": "BAEMA TRADE S.A.C.",
+        "estado": "ACTIVO",
+        "condicion": "HABIDO",
+        "direccion_fiscal": "AV. JOSÉ PARDO; NRO. 513; UBIGEO 150122",
+        "ubigeo": "150122",
+        "fecha_inicio_actividades": "2009-10-07"
+      },
+      "fuentes": {
+        "consulta_en_vivo": {
+          "ruc": "20523491840",
+          "campos": {
+            "estadoDesc": "ACTIVO",
+            "flag22Desc": "HABIDO",
+            "indError": "0",
+            "nombre": "BAEMA TRADE S.A.C.",
+            "numRuc": "20523491840",
+            "ubigeoRuc": "150122"
+          },
+          "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+          "operacion": "buscarRuc",
+          "fecha_consulta": "2026-11-02T10:02:59-05:00",
+          "http_status": 200,
+          "intentos": 1,
+          "duracion_segundos": 0.209
+        },
+        "padron": {
+          "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+          "fecha_descarga": "2026-11-02T08:59:55-05:00",
+          "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+          "etag": "\"6ae83e14-1783c2fc\"",
+          "bytes": 394511100,
+          "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+          "http_status": 200,
+          "cache_reutilizada": true,
+          "comprobacion_version": "2026-11-02T09:54:05-05:00"
+        },
+        "inicio_actividades": {
+          "ruc": "20523491840",
+          "razon_social": "BAEMA TRADE S.A.C.",
+          "fecha": "07/10/2009",
+          "fecha_iso": "2009-10-07",
+          "valor_observado": "7 de octubre de 2009",
+          "inscripcion_observada": "7 de octubre de 2009",
+          "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+          "url": "https://elruc.pe/ruc/20523491840-baema-trade-s-a-c",
+          "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+          "fecha_consulta": "2026-11-02T09:46:31-05:00",
+          "http_status": 200,
+          "sha256_respuesta": "4b51f17a7a185e0a76b780482b81a1083cfde567cfa5fbea25ab144ec82cc210",
+          "robots_url": "https://elruc.pe/robots.txt",
+          "robots_permite_ficha": true,
+          "requiere_token": false,
+          "intervencion_humana": false,
+          "cache_reutilizada": true
+        }
+      }
+    },
+    {
+      "ruc": "20538658368",
+      "http_status": 200,
+      "passed": true,
+      "faltantes": [],
+      "datos": {
+        "ruc": "20538658368",
+        "razon_social": "BAGUETERÍA  Y PASTELERÍA JIMMY´S   S.A.C",
+        "estado": "ACTIVO",
+        "condicion": "HABIDO",
+        "direccion_fiscal": "AV. ABANCAY; NRO. 298; UBIGEO 150101",
+        "ubigeo": "150101",
+        "fecha_inicio_actividades": "2011-03-01"
+      },
+      "fuentes": {
+        "consulta_en_vivo": {
+          "ruc": "20538658368",
+          "campos": {
+            "estadoDesc": "ACTIVO",
+            "flag22Desc": "HABIDO",
+            "indError": "0",
+            "nombre": "BAGUETERÍA  Y PASTELERÍA JIMMY´S   S.A.C",
+            "numRuc": "20538658368",
+            "ubigeoRuc": "150101"
+          },
+          "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+          "operacion": "buscarRuc",
+          "fecha_consulta": "2026-11-02T10:02:59-05:00",
+          "http_status": 200,
+          "intentos": 1,
+          "duracion_segundos": 0.274
+        },
+        "padron": {
+          "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+          "fecha_descarga": "2026-11-02T08:59:55-05:00",
+          "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+          "etag": "\"6ae83e14-1783c2fc\"",
+          "bytes": 394511100,
+          "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+          "http_status": 200,
+          "cache_reutilizada": true,
+          "comprobacion_version": "2026-11-02T09:54:05-05:00"
+        },
+        "inicio_actividades": {
+          "ruc": "20538658368",
+          "razon_social": "BAGUETERÍA  Y PASTELERÍA JIMMY´S   S.A.C",
+          "fecha": "01/03/2011",
+          "fecha_iso": "2011-03-01",
+          "valor_observado": "1 de marzo de 2011",
+          "inscripcion_observada": "29 de diciembre de 2010",
+          "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+          "url": "https://elruc.pe/ruc/20538658368-bagueteria-y-pasteleria-jimmy-s-s-a-c",
+          "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+          "fecha_consulta": "2026-11-02T09:46:36-05:00",
+          "http_status": 200,
+          "sha256_respuesta": "8a950f7810f7668bc31e31080a4353016adecbd5acb8192d64b8e425f6dd3a55",
+          "robots_url": "https://elruc.pe/robots.txt",
+          "robots_permite_ficha": true,
+          "requiere_token": false,
+          "intervencion_humana": false,
+          "cache_reutilizada": true
+        }
+      }
+    },
+    {
+      "ruc": "20607481491",
+      "http_status": 200,
+      "passed": true,
+      "faltantes": [],
+      "datos": {
+        "ruc": "20607481491",
+        "razon_social": "BAIKA PERU S.A.C.",
+        "estado": "ACTIVO",
+        "condicion": "HABIDO",
+        "direccion_fiscal": "AV. EL DERBY; NRO. 254; INT. 1702; URB. EL DERBY DE MONTERRICO; UBIGEO 150140",
+        "ubigeo": "150140",
+        "fecha_inicio_actividades": "2021-02-19"
+      },
+      "fuentes": {
+        "consulta_en_vivo": {
+          "ruc": "20607481491",
+          "campos": {
+            "estadoDesc": "ACTIVO",
+            "flag22Desc": "HABIDO",
+            "indError": "0",
+            "nombre": "BAIKA PERU S.A.C.",
+            "numRuc": "20607481491",
+            "ubigeoRuc": "150140"
+          },
+          "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+          "operacion": "buscarRuc",
+          "fecha_consulta": "2026-11-02T10:02:59-05:00",
+          "http_status": 200,
+          "intentos": 1,
+          "duracion_segundos": 0.175
+        },
+        "padron": {
+          "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+          "fecha_descarga": "2026-11-02T08:59:55-05:00",
+          "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+          "etag": "\"6ae83e14-1783c2fc\"",
+          "bytes": 394511100,
+          "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+          "http_status": 200,
+          "cache_reutilizada": true,
+          "comprobacion_version": "2026-11-02T09:54:05-05:00"
+        },
+        "inicio_actividades": {
+          "ruc": "20607481491",
+          "razon_social": "BAIKA PERU S.A.C.",
+          "fecha": "19/02/2021",
+          "fecha_iso": "2021-02-19",
+          "valor_observado": "19 de febrero de 2021",
+          "inscripcion_observada": "17 de febrero de 2021",
+          "verificacion_declarada_por_fuente": "1 de noviembre de 2026",
+          "url": "https://elruc.pe/ruc/20607481491-baika-peru-s-a-c",
+          "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+          "fecha_consulta": "2026-11-02T09:46:40-05:00",
+          "http_status": 200,
+          "sha256_respuesta": "37e263b4966966905011f9ce33ac0a4232037b8aefbe2b9680f31ce5e0c3b73a",
+          "robots_url": "https://elruc.pe/robots.txt",
+          "robots_permite_ficha": true,
+          "requiere_token": false,
+          "intervencion_humana": false,
+          "cache_reutilizada": true
+        }
+      }
+    },
+    {
+      "ruc": "20517320570",
+      "http_status": 200,
+      "passed": true,
+      "faltantes": [],
+      "datos": {
+        "ruc": "20517320570",
+        "razon_social": "BAJOPONTINA SOCIEDAD ANONIMA",
+        "estado": "ACTIVO",
+        "condicion": "HABIDO",
+        "direccion_fiscal": "AV. CIRCUNVALACION; LOTE 5; MZ. Ñ; C.P. HUACHIPA; UBIGEO 150118",
+        "ubigeo": "150118",
+        "fecha_inicio_actividades": "2007-10-22"
+      },
+      "fuentes": {
+        "consulta_en_vivo": {
+          "ruc": "20517320570",
+          "campos": {
+            "estadoDesc": "ACTIVO",
+            "flag22Desc": "HABIDO",
+            "indError": "0",
+            "nombre": "BAJOPONTINA SOCIEDAD ANONIMA",
+            "numRuc": "20517320570",
+            "ubigeoRuc": "150118"
+          },
+          "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+          "operacion": "buscarRuc",
+          "fecha_consulta": "2026-11-02T10:02:59-05:00",
+          "http_status": 200,
+          "intentos": 1,
+          "duracion_segundos": 0.1
+        },
+        "padron": {
+          "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+          "fecha_descarga": "2026-11-02T08:59:55-05:00",
+          "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+          "etag": "\"6ae83e14-1783c2fc\"",
+          "bytes": 394511100,
+          "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+          "http_status": 200,
+          "cache_reutilizada": true,
+          "comprobacion_version": "2026-11-02T09:54:05-05:00"
+        },
+        "inicio_actividades": {
+          "ruc": "20517320570",
+          "razon_social": "BAJOPONTINA SOCIEDAD ANONIMA",
+          "fecha": "22/10/2007",
+          "fecha_iso": "2007-10-22",
+          "valor_observado": "22 de octubre de 2007",
+          "inscripcion_observada": "22 de octubre de 2007",
+          "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+          "url": "https://elruc.pe/ruc/20517320570-bajopontina-sociedad-anonima",
+          "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+          "fecha_consulta": "2026-11-02T09:46:44-05:00",
+          "http_status": 200,
+          "sha256_respuesta": "19ca3eac7c12df558c893c96eb3bd244d644d9e24d54e0970bededb852de287a",
+          "robots_url": "https://elruc.pe/robots.txt",
+          "robots_permite_ficha": true,
+          "requiere_token": false,
+          "intervencion_humana": false,
+          "cache_reutilizada": true
+        }
+      }
+    },
+    {
+      "ruc": "20102179898",
+      "http_status": 200,
+      "passed": true,
+      "faltantes": [],
+      "datos": {
+        "ruc": "20102179898",
+        "razon_social": "BAKELS PERU S.A.C.",
+        "estado": "ACTIVO",
+        "condicion": "HABIDO",
+        "direccion_fiscal": "AV. LA ARBOLEDA; NRO. 298; URB. SANTA RAQUEL 2DA. ETAPA; UBIGEO 150103",
+        "ubigeo": "150103",
+        "fecha_inicio_actividades": "1990-11-20"
+      },
+      "fuentes": {
+        "consulta_en_vivo": {
+          "ruc": "20102179898",
+          "campos": {
+            "estadoDesc": "ACTIVO",
+            "flag22Desc": "HABIDO",
+            "indError": "0",
+            "nombre": "BAKELS PERU S.A.C.",
+            "numRuc": "20102179898",
+            "ubigeoRuc": "150103"
+          },
+          "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+          "operacion": "buscarRuc",
+          "fecha_consulta": "2026-11-02T10:03:00-05:00",
+          "http_status": 200,
+          "intentos": 1,
+          "duracion_segundos": 0.196
+        },
+        "padron": {
+          "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+          "fecha_descarga": "2026-11-02T08:59:55-05:00",
+          "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+          "etag": "\"6ae83e14-1783c2fc\"",
+          "bytes": 394511100,
+          "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+          "http_status": 200,
+          "cache_reutilizada": true,
+          "comprobacion_version": "2026-11-02T09:54:05-05:00"
+        },
+        "inicio_actividades": {
+          "ruc": "20102179898",
+          "razon_social": "BAKELS PERU S.A.C.",
+          "fecha": "20/11/1990",
+          "fecha_iso": "1990-11-20",
+          "valor_observado": "20 de noviembre de 1990",
+          "inscripcion_observada": "9 de marzo de 1993",
+          "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+          "url": "https://elruc.pe/ruc/20102179898-bakels-peru-s-a-c",
+          "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+          "fecha_consulta": "2026-11-02T09:46:48-05:00",
+          "http_status": 200,
+          "sha256_respuesta": "306532394cde774f41a8a754b4f56e46df1a758c35cac40f0f90130145136e06",
+          "robots_url": "https://elruc.pe/robots.txt",
+          "robots_permite_ficha": true,
+          "requiere_token": false,
+          "intervencion_humana": false,
+          "cache_reutilizada": true
+        }
+      }
+    },
+    {
+      "ruc": "20605530509",
+      "http_status": 200,
+      "passed": true,
+      "faltantes": [],
+      "datos": {
+        "ruc": "20605530509",
+        "razon_social": "BALDE K S.A.C.",
+        "estado": "ACTIVO",
+        "condicion": "HABIDO",
+        "direccion_fiscal": "AV. BENAVIDES; NRO. 1238; DPTO. 404; UBIGEO 150122",
+        "ubigeo": "150122",
+        "fecha_inicio_actividades": "2019-11-18"
+      },
+      "fuentes": {
+        "consulta_en_vivo": {
+          "ruc": "20605530509",
+          "campos": {
+            "estadoDesc": "ACTIVO",
+            "flag22Desc": "HABIDO",
+            "indError": "0",
+            "nombre": "BALDE K S.A.C.",
+            "numRuc": "20605530509",
+            "ubigeoRuc": "150122"
+          },
+          "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+          "operacion": "buscarRuc",
+          "fecha_consulta": "2026-11-02T10:03:00-05:00",
+          "http_status": 200,
+          "intentos": 1,
+          "duracion_segundos": 0.174
+        },
+        "padron": {
+          "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+          "fecha_descarga": "2026-11-02T08:59:55-05:00",
+          "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+          "etag": "\"6ae83e14-1783c2fc\"",
+          "bytes": 394511100,
+          "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+          "http_status": 200,
+          "cache_reutilizada": true,
+          "comprobacion_version": "2026-11-02T09:54:05-05:00"
+        },
+        "inicio_actividades": {
+          "ruc": "20605530509",
+          "razon_social": "BALDE K S.A.C.",
+          "fecha": "18/11/2019",
+          "fecha_iso": "2019-11-18",
+          "valor_observado": "18 de noviembre de 2019",
+          "inscripcion_observada": "18 de noviembre de 2019",
+          "verificacion_declarada_por_fuente": "1 de noviembre de 2026",
+          "url": "https://elruc.pe/ruc/20605530509-balde-k-s-a-c",
+          "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+          "fecha_consulta": "2026-11-02T09:46:52-05:00",
+          "http_status": 200,
+          "sha256_respuesta": "ed80945c51a03b818c619e13fc5d8ff4da737b2d56ce5a8678e2a6982cec312f",
+          "robots_url": "https://elruc.pe/robots.txt",
+          "robots_permite_ficha": true,
+          "requiere_token": false,
+          "intervencion_humana": false,
+          "cache_reutilizada": true
+        }
+      }
+    },
+    {
+      "ruc": "20609986442",
+      "http_status": 200,
+      "passed": true,
+      "faltantes": [],
+      "datos": {
+        "ruc": "20609986442",
+        "razon_social": "BALU S.A.C",
+        "estado": "ACTIVO",
+        "condicion": "HABIDO",
+        "direccion_fiscal": "LOTE 8-9; MZ. U1; Z.I. PARQUE INDUSTRIAL LOS AND; UBIGEO 070106",
+        "ubigeo": "070106",
+        "fecha_inicio_actividades": "2022-09-14"
+      },
+      "fuentes": {
+        "consulta_en_vivo": {
+          "ruc": "20609986442",
+          "campos": {
+            "estadoDesc": "ACTIVO",
+            "flag22Desc": "HABIDO",
+            "indError": "0",
+            "nombre": "BALU S.A.C",
+            "numRuc": "20609986442",
+            "ubigeoRuc": "070106"
+          },
+          "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+          "operacion": "buscarRuc",
+          "fecha_consulta": "2026-11-02T10:03:00-05:00",
+          "http_status": 200,
+          "intentos": 1,
+          "duracion_segundos": 0.191
+        },
+        "padron": {
+          "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+          "fecha_descarga": "2026-11-02T08:59:55-05:00",
+          "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+          "etag": "\"6ae83e14-1783c2fc\"",
+          "bytes": 394511100,
+          "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+          "http_status": 200,
+          "cache_reutilizada": true,
+          "comprobacion_version": "2026-11-02T09:54:05-05:00"
+        },
+        "inicio_actividades": {
+          "ruc": "20609986442",
+          "razon_social": "BALU S.A.C",
+          "fecha": "14/09/2022",
+          "fecha_iso": "2022-09-14",
+          "valor_observado": "14 de septiembre de 2022",
+          "inscripcion_observada": "14 de septiembre de 2022",
+          "verificacion_declarada_por_fuente": "1 de noviembre de 2026",
+          "url": "https://elruc.pe/ruc/20609986442-balu-s-a-c",
+          "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+          "fecha_consulta": "2026-11-02T09:46:57-05:00",
+          "http_status": 200,
+          "sha256_respuesta": "7ee16bba581547656a0368c5d60a2768b934090a51938cbd8aecbff1121ab8f9",
+          "robots_url": "https://elruc.pe/robots.txt",
+          "robots_permite_ficha": true,
+          "requiere_token": false,
+          "intervencion_humana": false,
+          "cache_reutilizada": true
+        }
+      }
+    },
+    {
+      "ruc": "20504565794",
+      "http_status": 200,
+      "passed": true,
+      "faltantes": [],
+      "datos": {
+        "ruc": "20504565794",
+        "razon_social": "BANCO AGROPECUARIO",
+        "estado": "ACTIVO",
+        "condicion": "HABIDO",
+        "direccion_fiscal": "AV. REPUBLICA DE PANAMA; NRO. 3531; DPTO. 901; URB. LIMATAMBO; UBIGEO 150131",
+        "ubigeo": "150131",
+        "fecha_inicio_actividades": "2002-06-24"
+      },
+      "fuentes": {
+        "consulta_en_vivo": {
+          "ruc": "20504565794",
+          "campos": {
+            "estadoDesc": "ACTIVO",
+            "flag22Desc": "HABIDO",
+            "indError": "0",
+            "nombre": "BANCO AGROPECUARIO",
+            "numRuc": "20504565794",
+            "ubigeoRuc": "150131"
+          },
+          "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+          "operacion": "buscarRuc",
+          "fecha_consulta": "2026-11-02T10:03:00-05:00",
+          "http_status": 200,
+          "intentos": 1,
+          "duracion_segundos": 0.186
+        },
+        "padron": {
+          "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+          "fecha_descarga": "2026-11-02T08:59:55-05:00",
+          "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+          "etag": "\"6ae83e14-1783c2fc\"",
+          "bytes": 394511100,
+          "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+          "http_status": 200,
+          "cache_reutilizada": true,
+          "comprobacion_version": "2026-11-02T09:54:05-05:00"
+        },
+        "inicio_actividades": {
+          "ruc": "20504565794",
+          "razon_social": "BANCO AGROPECUARIO",
+          "fecha": "24/06/2002",
+          "fecha_iso": "2002-06-24",
+          "valor_observado": "24 de junio de 2002",
+          "inscripcion_observada": "21 de junio de 2002",
+          "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+          "url": "https://elruc.pe/ruc/20504565794-banco-agropecuario",
+          "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+          "fecha_consulta": "2026-11-02T09:47:02-05:00",
+          "http_status": 200,
+          "sha256_respuesta": "d6822e46ceca7f410724b364d9cd3bee119c015e47b7101e778942416b1af643",
+          "robots_url": "https://elruc.pe/robots.txt",
+          "robots_permite_ficha": true,
+          "requiere_token": false,
+          "intervencion_humana": false,
+          "cache_reutilizada": true
+        }
+      }
+    },
+    {
+      "ruc": "20100130204",
+      "http_status": 200,
+      "passed": true,
+      "faltantes": [],
+      "datos": {
+        "ruc": "20100130204",
+        "razon_social": "BANCO BBVA PERU",
+        "estado": "ACTIVO",
+        "condicion": "HABIDO",
+        "direccion_fiscal": "AV. REPUBLICA DE PANAMA; NRO. 3055; URB. EL PALOMAR; UBIGEO 150131",
+        "ubigeo": "150131",
+        "fecha_inicio_actividades": "1951-08-20"
+      },
+      "fuentes": {
+        "consulta_en_vivo": {
+          "ruc": "20100130204",
+          "campos": {
+            "estadoDesc": "ACTIVO",
+            "flag22Desc": "HABIDO",
+            "indError": "0",
+            "nombre": "BANCO BBVA PERU",
+            "numRuc": "20100130204",
+            "ubigeoRuc": "150131"
+          },
+          "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+          "operacion": "buscarRuc",
+          "fecha_consulta": "2026-11-02T10:03:00-05:00",
+          "http_status": 200,
+          "intentos": 1,
+          "duracion_segundos": 0.116
+        },
+        "padron": {
+          "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+          "fecha_descarga": "2026-11-02T08:59:55-05:00",
+          "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+          "etag": "\"6ae83e14-1783c2fc\"",
+          "bytes": 394511100,
+          "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+          "http_status": 200,
+          "cache_reutilizada": true,
+          "comprobacion_version": "2026-11-02T09:54:05-05:00"
+        },
+        "inicio_actividades": {
+          "ruc": "20100130204",
+          "razon_social": "BANCO BBVA PERU",
+          "fecha": "20/08/1951",
+          "fecha_iso": "1951-08-20",
+          "valor_observado": "20 de agosto de 1951",
+          "inscripcion_observada": "9 de octubre de 1992",
+          "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+          "url": "https://elruc.pe/ruc/20100130204-banco-bbva-peru",
+          "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+          "fecha_consulta": "2026-11-02T09:47:06-05:00",
+          "http_status": 200,
+          "sha256_respuesta": "bdde56a71b54713c4b16e8c1b3f44ff2fba8c771f9f93507c6380a89374a3cdd",
+          "robots_url": "https://elruc.pe/robots.txt",
+          "robots_permite_ficha": true,
+          "requiere_token": false,
+          "intervencion_humana": false,
+          "cache_reutilizada": true
+        }
+      }
+    },
+    {
+      "ruc": "20608551701",
+      "http_status": 200,
+      "passed": true,
+      "faltantes": [],
+      "datos": {
+        "ruc": "20608551701",
+        "razon_social": "BANCO BCI PERU S.A. - BANCO BCI",
+        "estado": "ACTIVO",
+        "condicion": "HABIDO",
+        "direccion_fiscal": "AV. CAMINO REAL; NRO. 1053; INT. 1301; URB. FUNDO CONDE DE SAN ISIDRO; UBIGEO 150131",
+        "ubigeo": "150131",
+        "fecha_inicio_actividades": "2021-09-28"
+      },
+      "fuentes": {
+        "consulta_en_vivo": {
+          "ruc": "20608551701",
+          "campos": {
+            "estadoDesc": "ACTIVO",
+            "flag22Desc": "HABIDO",
+            "indError": "0",
+            "nombre": "BANCO BCI PERU S.A. - BANCO BCI",
+            "numRuc": "20608551701",
+            "ubigeoRuc": "150131"
+          },
+          "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+          "operacion": "buscarRuc",
+          "fecha_consulta": "2026-11-02T10:03:01-05:00",
+          "http_status": 200,
+          "intentos": 1,
+          "duracion_segundos": 0.178
+        },
+        "padron": {
+          "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+          "fecha_descarga": "2026-11-02T08:59:55-05:00",
+          "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+          "etag": "\"6ae83e14-1783c2fc\"",
+          "bytes": 394511100,
+          "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+          "http_status": 200,
+          "cache_reutilizada": true,
+          "comprobacion_version": "2026-11-02T09:54:05-05:00"
+        },
+        "inicio_actividades": {
+          "ruc": "20608551701",
+          "razon_social": "BANCO BCI PERU S.A. - BANCO BCI",
+          "fecha": "28/09/2021",
+          "fecha_iso": "2021-09-28",
+          "valor_observado": "28 de septiembre de 2021",
+          "inscripcion_observada": "30 de septiembre de 2021",
+          "verificacion_declarada_por_fuente": "28 de octubre de 2026",
+          "url": "https://elruc.pe/ruc/20608551701-banco-bci-peru-s-a-banco-bci",
+          "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+          "fecha_consulta": "2026-11-02T09:47:11-05:00",
+          "http_status": 200,
+          "sha256_respuesta": "b9b3edd068bee0098a36ceb42e2fbdfa073c375655c2b45553351de7e704c2da",
+          "robots_url": "https://elruc.pe/robots.txt",
+          "robots_permite_ficha": true,
+          "requiere_token": false,
+          "intervencion_humana": false,
+          "cache_reutilizada": true
+        }
+      }
+    },
+    {
+      "ruc": "20100053455",
+      "http_status": 200,
+      "passed": true,
+      "faltantes": [],
+      "datos": {
+        "ruc": "20100053455",
+        "razon_social": "BANCO INTERNACIONAL DEL PERU-INTERBANK",
+        "estado": "ACTIVO",
+        "condicion": "HABIDO",
+        "direccion_fiscal": "AV. CARLOS VILLARAN; NRO. 140; URB. SANTA CATALINA; UBIGEO 150115",
+        "ubigeo": "150115",
+        "fecha_inicio_actividades": "1897-05-01"
+      },
+      "fuentes": {
+        "consulta_en_vivo": {
+          "ruc": "20100053455",
+          "campos": {
+            "estadoDesc": "ACTIVO",
+            "flag22Desc": "HABIDO",
+            "indError": "0",
+            "nombre": "BANCO INTERNACIONAL DEL PERU-INTERBANK",
+            "numRuc": "20100053455",
+            "ubigeoRuc": "150115"
+          },
+          "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+          "operacion": "buscarRuc",
+          "fecha_consulta": "2026-11-02T10:03:01-05:00",
+          "http_status": 200,
+          "intentos": 1,
+          "duracion_segundos": 0.115
+        },
+        "padron": {
+          "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+          "fecha_descarga": "2026-11-02T08:59:55-05:00",
+          "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+          "etag": "\"6ae83e14-1783c2fc\"",
+          "bytes": 394511100,
+          "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+          "http_status": 200,
+          "cache_reutilizada": true,
+          "comprobacion_version": "2026-11-02T09:54:05-05:00"
+        },
+        "inicio_actividades": {
+          "ruc": "20100053455",
+          "razon_social": "BANCO INTERNACIONAL DEL PERU-INTERBANK",
+          "fecha": "01/05/1897",
+          "fecha_iso": "1897-05-01",
+          "valor_observado": "1 de mayo de 1897",
+          "inscripcion_observada": "9 de octubre de 1992",
+          "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+          "url": "https://elruc.pe/ruc/20100053455-banco-internacional-del-peru-interbank",
+          "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+          "fecha_consulta": "2026-11-02T09:47:16-05:00",
+          "http_status": 200,
+          "sha256_respuesta": "302c006c564a335828ebd4b509b70da6668a66009743bfadd0820f74640c74e3",
+          "robots_url": "https://elruc.pe/robots.txt",
+          "robots_permite_ficha": true,
+          "requiere_token": false,
+          "intervencion_humana": false,
+          "cache_reutilizada": true
+        }
+      }
+    },
+    {
+      "ruc": "20509507199",
+      "http_status": 200,
+      "passed": true,
+      "faltantes": [],
+      "datos": {
+        "ruc": "20509507199",
+        "razon_social": "BANCO DE COMERCIO",
+        "estado": "ACTIVO",
+        "condicion": "HABIDO",
+        "direccion_fiscal": "AV. CANAVAL Y MOREYRA; NRO. 452; UBIGEO 150131",
+        "ubigeo": "150131",
+        "fecha_inicio_actividades": "2004-09-27"
+      },
+      "fuentes": {
+        "consulta_en_vivo": {
+          "ruc": "20509507199",
+          "campos": {
+            "estadoDesc": "ACTIVO",
+            "flag22Desc": "HABIDO",
+            "indError": "0",
+            "nombre": "BANCO DE COMERCIO",
+            "numRuc": "20509507199",
+            "ubigeoRuc": "150131"
+          },
+          "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+          "operacion": "buscarRuc",
+          "fecha_consulta": "2026-11-02T10:03:01-05:00",
+          "http_status": 200,
+          "intentos": 1,
+          "duracion_segundos": 0.112
+        },
+        "padron": {
+          "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+          "fecha_descarga": "2026-11-02T08:59:55-05:00",
+          "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+          "etag": "\"6ae83e14-1783c2fc\"",
+          "bytes": 394511100,
+          "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+          "http_status": 200,
+          "cache_reutilizada": true,
+          "comprobacion_version": "2026-11-02T09:54:05-05:00"
+        },
+        "inicio_actividades": {
+          "ruc": "20509507199",
+          "razon_social": "BANCO DE COMERCIO",
+          "fecha": "27/09/2004",
+          "fecha_iso": "2004-09-27",
+          "valor_observado": "27 de septiembre de 2004",
+          "inscripcion_observada": "27 de septiembre de 2004",
+          "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+          "url": "https://elruc.pe/ruc/20509507199-banco-de-comercio",
+          "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+          "fecha_consulta": "2026-11-02T09:47:20-05:00",
+          "http_status": 200,
+          "sha256_respuesta": "47a11166e3eddd0bdae832d39efa6574af50d8ba971b64f88f7b5e857c748935",
+          "robots_url": "https://elruc.pe/robots.txt",
+          "robots_permite_ficha": true,
+          "requiere_token": false,
+          "intervencion_humana": false,
+          "cache_reutilizada": true
+        }
+      }
+    },
+    {
+      "ruc": "20100047218",
+      "http_status": 200,
+      "passed": true,
+      "faltantes": [],
+      "datos": {
+        "ruc": "20100047218",
+        "razon_social": "BANCO DE CREDITO DEL PERU",
+        "estado": "ACTIVO",
+        "condicion": "HABIDO",
+        "direccion_fiscal": "JR. CENTENARIO; NRO. 156; URB. LADERAS DE MELGAREJO; UBIGEO 150114",
+        "ubigeo": "150114",
+        "fecha_inicio_actividades": "1889-04-09"
+      },
+      "fuentes": {
+        "consulta_en_vivo": {
+          "ruc": "20100047218",
+          "campos": {
+            "estadoDesc": "ACTIVO",
+            "flag22Desc": "HABIDO",
+            "indError": "0",
+            "nombre": "BANCO DE CREDITO DEL PERU",
+            "numRuc": "20100047218",
+            "ubigeoRuc": "150114"
+          },
+          "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+          "operacion": "buscarRuc",
+          "fecha_consulta": "2026-11-02T10:03:01-05:00",
+          "http_status": 200,
+          "intentos": 1,
+          "duracion_segundos": 0.12
+        },
+        "padron": {
+          "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+          "fecha_descarga": "2026-11-02T08:59:55-05:00",
+          "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+          "etag": "\"6ae83e14-1783c2fc\"",
+          "bytes": 394511100,
+          "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+          "http_status": 200,
+          "cache_reutilizada": true,
+          "comprobacion_version": "2026-11-02T09:54:05-05:00"
+        },
+        "inicio_actividades": {
+          "ruc": "20100047218",
+          "razon_social": "BANCO DE CREDITO DEL PERU",
+          "fecha": "09/04/1889",
+          "fecha_iso": "1889-04-09",
+          "valor_observado": "9 de abril de 1889",
+          "inscripcion_observada": "9 de octubre de 1992",
+          "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+          "url": "https://elruc.pe/ruc/20100047218-banco-de-credito-del-peru",
+          "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+          "fecha_consulta": "2026-11-02T09:47:24-05:00",
+          "http_status": 200,
+          "sha256_respuesta": "1a1144a229d50d34a780af006d790d4af40c1be20017bdeef289191f3feb6c9a",
+          "robots_url": "https://elruc.pe/robots.txt",
+          "robots_permite_ficha": true,
+          "requiere_token": false,
+          "intervencion_humana": false,
+          "cache_reutilizada": true
+        }
+      }
+    },
+    {
+      "ruc": "20100030595",
+      "http_status": 200,
+      "passed": true,
+      "faltantes": [],
+      "datos": {
+        "ruc": "20100030595",
+        "razon_social": "BANCO DE LA NACION",
+        "estado": "ACTIVO",
+        "condicion": "HABIDO",
+        "direccion_fiscal": "AV. JAVIER PRADO ESTE; NRO. 2499; URB. SAN BORJA; UBIGEO 150130",
+        "ubigeo": "150130",
+        "fecha_inicio_actividades": "1966-01-01"
+      },
+      "fuentes": {
+        "consulta_en_vivo": {
+          "ruc": "20100030595",
+          "campos": {
+            "estadoDesc": "ACTIVO",
+            "flag22Desc": "HABIDO",
+            "indError": "0",
+            "nombre": "BANCO DE LA NACION",
+            "numRuc": "20100030595",
+            "ubigeoRuc": "150130"
+          },
+          "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+          "operacion": "buscarRuc",
+          "fecha_consulta": "2026-11-02T10:03:01-05:00",
+          "http_status": 200,
+          "intentos": 1,
+          "duracion_segundos": 0.119
+        },
+        "padron": {
+          "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+          "fecha_descarga": "2026-11-02T08:59:55-05:00",
+          "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+          "etag": "\"6ae83e14-1783c2fc\"",
+          "bytes": 394511100,
+          "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+          "http_status": 200,
+          "cache_reutilizada": true,
+          "comprobacion_version": "2026-11-02T09:54:05-05:00"
+        },
+        "inicio_actividades": {
+          "ruc": "20100030595",
+          "razon_social": "BANCO DE LA NACION",
+          "fecha": "01/01/1966",
+          "fecha_iso": "1966-01-01",
+          "valor_observado": "1 de enero de 1966",
+          "inscripcion_observada": "9 de octubre de 1992",
+          "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+          "url": "https://elruc.pe/ruc/20100030595-banco-de-la-nacion",
+          "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+          "fecha_consulta": "2026-11-02T09:47:29-05:00",
+          "http_status": 200,
+          "sha256_respuesta": "3c7fac9acc5f8f82364660a4cd3cabc53767ee02f0c4ea4bdb29cb6a33602ad9",
+          "robots_url": "https://elruc.pe/robots.txt",
+          "robots_permite_ficha": true,
+          "requiere_token": false,
+          "intervencion_humana": false,
+          "cache_reutilizada": true
+        }
+      }
+    },
+    {
+      "ruc": "20330401991",
+      "http_status": 200,
+      "passed": true,
+      "faltantes": [],
+      "datos": {
+        "ruc": "20330401991",
+        "razon_social": "BANCO FALABELLA PERU S.A",
+        "estado": "ACTIVO",
+        "condicion": "HABIDO",
+        "direccion_fiscal": "CAL. CARPACCIO; NRO. 250; UBIGEO 150130",
+        "ubigeo": "150130",
+        "fecha_inicio_actividades": "1996-08-31"
+      },
+      "fuentes": {
+        "consulta_en_vivo": {
+          "ruc": "20330401991",
+          "campos": {
+            "estadoDesc": "ACTIVO",
+            "flag22Desc": "HABIDO",
+            "indError": "0",
+            "nombre": "BANCO FALABELLA PERU S.A",
+            "numRuc": "20330401991",
+            "ubigeoRuc": "150130"
+          },
+          "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+          "operacion": "buscarRuc",
+          "fecha_consulta": "2026-11-02T10:03:01-05:00",
+          "http_status": 200,
+          "intentos": 1,
+          "duracion_segundos": 0.111
+        },
+        "padron": {
+          "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+          "fecha_descarga": "2026-11-02T08:59:55-05:00",
+          "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+          "etag": "\"6ae83e14-1783c2fc\"",
+          "bytes": 394511100,
+          "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+          "http_status": 200,
+          "cache_reutilizada": true,
+          "comprobacion_version": "2026-11-02T09:54:05-05:00"
+        },
+        "inicio_actividades": {
+          "ruc": "20330401991",
+          "razon_social": "BANCO FALABELLA PERU S.A",
+          "fecha": "31/08/1996",
+          "fecha_iso": "1996-08-31",
+          "valor_observado": "31 de agosto de 1996",
+          "inscripcion_observada": "1 de agosto de 1996",
+          "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+          "url": "https://elruc.pe/ruc/20330401991-banco-falabella-peru-s-a",
+          "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+          "fecha_consulta": "2026-11-02T09:47:33-05:00",
+          "http_status": 200,
+          "sha256_respuesta": "2927464aa5872ac36cb4a6691347ac637133298f2deb8f41b5a92b8338f2e293",
+          "robots_url": "https://elruc.pe/robots.txt",
+          "robots_permite_ficha": true,
+          "requiere_token": false,
+          "intervencion_humana": false,
+          "cache_reutilizada": true
+        }
+      }
+    },
+    {
+      "ruc": "20513074370",
+      "http_status": 200,
+      "passed": true,
+      "faltantes": [],
+      "datos": {
+        "ruc": "20513074370",
+        "razon_social": "BANCO GNB PERU S.A.",
+        "estado": "ACTIVO",
+        "condicion": "HABIDO",
+        "direccion_fiscal": "CAL. LAS BEGONIAS; NRO. 415; UBIGEO 150131",
+        "ubigeo": "150131",
+        "fecha_inicio_actividades": "2006-05-04"
+      },
+      "fuentes": {
+        "consulta_en_vivo": {
+          "ruc": "20513074370",
+          "campos": {
+            "estadoDesc": "ACTIVO",
+            "flag22Desc": "HABIDO",
+            "indError": "0",
+            "nombre": "BANCO GNB PERU S.A.",
+            "numRuc": "20513074370",
+            "ubigeoRuc": "150131"
+          },
+          "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+          "operacion": "buscarRuc",
+          "fecha_consulta": "2026-11-02T10:03:01-05:00",
+          "http_status": 200,
+          "intentos": 1,
+          "duracion_segundos": 0.116
+        },
+        "padron": {
+          "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+          "fecha_descarga": "2026-11-02T08:59:55-05:00",
+          "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+          "etag": "\"6ae83e14-1783c2fc\"",
+          "bytes": 394511100,
+          "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+          "http_status": 200,
+          "cache_reutilizada": true,
+          "comprobacion_version": "2026-11-02T09:54:05-05:00"
+        },
+        "inicio_actividades": {
+          "ruc": "20513074370",
+          "razon_social": "BANCO GNB PERU S.A.",
+          "fecha": "04/05/2006",
+          "fecha_iso": "2006-05-04",
+          "valor_observado": "4 de mayo de 2006",
+          "inscripcion_observada": "4 de mayo de 2006",
+          "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+          "url": "https://elruc.pe/ruc/20513074370-banco-gnb-peru-s-a",
+          "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+          "fecha_consulta": "2026-11-02T09:47:38-05:00",
+          "http_status": 200,
+          "sha256_respuesta": "442f8c6cf3b1c874e61721a5d31f7402c497dfe18457d72380045769cadbf098",
+          "robots_url": "https://elruc.pe/robots.txt",
+          "robots_permite_ficha": true,
+          "requiere_token": false,
+          "intervencion_humana": false,
+          "cache_reutilizada": true
+        }
+      }
+    }
+  ]
+}

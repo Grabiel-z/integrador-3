@@ -36,13 +36,15 @@ def evidence_state():
     faults=load("evidencias/fallos_reales.json")
     telegram=load("evidencias/telegram/verificacion.json")
     sunat_http=load("evidencias/sunat_n8n_http.json")
-    state={"fecha":now(),"tests_unitarios":units,"sunat":{k:sunat.get(k) for k in ("total","completos","bloqueados","manuales_importados","soap_exitosas","domicilios_con_datos","fechas_inicio_obtenidas")},
+    acceptance=load("evidencias/sunat_completo.json")
+    complete=acceptance.get('passed') and acceptance.get('total')==20 and acceptance.get('completos')==20
+    state={"fecha":now(),"tests_unitarios":units,"sunat":{k:sunat.get(k) for k in ("total","completos","bloqueados","manuales_importados","soap_exitosas","domicilios_con_datos","fechas_inicio_obtenidas","consolidados_multifuente","fichas_oficiales_guardadas")},
         "modelo":model.get("model","gemma4:e2b-it-q4_K_M"),"docker":docker,"chatbot":{"total":bot.get("total",0),"aprobados":bot.get("passed",0)},
         "estados":{
             "Docker":"VERIFICADO" if docker.get("reinicio_persistencia") else "IMPLEMENTADO, NO VERIFICADO",
             "Tests unitarios":"VERIFICADO" if units["tests"]>0 and not units["failures"] and not units["errors"] else "ERROR IDENTIFICADO",
-            "API SUNAT automática":"VERIFICADO" if sunat.get("soap_exitosas")==20 and sunat_http.get("passed") else "IMPLEMENTADO, NO VERIFICADO",
-            "SUNAT":"VERIFICADO" if sunat.get("completos")==20 else "PENDIENTE DE OTRA INTERVENCIÓN" if sunat.get("soap_exitosas") else "BLOQUEADO POR RESTRICCIÓN EXTERNA" if sunat.get("bloqueados") else "IMPLEMENTADO, NO VERIFICADO",
+            "API SUNAT automática":"VERIFICADO" if sunat.get("soap_exitosas")==20 and sunat_http.get("passed") and complete else "IMPLEMENTADO, NO VERIFICADO",
+            "SUNAT":"VERIFICADO" if sunat.get("completos")==20 and complete else "PENDIENTE DE OTRA INTERVENCIÓN" if sunat.get("soap_exitosas") else "BLOQUEADO POR RESTRICCIÓN EXTERNA" if sunat.get("bloqueados") else "IMPLEMENTADO, NO VERIFICADO",
             "Gemma":"VERIFICADO" if model and model.get("errors")==0 else "IMPLEMENTADO, NO VERIFICADO",
             "Chatbot n8n + IA":"VERIFICADO" if bot.get("total",0)>0 and bot.get("passed")==bot.get("total") else "IMPLEMENTADO, NO VERIFICADO",
             "APIs comerciales":"IMPLEMENTADO, NO VERIFICADO",
@@ -50,19 +52,20 @@ def evidence_state():
             "Identificación de equipo":"VERIFICADO" if load("informe/equipo.json").get("integrantes") else "PENDIENTE DE OTRA INTERVENCIÓN",
             "Cuenta administradora n8n":"PENDIENTE DE OTRA INTERVENCIÓN",
             "Consigna PDF original":"PENDIENTE DE OTRA INTERVENCIÓN"}}
+    state['sunat'].update({'tipo_resultado':'Consolidado multifuente','fuente_inicio_actividades':'ElRUC.pe, ficha pública complementaria'})
     Path("ESTADO_FINAL.json").write_text(json.dumps(state,ensure_ascii=False,indent=2))
     lines=["# Pruebas realizadas", "", "Registro generado: "+now(),"", "Los tests unitarios usan fixtures. Las integraciones llaman servicios Docker reales. No se equiparan ambos tipos.","",
         "| Componente | Estado | Evidencia |","|---|---|---|"]
     refs={"Docker":"evidencias/docker_verificacion.json, compose_ps.txt y recursos_docker.txt","Tests unitarios":"evidencias/tests_unitarios.xml y tests_unitarios.log",
           "API SUNAT automática":"evidencias/sunat_soap/, sunat_api/ y sunat_n8n_http.json; SOAP real sin intervención humana",
-          "SUNAT":"evidencias/sunat_resumen.json y datos/RUC_resultados.xlsx; faltan fechas de inicio","Gemma":"evidencias/gemma_benchmark.json y modelo.json",
+          "SUNAT":"evidencias/sunat_completo.json, sunat_resumen.json y datos/RUC_resultados.xlsx; cinco campos consolidados con procedencia","Gemma":"evidencias/gemma_benchmark.json y modelo.json",
           "Chatbot n8n + IA":"evidencias/chatbot_normal.json","APIs comerciales":"pruebas/test_gateway.py; sin llamadas comerciales",
           "Telegram":"CONECTAR_TELEGRAM.md","Identificación de equipo":"informe/equipo.json","Cuenta administradora n8n":"Crear cuenta propia en http://localhost:5678; no se compartió una cuenta ficticia","Consigna PDF original":"No localizada en carpetas revisadas"}
     lines += [f"| {k} | {v} | {refs[k]} |" for k,v in state["estados"].items()]
     lines += ["",f"Tests ejecutados: {units['tests']}; fallos: {units['failures']}; errores: {units['errors']}; omitidos: {units['skipped']}.",
-        f"RUC de entrada contrastados en fuente oficial: 20. Fichas completas obtenidas: {sunat.get('completos',0)}/20. Las filas bloqueadas no contienen datos fiscales inferidos.",
+        f"RUC de entrada contrastados en fuente oficial: 20. Registros con los cinco campos: {sunat.get('completos',0)}/20. Es un consolidado multifuente, no veinte fichas íntegras del portal SUNAT.",
         f"Pruebas de chatbot real: {bot.get('passed',0)}/{bot.get('total',0)}. Revisa cada respuesta, ai_used y latencia en el JSON.", "",
-        "## Fallos y límites", "", f"SUNAT: {sunat.get('soap_exitosas',0)} respuestas SOAP oficiales satisfactorias; {sunat.get('domicilios_con_datos',0)} domicilios con datos y {sunat.get('fechas_inicio_obtenidas',0)} fechas de inicio. La ruta API es automática, sin navegador ni intervención humana. SOAP y padrón no publican inicio de actividades; HTTP 200 no acredita una ficha de cinco campos. El navegador fue retirado de la ruta operativa tras mostrar un control humano. Ver GUIA_SUNAT.md.",
+        "## Fallos y límites", "", f"SUNAT: {sunat.get('soap_exitosas',0)} RUC con respuestas SOAP oficiales satisfactorias; {sunat.get('domicilios_con_datos',0)} domicilios y {sunat.get('fechas_inicio_obtenidas',0)} fechas de inicio. La fecha procede de la ficha pública ElRUC.pe, no del SOAP. La aceptación HTTP exige los cinco campos y cero intervención en las veinte empresas. Se rechazó una respuesta SOAP con RUC diferente y se probó un reintento acotado. El navegador no forma parte de la ruta operativa. Ver GUIA_SUNAT.md.",
         "Los proveedores comerciales tienen tests de estructura y manejo de errores; no se probaron con credenciales reales. No se midió aceleración GPU.",
         "El token Telegram, su webhook y la conversación real quedan pendientes. La cuenta administradora n8n debe crearla cada equipo al abrir la interfaz. Completar nombres reales y contrastar con el PDF original no disponible."]
     if model:
@@ -104,10 +107,10 @@ def diagrams():
 
 def report_source(state,units,sunat,model,bot):
     source=Path("informe/informe_base.md").read_text()
-    results_sunat=f"Estado: {state['estados']['SUNAT']}. Veinte RUC de entrada contrastados en publicación oficial. Fichas completas: {sunat.get('completos',0)} de veinte."
-    results_sunat+=" El Excel diferencia una ficha completa de una restricción externa y conserva fecha y observaciones."
+    results_sunat=f"Estado del consolidado: {state['estados']['SUNAT']}. Veinte RUC de entrada contrastados en publicación oficial. Registros con cinco campos: {sunat.get('completos',0)} de veinte."
+    results_sunat+=" El Excel conserva estados, fechas de consulta, observaciones y procedencia por campo."
     if sunat.get('soap_exitosas'):
-        results_sunat+=f" Se realizaron {sunat['soap_exitosas']} consultas SOAP oficiales HTTP 200, sin navegador ni intervención humana. Los {sunat.get('domicilios_con_datos',0)} domicilios proceden de la ficha guardada o del padrón diario oficial. Fechas de inicio observadas: {sunat.get('fechas_inicio_obtenidas',0)}; las restantes siguen pendientes porque SOAP y padrón no las publican. La API no presenta la fecha guardada de navegador como un campo entregado en vivo por SOAP."
+        results_sunat+=f" Se verificaron {sunat['soap_exitosas']} RUC mediante SOAP oficial HTTP 200, sin navegador ni intervención humana. Los {sunat.get('domicilios_con_datos',0)} domicilios proceden del padrón diario oficial. Fechas de inicio observadas: {sunat.get('fechas_inicio_obtenidas',0)}, de fichas públicas complementarias de ElRUC.pe cotejadas por identidad. Es un consolidado multifuente; la fecha no se atribuye al SOAP y no se afirma haber obtenido veinte fichas íntegras directamente del portal SUNAT."
     if sunat.get('bloqueados'):
         results_sunat+=" En el lote observado, el primer acceso fue rechazado con HTTP 403 y se aplicó un corte de solicitudes. La captura es evidencia del bloqueo, no de una consulta completada."
     if sunat.get('manuales_importados'):
@@ -131,7 +134,7 @@ def report_source(state,units,sunat,model,bot):
             if match:ai+=f" En la muestra registrada, docker stats midió {match[1]} de memoria del contenedor Ollama con límite {match[2]}."
         if bot.get("average_seconds") is not None:ai+=f" La latencia media del conjunto de casos n8n fue {bot['average_seconds']:.3f} segundos; incluye rechazos directos y llamadas a IA."
     evidences="Telegram: "+state["estados"]["Telegram"]+". Sus capturas se incorporarán cuando el equipo conecte un bot y complete una prueba real.\n\n"
-    screenshots=[("evidencias/sunat_asistido/20377339461.png","Ficha completa obtenida automáticamente durante el diagnóstico con Chromium. El navegador fue retirado de la ruta operativa; la API actual usa SOAP y padrón."),
+    screenshots=[("evidencias/sunat_asistido/20377339461.png","Ficha oficial obtenida durante el diagnóstico con Chromium; su fecha se contrastó con la fuente complementaria. El navegador fue retirado de la ruta operativa."),
         ("evidencias/n8n_interfaz.png","Interfaz real de n8n de esta instalación."),
         ("evidencias/pruebas_resumen.png","Vista de los resultados registrados, generada desde evidencias; no representa la interfaz de Telegram.")]
     screenshots += [(str(p),"Evidencia Telegram aportada por el equipo.") for p in Path("evidencias/telegram").glob("*.png")]
@@ -178,12 +181,14 @@ def pdf(source):
     while i<len(lines):
         line=lines[i].strip();i+=1
         if not line:continue
-        if line.startswith("# "):story.append(para(line[2:],"H1ES"));continue
+        if line.startswith("# "):
+            if line.startswith('# 18. Referencias'):story.append(PageBreak())
+            story.append(para(line[2:],"H1ES"));continue
         if line.startswith("### ") or line.startswith("## "):
             story.append(para(line.lstrip("# "),"H2ES"));continue
         match=re.match(r"!\[(.*?)\]\((.*?)\)",line)
         if match:
-            p=Path(match[2]);w,h=ImageReader(str(p)).getSize();scale=min(475/w,(420 if p.stem=='docker' else 300)/h,1)
+            p=Path(match[2]);w,h=ImageReader(str(p)).getSize();scale=min(475/w,(420 if p.stem in {'docker','sunat'} else 300)/h,1)
             story.append(KeepTogether([Image(str(p),width=w*scale,height=h*scale),para(match[1],"CaptionES")]))
             continue
         if line.startswith("|"):

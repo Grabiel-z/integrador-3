@@ -1,0 +1,18 @@
+{
+  "ruc": "20523491840",
+  "razon_social": "BAEMA TRADE S.A.C.",
+  "fecha": "07/10/2009",
+  "fecha_iso": "2009-10-07",
+  "valor_observado": "7 de octubre de 2009",
+  "inscripcion_observada": "7 de octubre de 2009",
+  "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+  "url": "https://elruc.pe/ruc/20523491840-baema-trade-s-a-c",
+  "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+  "fecha_consulta": "2026-11-02T09:46:31-05:00",
+  "http_status": 200,
+  "sha256_respuesta": "4b51f17a7a185e0a76b780482b81a1083cfde567cfa5fbea25ab144ec82cc210",
+  "robots_url": "https://elruc.pe/robots.txt",
+  "robots_permite_ficha": true,
+  "requiere_token": false,
+  "intervencion_humana": false
+}

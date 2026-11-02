@@ -1,0 +1,18 @@
+{
+  "ruc": "20517320570",
+  "razon_social": "BAJOPONTINA SOCIEDAD ANONIMA",
+  "fecha": "22/10/2007",
+  "fecha_iso": "2007-10-22",
+  "valor_observado": "22 de octubre de 2007",
+  "inscripcion_observada": "22 de octubre de 2007",
+  "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+  "url": "https://elruc.pe/ruc/20517320570-bajopontina-sociedad-anonima",
+  "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+  "fecha_consulta": "2026-11-02T09:46:44-05:00",
+  "http_status": 200,
+  "sha256_respuesta": "19ca3eac7c12df558c893c96eb3bd244d644d9e24d54e0970bededb852de287a",
+  "robots_url": "https://elruc.pe/robots.txt",
+  "robots_permite_ficha": true,
+  "requiere_token": false,
+  "intervencion_humana": false
+}

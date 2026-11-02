@@ -1,5 +1,5 @@
 {
-  "fecha": "2026-11-02T14:20:00.611Z",
+  "fecha": "2026-11-02T15:03:07.172Z",
   "contexto": "HTTP real desde el runtime de n8n; no se afirma ejecución de workflow",
   "intervencion_humana": false,
   "passed": true,
@@ -12,10 +12,10 @@
       "respuesta": {
         "estado_consulta_api": "VERIFICADO",
         "intervencion_humana": false,
-        "ficha_completa": false,
-        "campos_pendientes": [
-          "Fecha de inicio de actividades"
-        ],
+        "ficha_completa": true,
+        "campos_pendientes": [],
+        "tipo_resultado": "Consolidado multifuente",
+        "ficha_oficial_directa": false,
         "datos": {
           "ruc": "20100047218",
           "razon_social": "BANCO DE CREDITO DEL PERU",
@@ -23,7 +23,7 @@
           "condicion": "HABIDO",
           "direccion_fiscal": "JR. CENTENARIO; NRO. 156; URB. LADERAS DE MELGAREJO; UBIGEO 150114",
           "ubigeo": "150114",
-          "fecha_inicio_actividades": null
+          "fecha_inicio_actividades": "1889-04-09"
         },
         "fuentes": {
           "consulta_en_vivo": {
@@ -38,9 +38,10 @@
             },
             "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
             "operacion": "buscarRuc",
-            "fecha_consulta": "2026-11-02T09:19:59-05:00",
+            "fecha_consulta": "2026-11-02T10:03:04-05:00",
             "http_status": 200,
-            "duracion_segundos": 1.656
+            "intentos": 1,
+            "duracion_segundos": 0.148
           },
           "padron": {
             "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
@@ -50,10 +51,30 @@
             "bytes": 394511100,
             "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
             "http_status": 200,
-            "cache_reutilizada": false
+            "cache_reutilizada": true,
+            "comprobacion_version": "2026-11-02T09:54:05-05:00"
+          },
+          "inicio_actividades": {
+            "ruc": "20100047218",
+            "razon_social": "BANCO DE CREDITO DEL PERU",
+            "fecha": "09/04/1889",
+            "fecha_iso": "1889-04-09",
+            "valor_observado": "9 de abril de 1889",
+            "inscripcion_observada": "9 de octubre de 1992",
+            "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+            "url": "https://elruc.pe/ruc/20100047218-banco-de-credito-del-peru",
+            "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+            "fecha_consulta": "2026-11-02T09:47:24-05:00",
+            "http_status": 200,
+            "sha256_respuesta": "1a1144a229d50d34a780af006d790d4af40c1be20017bdeef289191f3feb6c9a",
+            "robots_url": "https://elruc.pe/robots.txt",
+            "robots_permite_ficha": true,
+            "requiere_token": false,
+            "intervencion_humana": false,
+            "cache_reutilizada": true
           }
         },
-        "aviso": "SOAP en vivo; domicilio del padrón descargado para el lote. La API oficial consultada no entrega fecha de inicio de actividades."
+        "aviso": "RUC, razón social y condición: SUNAT SOAP en vivo. Domicilio: padrón oficial. Inicio: ficha pública ElRUC.pe, fuente independiente identificada por campo. No equivale a una ficha íntegra obtenida directamente del portal SUNAT."
       }
     },
     {
@@ -63,10 +84,10 @@
       "respuesta": {
         "estado_consulta_api": "VERIFICADO",
         "intervencion_humana": false,
-        "ficha_completa": false,
-        "campos_pendientes": [
-          "Fecha de inicio de actividades"
-        ],
+        "ficha_completa": true,
+        "campos_pendientes": [],
+        "tipo_resultado": "Consolidado multifuente",
+        "ficha_oficial_directa": false,
         "datos": {
           "ruc": "20100130204",
           "razon_social": "BANCO BBVA PERU",
@@ -74,7 +95,7 @@
           "condicion": "HABIDO",
           "direccion_fiscal": "AV. REPUBLICA DE PANAMA; NRO. 3055; URB. EL PALOMAR; UBIGEO 150131",
           "ubigeo": "150131",
-          "fecha_inicio_actividades": null
+          "fecha_inicio_actividades": "1951-08-20"
         },
         "fuentes": {
           "consulta_en_vivo": {
@@ -89,9 +110,10 @@
             },
             "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
             "operacion": "buscarRuc",
-            "fecha_consulta": "2026-11-02T09:20:00-05:00",
+            "fecha_consulta": "2026-11-02T10:03:07-05:00",
             "http_status": 200,
-            "duracion_segundos": 0.799
+            "intentos": 1,
+            "duracion_segundos": 2.407
           },
           "padron": {
             "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
@@ -101,10 +123,30 @@
             "bytes": 394511100,
             "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
             "http_status": 200,
-            "cache_reutilizada": false
+            "cache_reutilizada": true,
+            "comprobacion_version": "2026-11-02T09:54:05-05:00"
+          },
+          "inicio_actividades": {
+            "ruc": "20100130204",
+            "razon_social": "BANCO BBVA PERU",
+            "fecha": "20/08/1951",
+            "fecha_iso": "1951-08-20",
+            "valor_observado": "20 de agosto de 1951",
+            "inscripcion_observada": "9 de octubre de 1992",
+            "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+            "url": "https://elruc.pe/ruc/20100130204-banco-bbva-peru",
+            "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+            "fecha_consulta": "2026-11-02T09:47:06-05:00",
+            "http_status": 200,
+            "sha256_respuesta": "bdde56a71b54713c4b16e8c1b3f44ff2fba8c771f9f93507c6380a89374a3cdd",
+            "robots_url": "https://elruc.pe/robots.txt",
+            "robots_permite_ficha": true,
+            "requiere_token": false,
+            "intervencion_humana": false,
+            "cache_reutilizada": true
           }
         },
-        "aviso": "SOAP en vivo; domicilio del padrón descargado para el lote. La API oficial consultada no entrega fecha de inicio de actividades."
+        "aviso": "RUC, razón social y condición: SUNAT SOAP en vivo. Domicilio: padrón oficial. Inicio: ficha pública ElRUC.pe, fuente independiente identificada por campo. No equivale a una ficha íntegra obtenida directamente del portal SUNAT."
       }
     }
   ]

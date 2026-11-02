@@ -1,9 +1,9 @@
-NAME                  IMAGE                                                                     COMMAND                  SERVICE         CREATED          STATUS                    PORTS
-ta4-ai-gateway-1      sha256:4d80a9b18a1bb92041fe642c0befada6d9d05896b2d08618dc221adf93d2dbd4   "uvicorn gateway.app…"   ai-gateway      2 hours ago      Up 2 hours (healthy)      
-ta4-cloudflared-1     cloudflare/cloudflared:2026.10.7                                          "cloudflared tunnel …"   cloudflared     2 hours ago      Exited (0) 2 hours ago    
-ta4-model-init-1      sha256:4d80a9b18a1bb92041fe642c0befada6d9d05896b2d08618dc221adf93d2dbd4   "python -m tools.ini…"   model-init      2 hours ago      Exited (0) 2 hours ago    
-ta4-n8n-1             docker.n8n.io/n8nio/n8n:2.45.7                                            "tini -- /docker-ent…"   n8n             2 hours ago      Up 2 hours (healthy)      127.0.0.1:5678->5678/tcp
-ta4-n8n-bootstrap-1   docker.n8n.io/n8nio/n8n:2.45.7                                            "/bin/sh /bootstrap/…"   n8n-bootstrap   2 hours ago      Exited (0) 2 hours ago    
-ta4-ollama-1          ollama/ollama:0.40.13                                                     "/bin/ollama serve"      ollama          2 hours ago      Up 2 hours (healthy)      11434/tcp
-ta4-sunat-api-1       ta4-python:1.0                                                            "uvicorn sunat.api:a…"   sunat-api       19 seconds ago   Up 18 seconds (healthy)   127.0.0.1:8001->8001/tcp
-ta4-webhook-proxy-1   nginx:1.28.0-alpine                                                       "/docker-entrypoint.…"   webhook-proxy   2 hours ago      Exited (0) 2 hours ago    
+NAME                  IMAGE                                                                     COMMAND                  SERVICE         CREATED         STATUS                   PORTS
+ta4-ai-gateway-1      sha256:4d80a9b18a1bb92041fe642c0befada6d9d05896b2d08618dc221adf93d2dbd4   "uvicorn gateway.app…"   ai-gateway      2 hours ago     Up 2 hours (healthy)     
+ta4-cloudflared-1     cloudflare/cloudflared:2026.10.7                                          "cloudflared tunnel …"   cloudflared     2 hours ago     Exited (0) 2 hours ago   
+ta4-model-init-1      sha256:4d80a9b18a1bb92041fe642c0befada6d9d05896b2d08618dc221adf93d2dbd4   "python -m tools.ini…"   model-init      2 hours ago     Exited (0) 2 hours ago   
+ta4-n8n-1             docker.n8n.io/n8nio/n8n:2.45.7                                            "tini -- /docker-ent…"   n8n             2 hours ago     Up 2 hours (healthy)     127.0.0.1:5678->5678/tcp
+ta4-n8n-bootstrap-1   docker.n8n.io/n8nio/n8n:2.45.7                                            "/bin/sh /bootstrap/…"   n8n-bootstrap   3 hours ago     Exited (0) 2 hours ago   
+ta4-ollama-1          ollama/ollama:0.40.13                                                     "/bin/ollama serve"      ollama          3 hours ago     Up 2 hours (healthy)     11434/tcp
+ta4-sunat-api-1       ta4-python:1.0                                                            "uvicorn sunat.api:a…"   sunat-api       6 minutes ago   Up 6 minutes (healthy)   127.0.0.1:8001->8001/tcp
+ta4-webhook-proxy-1   nginx:1.28.0-alpine                                                       "/docker-entrypoint.…"   webhook-proxy   2 hours ago     Exited (0) 2 hours ago   

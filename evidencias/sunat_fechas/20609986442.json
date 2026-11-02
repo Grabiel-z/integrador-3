@@ -1,0 +1,18 @@
+{
+  "ruc": "20609986442",
+  "razon_social": "BALU S.A.C",
+  "fecha": "14/09/2022",
+  "fecha_iso": "2022-09-14",
+  "valor_observado": "14 de septiembre de 2022",
+  "inscripcion_observada": "14 de septiembre de 2022",
+  "verificacion_declarada_por_fuente": "1 de noviembre de 2026",
+  "url": "https://elruc.pe/ruc/20609986442-balu-s-a-c",
+  "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+  "fecha_consulta": "2026-11-02T09:46:57-05:00",
+  "http_status": 200,
+  "sha256_respuesta": "7ee16bba581547656a0368c5d60a2768b934090a51938cbd8aecbff1121ab8f9",
+  "robots_url": "https://elruc.pe/robots.txt",
+  "robots_permite_ficha": true,
+  "requiere_token": false,
+  "intervencion_humana": false
+}

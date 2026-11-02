@@ -1,24 +1,27 @@
 digraph DOCKER {
-  graph [rankdir=TB,bgcolor="white",pad="0.25",nodesep="0.3",ranksep="0.4"];
+  graph [rankdir=TB,bgcolor="white",pad="0.2",nodesep="0.25",ranksep="0.35"];
   node [shape=box,style="rounded,filled",fillcolor="#EDF4F5",color="#183D4B",fontname="DejaVu Sans",fontsize=13];
-  edge [color="#52727B",fontname="DejaVu Sans",fontsize=9];
+  edge [color="#52727B",fontname="DejaVu Sans",fontsize=10];
   subgraph cluster_compose {
-    label="Docker Compose\nbackend privada + salida controlada";color="#183D4B";fontname="DejaVu Sans";
+    label="Docker Compose: red interna y salida a fuentes";color="#183D4B";fontname="DejaVu Sans";
     n8n [label="n8n\nlocalhost:5678"];
-    db [shape=cylinder,label="SQLite n8n_data\nSin PostgreSQL adicional"];
-    ai [label="AI Gateway\nSin puerto público"];
+    gateway [label="AI Gateway\nPuerto interno 8000"];
     ollama [label="Ollama\nGemma 4 E2B Q4_K_M"];
-    pesos [shape=cylinder,label="ollama_data\nPesos persistentes"];
-    sunat [label="SUNAT Worker\nTarea puntual"];
-    sunatapi [label="SUNAT API\nlocalhost:8001"];
-    report [label="Report Builder / tests\nTareas puntuales"];
-    tunnel [label="Cloudflared opcional\nProxy solo webhook Telegram"];
-    n8n -> ai -> ollama -> pesos; n8n -> db; tunnel -> n8n;
+    api [label="API RUC\nlocalhost:8001"];
+    worker [label="Worker RUC\nExcel + checkpoint"];
+    tareas [label="Inicializadores\nPruebas e informe"];
+    persistencia [shape=cylinder,label="Volúmenes persistentes\nn8n_data: SQLite\nollama_data: pesos"];
+    proxy [label="Telegram opcional\nProxy + túnel"];
+    {rank=same;gateway;api;}
+    {rank=same;ollama;worker;tareas;}
+    proxy -> n8n;
+    n8n -> gateway -> ollama -> persistencia;
+    n8n -> api [label="HTTP disponible"];
+    n8n -> persistencia [style=dashed,constraint=false];
   }
-  proveedores [label="Fuera de Docker:\nOpenAI / Gemini / Claude API",fillcolor="#FCF1D7"];
-  portal [label="SUNAT SOAP oficial\ny padrón diario",fillcolor="#FCF1D7"];
-  ai -> proveedores [label="solo selección explícita"];
-  sunat -> portal;
-  sunatapi -> portal;
-  n8n -> sunatapi [label="HTTP disponible"];
+  proveedores [label="APIs de IA opcionales\nOpenAI / Gemini / Anthropic",fillcolor="#FCF1D7"];
+  fuentes [label="Fuentes del consolidado RUC\nSUNAT: SOAP y padrón oficiales\nElRUC.pe: fecha pública complementaria",fillcolor="#FCF1D7"];
+  gateway -> proveedores [label="selección explícita"];
+  api -> fuentes;
+  worker -> fuentes;
 }

@@ -1,6 +1,6 @@
 # Pruebas realizadas
 
-Registro generado: 2026-11-02T09:32:21-05:00
+Registro generado: 2026-11-02T10:08:57-05:00
 
 Los tests unitarios usan fixtures. Las integraciones llaman servicios Docker reales. No se equiparan ambos tipos.
 
@@ -9,7 +9,7 @@ Los tests unitarios usan fixtures. Las integraciones llaman servicios Docker rea
 | Docker | VERIFICADO | evidencias/docker_verificacion.json, compose_ps.txt y recursos_docker.txt |
 | Tests unitarios | VERIFICADO | evidencias/tests_unitarios.xml y tests_unitarios.log |
 | API SUNAT automática | VERIFICADO | evidencias/sunat_soap/, sunat_api/ y sunat_n8n_http.json; SOAP real sin intervención humana |
-| SUNAT | PENDIENTE DE OTRA INTERVENCIÓN | evidencias/sunat_resumen.json y datos/RUC_resultados.xlsx; faltan fechas de inicio |
+| SUNAT | VERIFICADO | evidencias/sunat_completo.json, sunat_resumen.json y datos/RUC_resultados.xlsx; cinco campos consolidados con procedencia |
 | Gemma | VERIFICADO | evidencias/gemma_benchmark.json y modelo.json |
 | Chatbot n8n + IA | VERIFICADO | evidencias/chatbot_normal.json |
 | APIs comerciales | IMPLEMENTADO, NO VERIFICADO | pruebas/test_gateway.py; sin llamadas comerciales |
@@ -18,13 +18,13 @@ Los tests unitarios usan fixtures. Las integraciones llaman servicios Docker rea
 | Cuenta administradora n8n | PENDIENTE DE OTRA INTERVENCIÓN | Crear cuenta propia en http://localhost:5678; no se compartió una cuenta ficticia |
 | Consigna PDF original | PENDIENTE DE OTRA INTERVENCIÓN | No localizada en carpetas revisadas |
 
-Tests ejecutados: 50; fallos: 0; errores: 0; omitidos: 0.
-RUC de entrada contrastados en fuente oficial: 20. Fichas completas obtenidas: 1/20. Las filas bloqueadas no contienen datos fiscales inferidos.
+Tests ejecutados: 63; fallos: 0; errores: 0; omitidos: 0.
+RUC de entrada contrastados en fuente oficial: 20. Registros con los cinco campos: 20/20. Es un consolidado multifuente, no veinte fichas íntegras del portal SUNAT.
 Pruebas de chatbot real: 18/18. Revisa cada respuesta, ai_used y latencia en el JSON.
 
 ## Fallos y límites
 
-SUNAT: 20 respuestas SOAP oficiales satisfactorias; 20 domicilios con datos y 1 fechas de inicio. La ruta API es automática, sin navegador ni intervención humana. SOAP y padrón no publican inicio de actividades; HTTP 200 no acredita una ficha de cinco campos. El navegador fue retirado de la ruta operativa tras mostrar un control humano. Ver GUIA_SUNAT.md.
+SUNAT: 20 RUC con respuestas SOAP oficiales satisfactorias; 20 domicilios y 20 fechas de inicio. La fecha procede de la ficha pública ElRUC.pe, no del SOAP. La aceptación HTTP exige los cinco campos y cero intervención en las veinte empresas. Se rechazó una respuesta SOAP con RUC diferente y se probó un reintento acotado. El navegador no forma parte de la ruta operativa. Ver GUIA_SUNAT.md.
 Los proveedores comerciales tienen tests de estructura y manejo de errores; no se probaron con credenciales reales. No se midió aceleración GPU.
 El token Telegram, su webhook y la conversación real quedan pendientes. La cuenta administradora n8n debe crearla cada equipo al abrir la interfaz. Completar nombres reales y contrastar con el PDF original no disponible.
 

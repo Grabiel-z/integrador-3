@@ -25,6 +25,8 @@ def update_summary():
                'soap_exitosas': len(calls), 'llamadas': calls,
                'domicilios_con_datos': sum(bool(r.get('Dirección fiscal')) for r in records),
                'fechas_inicio_obtenidas': sum(bool(r.get('Fecha de inicio de actividades')) for r in records),
+               'consolidados_multifuente': sum(r.get('Tipo de resultado') == 'Consolidado multifuente' for r in records),
+               'fichas_oficiales_guardadas': sum(Path(f'evidencias/sunat_asistido/{ruc}.json').exists() for ruc in rucs),
                'fichas_navegador_visible': sum(Path(f'evidencias/sunat_asistido/{ruc}.json').exists() for ruc in rucs),
                'registros': records}
     save_json(summary_path, summary)

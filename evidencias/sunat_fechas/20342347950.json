@@ -1,0 +1,18 @@
+{
+  "ruc": "20342347950",
+  "razon_social": "BADINOTTI PERU S.A.",
+  "fecha": "25/02/1997",
+  "fecha_iso": "1997-02-25",
+  "valor_observado": "25 de febrero de 1997",
+  "inscripcion_observada": "27 de febrero de 1997",
+  "verificacion_declarada_por_fuente": "30 de octubre de 2026",
+  "url": "https://elruc.pe/ruc/20342347950-badinotti-peru-s-a",
+  "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+  "fecha_consulta": "2026-11-02T09:46:26-05:00",
+  "http_status": 200,
+  "sha256_respuesta": "0941cb05f72d3a6bfb1ef8d7ffafd1cce5ee804c3d38f157646682c489998e49",
+  "robots_url": "https://elruc.pe/robots.txt",
+  "robots_permite_ficha": true,
+  "requiere_token": false,
+  "intervencion_humana": false
+}

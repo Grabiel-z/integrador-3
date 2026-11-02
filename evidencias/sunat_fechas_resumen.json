@@ -1,0 +1,109 @@
+{
+  "fecha": "2026-11-02T09:47:41-05:00",
+  "total_requerido": 20,
+  "obtenidas": 20,
+  "intervencion_humana": false,
+  "fuente": "ElRUC.pe: páginas públicas; fuente complementaria",
+  "resultados": [
+    {
+      "ruc": "20377339461",
+      "passed": true,
+      "fecha": "01/10/1997"
+    },
+    {
+      "ruc": "20605820817",
+      "passed": true,
+      "fecha": "01/02/2020"
+    },
+    {
+      "ruc": "20602207138",
+      "passed": true,
+      "fecha": "01/06/2017"
+    },
+    {
+      "ruc": "20342347950",
+      "passed": true,
+      "fecha": "25/02/1997"
+    },
+    {
+      "ruc": "20523491840",
+      "passed": true,
+      "fecha": "07/10/2009"
+    },
+    {
+      "ruc": "20538658368",
+      "passed": true,
+      "fecha": "01/03/2011"
+    },
+    {
+      "ruc": "20607481491",
+      "passed": true,
+      "fecha": "19/02/2021"
+    },
+    {
+      "ruc": "20517320570",
+      "passed": true,
+      "fecha": "22/10/2007"
+    },
+    {
+      "ruc": "20102179898",
+      "passed": true,
+      "fecha": "20/11/1990"
+    },
+    {
+      "ruc": "20605530509",
+      "passed": true,
+      "fecha": "18/11/2019"
+    },
+    {
+      "ruc": "20609986442",
+      "passed": true,
+      "fecha": "14/09/2022"
+    },
+    {
+      "ruc": "20504565794",
+      "passed": true,
+      "fecha": "24/06/2002"
+    },
+    {
+      "ruc": "20100130204",
+      "passed": true,
+      "fecha": "20/08/1951"
+    },
+    {
+      "ruc": "20608551701",
+      "passed": true,
+      "fecha": "28/09/2021"
+    },
+    {
+      "ruc": "20100053455",
+      "passed": true,
+      "fecha": "01/05/1897"
+    },
+    {
+      "ruc": "20509507199",
+      "passed": true,
+      "fecha": "27/09/2004"
+    },
+    {
+      "ruc": "20100047218",
+      "passed": true,
+      "fecha": "09/04/1889"
+    },
+    {
+      "ruc": "20100030595",
+      "passed": true,
+      "fecha": "01/01/1966"
+    },
+    {
+      "ruc": "20330401991",
+      "passed": true,
+      "fecha": "31/08/1996"
+    },
+    {
+      "ruc": "20513074370",
+      "passed": true,
+      "fecha": "04/05/2006"
+    }
+  ]
+}

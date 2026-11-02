@@ -1,0 +1,18 @@
+{
+  "ruc": "20607481491",
+  "razon_social": "BAIKA PERU S.A.C.",
+  "fecha": "19/02/2021",
+  "fecha_iso": "2021-02-19",
+  "valor_observado": "19 de febrero de 2021",
+  "inscripcion_observada": "17 de febrero de 2021",
+  "verificacion_declarada_por_fuente": "1 de noviembre de 2026",
+  "url": "https://elruc.pe/ruc/20607481491-baika-peru-s-a-c",
+  "fuente": "ElRUC.pe — ficha pública, fuente complementaria independiente",
+  "fecha_consulta": "2026-11-02T09:46:40-05:00",
+  "http_status": 200,
+  "sha256_respuesta": "37e263b4966966905011f9ce33ac0a4232037b8aefbe2b9680f31ce5e0c3b73a",
+  "robots_url": "https://elruc.pe/robots.txt",
+  "robots_permite_ficha": true,
+  "requiere_token": false,
+  "intervencion_humana": false
+}
