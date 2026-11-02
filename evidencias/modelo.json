@@ -1,0 +1,22 @@
+{
+  "model": "gemma4:e2b-it-q4_K_M",
+  "download_seconds": 545.401848859,
+  "details": {
+    "parent_model": "gemma4-validation-20260929:e2b-imatrix-attention-q6-q8-draft2",
+    "format": "gguf",
+    "family": "gemma4",
+    "families": [
+      "gemma4"
+    ],
+    "parameter_size": "4.6B",
+    "quantization_level": "Q4_K_M",
+    "runner": "llamacpp"
+  },
+  "capabilities": [
+    "completion",
+    "vision",
+    "audio",
+    "tools",
+    "thinking"
+  ]
+}

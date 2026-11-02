@@ -1,0 +1,7 @@
+{
+  "entrada_ruc_validos": 20,
+  "salida_filas": 20,
+  "ruc_texto": true,
+  "campos_no_observados_vacios": true,
+  "vista_generada_desde_archivo": true
+}

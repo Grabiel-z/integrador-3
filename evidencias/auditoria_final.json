@@ -1,0 +1,8 @@
+{
+  "estado": "VERIFICADO",
+  "empresas_entrada": 20,
+  "fichas_SUNAT_completas": 0,
+  "fechas_no_consultadas_vacias": true,
+  "pdf_paginas": 12,
+  "trazabilidad": "evidencias/SUNAT_TRAZABILIDAD.md"
+}

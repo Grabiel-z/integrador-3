@@ -1,0 +1,6 @@
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+353f7441c5b3   ta4-cloudflared-1     0.09%     23.24MiB / 15.31GiB   0.15%     61.8kB / 49.2kB   668kB / 827kB    15
+92c51e5c95ff   ta4-webhook-proxy-1   0.00%     9.332MiB / 15.31GiB   0.06%     6.59kB / 2kB      164kB / 528kB    13
+7edb26abbcaa   ta4-n8n-1             0.50%     432.9MiB / 1GiB       42.27%    110kB / 3.19MB    43.9MB / 71MB    35
+9a26b39a125c   ta4-ai-gateway-1      0.19%     39.62MiB / 512MiB     7.74%     107kB / 44.2kB    7.97MB / 5.2MB   4
+41c07321b780   ta4-ollama-1          2.40%     5.026GiB / 7GiB       71.80%    4.72GB / 88.2MB   7.7GB / 4.6GB    42

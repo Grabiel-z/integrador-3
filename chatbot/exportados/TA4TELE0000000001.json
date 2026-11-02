@@ -1,0 +1,166 @@
+[
+  {
+    "id": "TA4TELE0000000001",
+    "name": "CHATBOT_TELEGRAM",
+    "nodes": [
+      {
+        "id": "e7204cc6-a782-58f8-a6cd-645e3e07e388",
+        "name": "Telegram Trigger",
+        "type": "n8n-nodes-base.telegramTrigger",
+        "typeVersion": 1.2,
+        "position": [
+          0,
+          0
+        ],
+        "parameters": {
+          "updates": [
+            "message"
+          ],
+          "additionalFields": {}
+        },
+        "webhookId": "ta4-telegram-85f1ba71-5746-49f0-91ca-8f030cfa258b"
+      },
+      {
+        "id": "2744d695-9f57-5804-93da-1bf7d3deb276",
+        "name": "Validar mensaje Telegram",
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.2,
+        "position": [
+          220,
+          0
+        ],
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 2
+            },
+            "conditions": [
+              {
+                "id": "text",
+                "leftValue": "={{ typeof $json.message?.text === 'string' }}",
+                "rightValue": true,
+                "operator": {
+                  "type": "boolean",
+                  "operation": "true",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        }
+      },
+      {
+        "id": "df1ba720-3718-5fec-acf7-cffecd282787",
+        "name": "Extraer texto y Chat ID",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          440,
+          0
+        ],
+        "parameters": {
+          "jsCode": "const m=$json.message; return [{json:{message:m.text,chat_id:m.chat.id,conversation_id:String(m.chat.id)}}];"
+        }
+      },
+      {
+        "id": "06f9c1cb-aaea-54e2-a923-3812b379d88d",
+        "name": "Ejecutar CORE_CHATBOT",
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.2,
+        "position": [
+          660,
+          0
+        ],
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "TA4CORE0000000001",
+            "mode": "id"
+          },
+          "options": {
+            "waitForSubWorkflow": true
+          }
+        }
+      },
+      {
+        "id": "ec7c60cb-fd06-5879-933f-b9e8e832a0cb",
+        "name": "Telegram Send Message",
+        "type": "n8n-nodes-base.telegram",
+        "typeVersion": 1.2,
+        "position": [
+          900,
+          0
+        ],
+        "parameters": {
+          "resource": "message",
+          "operation": "sendMessage",
+          "chatId": "={{ $('Extraer texto y Chat ID').first().json.chat_id }}",
+          "text": "={{ $json.response }}",
+          "additionalFields": {
+            "appendAttribution": false
+          }
+        }
+      }
+    ],
+    "connections": {
+      "Telegram Trigger": {
+        "main": [
+          [
+            {
+              "node": "Validar mensaje Telegram",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Validar mensaje Telegram": {
+        "main": [
+          [
+            {
+              "node": "Extraer texto y Chat ID",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          []
+        ]
+      },
+      "Extraer texto y Chat ID": {
+        "main": [
+          [
+            {
+              "node": "Ejecutar CORE_CHATBOT",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Ejecutar CORE_CHATBOT": {
+        "main": [
+          [
+            {
+              "node": "Telegram Send Message",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "settings": {
+      "executionOrder": "v1",
+      "saveDataErrorExecution": "all",
+      "saveDataSuccessExecution": "all",
+      "callerPolicy": "workflowsFromSameOwner",
+      "executionTimeout": 180
+    },
+    "active": false
+  }
+]

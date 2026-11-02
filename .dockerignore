@@ -1,0 +1,12 @@
+.git
+.agents
+.codex
+.aws
+.env
+.env.*
+*.zip
+tmp
+__pycache__
+.pytest_cache
+evidencias
+output

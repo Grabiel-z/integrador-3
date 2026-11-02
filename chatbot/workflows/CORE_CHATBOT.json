@@ -1,0 +1,193 @@
+{
+  "id": "TA4CORE0000000001",
+  "name": "CORE_CHATBOT",
+  "active": false,
+  "nodes": [
+    {
+      "id": "f8494bb9-d106-5ac2-98da-10ecf7819df8",
+      "name": "Entrada CORE",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "inputSource": "passthrough"
+      }
+    },
+    {
+      "id": "06dd307b-16d4-5e23-9f13-48c6d2ab3197",
+      "name": "Normalizar mensaje",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        220,
+        0
+      ],
+      "parameters": {
+        "jsCode": "const raw = $input.first().json;\nconst value = raw.message ?? raw.body?.message ?? '';\nconst text = typeof value === 'string' ? value.trim() : '';\nconst normalized = text.normalize('NFD').replace(/[\\u0300-\\u036f]/g, '').toLowerCase();\nconst injection = /ignora|ignore|system prompt|prompt del sistema|revela|reveal|instrucciones internas|actua como|olvida tus|<\\|/.test(normalized);\nreturn [{json:{message:text, normalized, conversation_id:String(raw.conversation_id ?? raw.body?.conversation_id ?? ''),\n  invalid:!text ? 'empty' : text.length > 1200 ? 'too_long' : injection ? 'injection' : ''}}];\n"
+      }
+    },
+    {
+      "id": "1fc3d5e2-e797-59b8-9bd3-54b28a34146c",
+      "name": "Recuperar conocimiento",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        0
+      ],
+      "parameters": {
+        "jsCode": "// KB se inyecta al generar el workflow; editar conocimiento.json y regenerar.\nconst kb = {\"nombre\": \"Restaurante Sabor Peruano\", \"ficticio\": true, \"descripcion\": \"Restaurante ficticio de cocina criolla peruana para demostración académica.\", \"direccion\": \"Av. Los Sabores 123, Miraflores, Lima (dirección ficticia)\", \"horario\": {\"lunes_sabado\": \"12:00 a 22:00\", \"domingo\": \"12:00 a 18:00\"}, \"menu\": [{\"plato\": \"Menú del día\", \"precio\": 18, \"detalle\": \"Entrada, plato de fondo y refresco; opciones según el día\"}, {\"plato\": \"Ceviche clásico\", \"precio\": 32}, {\"plato\": \"Lomo saltado\", \"precio\": 35}, {\"plato\": \"Ají de gallina\", \"precio\": 26}, {\"plato\": \"Arroz con pollo\", \"precio\": 24}, {\"plato\": \"Causa limeña\", \"precio\": 16}], \"delivery\": {\"zona\": \"Miraflores\", \"costo\": 6, \"horario\": \"12:00 a 21:00 de lunes a sábado; domingos hasta las 17:00\", \"confirmacion\": \"El personal confirma cobertura y disponibilidad\"}, \"pagos\": [\"efectivo\", \"tarjetas Visa y Mastercard\", \"Yape\", \"Plin\"], \"reservas\": \"Las reservas deben coordinarse con el personal del restaurante. Este bot informa, pero no registra ni confirma reservas.\", \"servicios\": [\"atención en salón\", \"comida para llevar\", \"delivery en Miraflores\"], \"promociones\": \"No hay promociones registradas en la base de conocimiento.\", \"alergenos\": \"El personal debe confirmar ingredientes y alérgenos antes de realizar el pedido.\", \"cierre\": \"Gracias por contactar a Sabor Peruano. ¿Puedo ayudarte con otra consulta?\"};\nconst input = $input.first().json;\nconst t = input.normalized;\nconst soles = n => 'S/ ' + n.toFixed(2);\nconst facts = {\n  saludo:'¡Hola! Soy el asistente virtual del Restaurante Sabor Peruano, un negocio ficticio de demostración. Puedo informar sobre menú, horarios, ubicación, delivery y reservas.',\n  horario:`Atendemos de lunes a sábado de ${kb.horario.lunes_sabado} y domingos de ${kb.horario.domingo}.`,\n  ubicacion:`Estamos en ${kb.direccion}.`,\n  menu:kb.menu.map(p=>`${p.plato}: ${soles(p.precio)}${p.detalle ? ' ('+p.detalle+')' : ''}`).join('; ')+'.',\n  menu_dia:`El menú del día cuesta ${soles(kb.menu[0].precio)} e incluye ${kb.menu[0].detalle.toLowerCase()}.`,\n  ceviche:`Sí, tenemos ${kb.menu[1].plato} a ${soles(kb.menu[1].precio)}. La disponibilidad debe confirmarla el personal.`,\n  delivery:`Ofrecemos delivery en ${kb.delivery.zona} por ${soles(kb.delivery.costo)}, de ${kb.delivery.horario}. ${kb.delivery.confirmacion}.`,\n  pagos:`Aceptamos ${kb.pagos.join(', ')}. El bot no verifica ni confirma pagos.`,\n  reservas:kb.reservas,\n  recomendaciones:'Puedes elegir '+kb.menu.slice(1,5).map(p=>p.plato+' ('+soles(p.precio)+')').join(', ')+'. Consulta ingredientes con el personal.',\n  economico:(()=>{const p=kb.menu.reduce((a,b)=>a.precio<b.precio?a:b);return `La opción más económica registrada es ${p.plato}, a ${soles(p.precio)}.`;})(),\n  promociones:kb.promociones,\n  servicios:`Ofrecemos ${kb.servicios.join(', ')}.`,\n  alergenos:kb.alergenos\n};\nlet ids=[];\nif(/horario|abren|domingo|cierran|hora de atencion/.test(t)) ids.push('horario');\nif(/ubic|direccion|donde|llegar/.test(t)) ids.push('ubicacion');\nif(/menu/.test(t)) ids.push(/cuanto|cuesta|precio|dia/.test(t)?'menu_dia':'menu');\nif(/ceviche/.test(t)) ids.push('ceviche');\nif(/carta|platos|comida/.test(t)) ids.push('menu');\nif(/recomiend/.test(t)) ids.push('recomendaciones');\nif(/economico|mas barato|menor precio/.test(t)) ids.push('economico');\nif(/delivery|domicilio|reparto/.test(t)) ids.push('delivery');\nif(/yape|plin|pago|tarjeta|efectivo/.test(t)) ids.push('pagos');\nif(/reserv/.test(t)) ids.push('reservas');\nif(/promoci|descuento/.test(t)) ids.push('promociones');\nif(/servicio|llevar/.test(t)) ids.push('servicios');\nif(/alerg|ingrediente|gluten|vegetarian/.test(t)) ids.push('alergenos');\nif(/^(hola|buenas|buenos dias|buenas tardes|buenas noches)[!.\\s]*$/.test(t)) ids.push('saludo');\nids=[...new Set(ids)];\nconst outside=/presidente|politic|futbol|programa|codigo python|capital de|matemat|receta|bitcoin|clima/.test(t);\nlet direct='';\nif(input.invalid==='empty') direct='Por favor, escribe tu consulta sobre el restaurante.';\nelse if(input.invalid==='too_long') direct='Tu mensaje es demasiado largo. Envíalo con un máximo de 1200 caracteres.';\nelse if(input.invalid==='injection') direct='Solo puedo ayudar con información pública del restaurante; no comparto instrucciones internas.';\nelse if(outside) direct='Solo puedo atender preguntas sobre el Restaurante Sabor Peruano.';\nelse if(!ids.length) direct='No tengo información suficiente sobre esa consulta. Puedes preguntar por menú, horarios, dirección, delivery o reservas.';\nreturn [{json:{...input, facts:Object.fromEntries(ids.map(id=>[id,facts[id]])), fact_ids:ids,\n  needs_ai:!direct, direct, closing:kb.cierre,\n  context:JSON.stringify({negocio:kb.nombre,ficticio:true,hechos:ids.map(id=>({id,texto:facts[id]}))})}}];\n"
+      }
+    },
+    {
+      "id": "928bf14b-5411-583e-8684-aab521f9fe6e",
+      "name": "Requiere IA",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        660,
+        0
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "use-ai",
+              "leftValue": "={{ $json.needs_ai }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "75029429-c28f-5f15-abf0-41b865b08388",
+      "name": "Invocar AI Gateway",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        900,
+        -100
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "http://ai-gateway:8000/chat",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({message: $json.message, context: $json.context, conversation_id: $json.conversation_id}) }}",
+        "options": {
+          "timeout": 150000,
+          "response": {
+            "response": {
+              "neverError": true,
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "875229eb-c117-5b2a-b67f-ecd688f0485b",
+      "name": "Validar y cerrar",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1150,
+        0
+      ],
+      "parameters": {
+        "jsCode": "const base = $('Recuperar conocimiento').first().json;\nconst llm = $input.first().json;\nlet selected=[];\nlet status=base.needs_ai ? 'error_proveedor' : 'regla';\nif(base.needs_ai && typeof llm.response==='string') {\n  try {\n    const parsed=JSON.parse(llm.response);\n    if(Array.isArray(parsed.fact_ids) && parsed.fact_ids.length && parsed.fact_ids.every(id=>Object.hasOwn(base.facts,id))) {\n      selected=[...new Set(parsed.fact_ids)]; status='verificado';\n    } else status='respuesta_invalida';\n  } catch {status='respuesta_invalida';}\n}\n// Se conservan todos los hechos detectados para no omitir horarios ni precios.\nconst ids = base.needs_ai ? [...new Set([...base.fact_ids,...selected])] : [];\nlet answer = base.direct || ids.map(id=>base.facts[id]).join('\\n');\nif(base.needs_ai && status!=='verificado') answer+='\\nLa IA no está disponible o no validó su respuesta; esta información procede de nuestra base de conocimiento.';\nreturn [{json:{response:answer+'\\n\\n'+base.closing, ai_status:status, ai_used:status==='verificado',\n  provider:llm.provider ?? null, model:llm.model ?? null, fact_ids:ids, ai_elapsed_seconds:llm.elapsed_seconds ?? null,\n  metrics:llm.metrics ?? {}, conversation_id:base.conversation_id}}];\n"
+      }
+    }
+  ],
+  "connections": {
+    "Entrada CORE": {
+      "main": [
+        [
+          {
+            "node": "Normalizar mensaje",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalizar mensaje": {
+      "main": [
+        [
+          {
+            "node": "Recuperar conocimiento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recuperar conocimiento": {
+      "main": [
+        [
+          {
+            "node": "Requiere IA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Requiere IA": {
+      "main": [
+        [
+          {
+            "node": "Invocar AI Gateway",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Validar y cerrar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Invocar AI Gateway": {
+      "main": [
+        [
+          {
+            "node": "Validar y cerrar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionTimeout": 180
+  },
+  "pinData": {},
+  "tags": []
+}

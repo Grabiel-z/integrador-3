@@ -1,0 +1,141 @@
+[
+  {
+    "RUC": "20377339461",
+    "Fecha de consulta": "2026-11-02T07:35:39-05:00",
+    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
+    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; duración 1.75s"
+  },
+  {
+    "RUC": "20605820817",
+    "Fecha de consulta": "",
+    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
+    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
+    "Fecha de procesamiento": "2026-11-02T07:35:40-05:00"
+  },
+  {
+    "RUC": "20602207138",
+    "Fecha de consulta": "",
+    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
+    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
+    "Fecha de procesamiento": "2026-11-02T07:35:40-05:00"
+  },
+  {
+    "RUC": "20342347950",
+    "Fecha de consulta": "",
+    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
+    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
+    "Fecha de procesamiento": "2026-11-02T07:35:40-05:00"
+  },
+  {
+    "RUC": "20523491840",
+    "Fecha de consulta": "",
+    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
+    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
+    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+  },
+  {
+    "RUC": "20538658368",
+    "Fecha de consulta": "",
+    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
+    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
+    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+  },
+  {
+    "RUC": "20607481491",
+    "Fecha de consulta": "",
+    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
+    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
+    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+  },
+  {
+    "RUC": "20517320570",
+    "Fecha de consulta": "",
+    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
+    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
+    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+  },
+  {
+    "RUC": "20102179898",
+    "Fecha de consulta": "",
+    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
+    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
+    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+  },
+  {
+    "RUC": "20605530509",
+    "Fecha de consulta": "",
+    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
+    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
+    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+  },
+  {
+    "RUC": "20609986442",
+    "Fecha de consulta": "",
+    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
+    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
+    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+  },
+  {
+    "RUC": "20504565794",
+    "Fecha de consulta": "",
+    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
+    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
+    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+  },
+  {
+    "RUC": "20100130204",
+    "Fecha de consulta": "",
+    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
+    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
+    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+  },
+  {
+    "RUC": "20608551701",
+    "Fecha de consulta": "",
+    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
+    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
+    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+  },
+  {
+    "RUC": "20100053455",
+    "Fecha de consulta": "",
+    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
+    "Observaciones": "No se intentó consulta: control HTTP 403 ya observado en el portal para el lote; sin datos fiscales inferidos",
+    "Fecha de procesamiento": "2026-11-02T08:01:08-05:00"
+  },
+  {
+    "RUC": "20509507199",
+    "Fecha de consulta": "",
+    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
+    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
+    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+  },
+  {
+    "RUC": "20100047218",
+    "Fecha de consulta": "",
+    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
+    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
+    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+  },
+  {
+    "RUC": "20100030595",
+    "Fecha de consulta": "",
+    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
+    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
+    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+  },
+  {
+    "RUC": "20330401991",
+    "Fecha de consulta": "",
+    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
+    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
+    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+  },
+  {
+    "RUC": "20513074370",
+    "Fecha de consulta": "",
+    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
+    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
+    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "tipo": "peticiones reales a HTTPS p\u00fablico; administraci\u00f3n y pruebas bloqueadas",
+  "records": [
+    {
+      "url": "https://john-recipients-drums-fraction.trycloudflare.com/",
+      "http_status": 404
+    },
+    {
+      "url": "https://john-recipients-drums-fraction.trycloudflare.com/rest/settings",
+      "http_status": 404
+    },
+    {
+      "url": "https://john-recipients-drums-fraction.trycloudflare.com/webhook/ta4-pruebas",
+      "http_status": 404
+    }
+  ]
+}

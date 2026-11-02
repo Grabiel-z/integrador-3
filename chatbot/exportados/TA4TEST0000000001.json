@@ -1,0 +1,138 @@
+[
+  {
+    "id": "TA4TEST0000000001",
+    "name": "PRUEBAS_CHATBOT",
+    "nodes": [
+      {
+        "id": "803be3db-21ed-56ad-a42f-0e13899b46dc",
+        "name": "Webhook local",
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2,
+        "position": [
+          0,
+          0
+        ],
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "ta4-pruebas",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "webhookId": "TA4-local-tests"
+      },
+      {
+        "id": "b7ca2a3f-5022-5b19-9acd-bb9a80b0a49f",
+        "name": "Trigger manual",
+        "type": "n8n-nodes-base.manualTrigger",
+        "typeVersion": 1,
+        "position": [
+          0,
+          220
+        ],
+        "parameters": {}
+      },
+      {
+        "id": "f2ab3e3a-23a3-5e13-80fe-3e62171bf918",
+        "name": "Mensaje manual",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          220,
+          220
+        ],
+        "parameters": {
+          "jsCode": "return [{json:{message:'¿Cuál es el horario?'}}];"
+        }
+      },
+      {
+        "id": "06f9c1cb-aaea-54e2-a923-3812b379d88d",
+        "name": "Ejecutar CORE_CHATBOT",
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.2,
+        "position": [
+          440,
+          0
+        ],
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "TA4CORE0000000001",
+            "mode": "id"
+          },
+          "options": {
+            "waitForSubWorkflow": true
+          }
+        }
+      },
+      {
+        "id": "218fcee6-b6e0-51f2-af7b-6ffb100bdd29",
+        "name": "Responder webhook",
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4,
+        "position": [
+          680,
+          0
+        ],
+        "parameters": {
+          "respondWith": "json",
+          "responseBody": "={{ JSON.stringify($json) }}",
+          "options": {}
+        }
+      }
+    ],
+    "connections": {
+      "Webhook local": {
+        "main": [
+          [
+            {
+              "node": "Ejecutar CORE_CHATBOT",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Trigger manual": {
+        "main": [
+          [
+            {
+              "node": "Mensaje manual",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Mensaje manual": {
+        "main": [
+          [
+            {
+              "node": "Ejecutar CORE_CHATBOT",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Ejecutar CORE_CHATBOT": {
+        "main": [
+          [
+            {
+              "node": "Responder webhook",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "settings": {
+      "executionOrder": "v1",
+      "saveDataErrorExecution": "all",
+      "saveDataSuccessExecution": "all",
+      "callerPolicy": "workflowsFromSameOwner",
+      "executionTimeout": 180
+    },
+    "active": false
+  }
+]

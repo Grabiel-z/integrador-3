@@ -1,0 +1,22 @@
+{
+  "fecha": "2026-11-02T07:43:41-05:00",
+  "tipo": "gateway ejecutado en Docker mediante TestClient y solicitudes HTTP a Ollama real",
+  "records": [
+    {
+      "caso": "modelo ausente en Ollama real",
+      "http_status": 502,
+      "body": {
+        "detail": "MODELO_AUSENTE"
+      },
+      "passed": true
+    },
+    {
+      "caso": "timeout real de 1 ms",
+      "http_status": 504,
+      "body": {
+        "detail": "Tiempo de espera agotado en el proveedor de IA"
+      },
+      "passed": true
+    }
+  ]
+}

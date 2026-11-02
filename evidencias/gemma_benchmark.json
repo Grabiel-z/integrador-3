@@ -1,0 +1,116 @@
+{
+  "fecha": "2026-11-02T07:46:18-05:00",
+  "version": {
+    "version": "0.40.13"
+  },
+  "model": "gemma4:e2b-it-q4_K_M",
+  "details": {
+    "parent_model": "gemma4-validation-20260929:e2b-imatrix-attention-q6-q8-draft2",
+    "format": "gguf",
+    "family": "gemma4",
+    "families": [
+      "gemma4"
+    ],
+    "parameter_size": "4.6B",
+    "quantization_level": "Q4_K_M",
+    "runner": "llamacpp"
+  },
+  "capabilities": [
+    "completion",
+    "vision",
+    "audio",
+    "tools",
+    "thinking"
+  ],
+  "runs": [
+    {
+      "run": 1,
+      "first_token_seconds": 7.741368664999982,
+      "elapsed_seconds": 8.563768250999829,
+      "response": "El menú cuesta S/18.",
+      "metrics": {
+        "total_duration": 8562905072,
+        "load_duration": 6923393956,
+        "prompt_eval_count": 50,
+        "prompt_eval_cached_count": 0,
+        "prompt_eval_duration": 806280000,
+        "eval_count": 9,
+        "eval_duration": 830772000
+      },
+      "spanish_and_fact_check": true
+    },
+    {
+      "run": 2,
+      "first_token_seconds": 0.1780063749999954,
+      "elapsed_seconds": 0.9511010940000233,
+      "response": "El menú cuesta S/18.",
+      "metrics": {
+        "total_duration": 949890973,
+        "load_duration": 677155,
+        "prompt_eval_count": 50,
+        "prompt_eval_cached_count": 45,
+        "prompt_eval_duration": 171698000,
+        "eval_count": 9,
+        "eval_duration": 775734000
+      },
+      "spanish_and_fact_check": true
+    },
+    {
+      "run": 3,
+      "first_token_seconds": 0.13003090799998063,
+      "elapsed_seconds": 0.9853771430000506,
+      "response": "El menú cuesta S/18.",
+      "metrics": {
+        "total_duration": 984641495,
+        "load_duration": 625175,
+        "prompt_eval_count": 50,
+        "prompt_eval_cached_count": 45,
+        "prompt_eval_duration": 126776000,
+        "eval_count": 9,
+        "eval_duration": 855620000
+      },
+      "spanish_and_fact_check": true
+    }
+  ],
+  "average_seconds": 3.5000821626666343,
+  "errors": 0,
+  "loaded_model_memory": {
+    "models": [
+      {
+        "name": "gemma4:e2b-it-q4_K_M",
+        "model": "gemma4:e2b-it-q4_K_M",
+        "size": 1080935054,
+        "digest": "b37049369adfe3d2b653af0ab301a062ca5cbe96ace6aa0d3f2559ee9b563fc2",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "gemma4",
+          "families": [
+            "gemma4"
+          ],
+          "parameter_size": "4.6B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2026-11-02T12:56:14.342139369Z",
+        "size_vram": 0,
+        "context_length": 2048,
+        "runner": "llamacpp"
+      }
+    ]
+  },
+  "missing_model_http_status": 404,
+  "outside_business_probe": {
+    "response": "{\"fact_ids\":[]}",
+    "provider": "ollama",
+    "model": "gemma4:e2b-it-q4_K_M",
+    "elapsed_seconds": 4.514,
+    "metrics": {
+      "total_duration": 4403568158,
+      "load_duration": 711183,
+      "prompt_eval_count": 300,
+      "eval_count": 7,
+      "eval_duration": 452200000
+    }
+  },
+  "outside_business_passed": true
+}

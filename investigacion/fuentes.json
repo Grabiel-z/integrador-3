@@ -1,0 +1,27 @@
+{
+  "fecha_revision": "2026-11-02",
+  "consigna_original": "No localizada en Descargas, Documentos ni adjuntos revisados; requisitos tomados del texto entregado por el usuario.",
+  "fuentes": [
+    {"titulo":"SUNAT: consultar RUC","url":"https://www.gob.pe/es/565-verificar-el-estado-del-ruc"},
+    {"titulo":"SUNAT: consulta múltiple hasta 100 RUC","url":"https://www.gob.pe/13397-consultar-el-estado-de-hasta-100-n-meros-de-ruc"},
+    {"titulo":"SUNAT: relación de agentes de retención","url":"https://ww3.sunat.gob.pe/descarga/AgentRet/AgenRet31.html"},
+    {"titulo":"SUNAT: agentes de retención, continuación (Interbank)","url":"https://ww3.sunat.gob.pe/descarga/AgentRet/AgenRet32.html"},
+    {"titulo":"Ollama: modelo exacto Gemma 4 E2B Q4_K_M","url":"https://ollama.com/library/gemma4:e2b-it-q4_K_M"},
+    {"titulo":"Ollama: contrato de chat","url":"https://docs.ollama.com/api/chat"},
+    {"titulo":"Ollama: releases oficiales","url":"https://github.com/ollama/ollama/releases/tag/v0.40.13"},
+    {"titulo":"n8n: releases oficiales","url":"https://github.com/n8n-io/n8n/releases/tag/n8n%402.45.7"},
+    {"titulo":"n8n: importación y publicación por CLI","url":"https://docs.n8n.io/hosting/cli-commands/"},
+    {"titulo":"n8n: workflows","url":"https://docs.n8n.io/workflows/"},
+    {"titulo":"UiPath: carrera de desarrollador","url":"https://academy.uipath.com/career-paths/automation-developer"},
+    {"titulo":"Microsoft: ingeniería de IA","url":"https://learn.microsoft.com/en-us/training/career-paths/ai-engineer"},
+    {"titulo":"AWS: DevOps","url":"https://aws.amazon.com/devops/what-is-devops/"},
+    {"titulo":"UiPath: certificaciones","url":"https://academy.uipath.com/certifications"},
+    {"titulo":"AWS Certified AI Practitioner","url":"https://aws.amazon.com/certification/certified-ai-practitioner/"},
+    {"titulo":"CNCF: Certified Kubernetes Administrator","url":"https://www.cncf.io/training/certification/cka/"},
+    {"titulo":"OpenAI: generación de texto y Responses API","url":"https://developers.openai.com/api/docs/guides/text"},
+    {"titulo":"Google: modelos Gemini API","url":"https://ai.google.dev/gemini-api/docs/models"},
+    {"titulo":"Anthropic: modelos Claude","url":"https://platform.claude.com/docs/en/models/overview"},
+    {"titulo":"Telegram: webhooks de bots","url":"https://core.telegram.org/bots/api#setwebhook"},
+    {"titulo":"Cloudflare: Quick Tunnels","url":"https://developers.cloudflare.com/tunnel/get-started/quick-tunnels/"}
+  ]
+}

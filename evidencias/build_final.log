@@ -1,0 +1,64 @@
+#0 building with "default" instance using docker driver
+
+#1 [ai-gateway internal] load build definition from Dockerfile
+#1 transferring dockerfile: 637B done
+#1 DONE 0.0s
+
+#2 [model-init internal] load build definition from Dockerfile
+#2 transferring dockerfile: 637B done
+#2 DONE 0.0s
+
+#3 [model-init internal] load metadata for docker.io/library/python:3.12.12-slim-bookworm
+#3 DONE 0.6s
+
+#4 [model-init internal] load .dockerignore
+#4 transferring context: 131B done
+#4 DONE 0.0s
+
+#5 [ai-gateway 1/8] FROM docker.io/library/python:3.12.12-slim-bookworm@sha256:593bd06efe90efa80dc4eee3948be7c0fde4134606dd40d8dd8dbcade98e669c
+#5 DONE 0.0s
+
+#6 [ai-gateway internal] load .dockerignore
+#6 transferring context: 131B done
+#6 DONE 0.0s
+
+#7 [model-init internal] load build context
+#7 transferring context: 354.33kB done
+#7 DONE 0.0s
+
+#8 [model-init 4/8] COPY requirements.lock /tmp/requirements.txt
+#8 CACHED
+
+#9 [model-init 6/8] RUN playwright install --with-deps --only-shell chromium && chmod -R a+rX /ms-playwright
+#9 CACHED
+
+#10 [model-init 3/8] WORKDIR /app
+#10 CACHED
+
+#11 [model-init 5/8] RUN pip install --no-cache-dir -r /tmp/requirements.txt
+#11 CACHED
+
+#12 [model-init 2/8] RUN apt-get update && apt-get install -y --no-install-recommends graphviz poppler-utils fonts-dejavu-core && rm -rf /var/lib/apt/lists/*
+#12 CACHED
+
+#13 [ai-gateway internal] load build context
+#13 transferring context: 354.33kB done
+#13 DONE 0.0s
+
+#14 [model-init 7/8] RUN useradd --uid 1000 --create-home appuser || true
+#14 CACHED
+
+#15 [ai-gateway 8/8] COPY . /app
+#15 DONE 0.1s
+
+#16 [model-init] exporting to image
+#16 exporting layers 0.0s done
+#16 writing image sha256:f33180f2735f46804ef688c1ba5c09260ca0e0ae117a22c0f53e1e9074935757 done
+#16 naming to docker.io/library/ta4-python:1.0 done
+#16 DONE 0.1s
+
+#17 [ai-gateway] exporting to image
+#17 exporting layers 0.0s done
+#17 writing image sha256:4d80a9b18a1bb92041fe642c0befada6d9d05896b2d08618dc221adf93d2dbd4 done
+#17 naming to docker.io/library/ta4-python:1.0 done
+#17 DONE 0.1s

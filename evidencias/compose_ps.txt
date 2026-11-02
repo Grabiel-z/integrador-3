@@ -1,0 +1,8 @@
+NAME                  IMAGE                              COMMAND                  SERVICE         CREATED          STATUS                     PORTS
+ta4-ai-gateway-1      ta4-python:1.0                     "uvicorn gateway.app…"   ai-gateway      4 minutes ago    Up 4 minutes (healthy)     
+ta4-cloudflared-1     cloudflare/cloudflared:2026.10.7   "cloudflared tunnel …"   cloudflared     12 minutes ago   Exited (0) 6 minutes ago   
+ta4-model-init-1      ta4-python:1.0                     "python -m tools.ini…"   model-init      4 minutes ago    Exited (0) 2 minutes ago   
+ta4-n8n-1             docker.n8n.io/n8nio/n8n:2.45.7     "tini -- /docker-ent…"   n8n             4 minutes ago    Up 4 minutes (healthy)     127.0.0.1:5678->5678/tcp
+ta4-n8n-bootstrap-1   docker.n8n.io/n8nio/n8n:2.45.7     "/bin/sh /bootstrap/…"   n8n-bootstrap   22 minutes ago   Exited (0) 2 minutes ago   
+ta4-ollama-1          ollama/ollama:0.40.13              "/bin/ollama serve"      ollama          22 minutes ago   Up 8 minutes (healthy)     11434/tcp
+ta4-webhook-proxy-1   nginx:1.28.0-alpine                "/docker-entrypoint.…"   webhook-proxy   12 minutes ago   Exited (0) 6 minutes ago   

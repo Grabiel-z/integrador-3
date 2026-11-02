@@ -1,0 +1,154 @@
+[2Kmodel-init-1  | Modelo persistente ya presente: gemma4:e2b-it-q4_K_M
+[2Kai-gateway-1  | INFO:     Started server process [7]
+[2Kai-gateway-1  | INFO:     Waiting for application startup.
+[2Kai-gateway-1  | INFO:     Application startup complete.
+[2Kai-gateway-1  | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2Kai-gateway-1  | INFO:     127.0.0.1:42066 - "GET /health HTTP/1.1" 200 OK
+[2Kai-gateway-1  | INFO:     127.0.0.1:56128 - "GET /health HTTP/1.1" 200 OK
+[2Kn8n-1         | Initializing n8n process
+[2Kn8n-1         | n8n ready on ::, port 5678
+[2Kn8n-1         | n8n Task Broker ready on 127.0.0.1, port 5679
+[2Kn8n-1         | Failed to start Python task runner in internal mode. because Python 3 is missing from this system. Launching a Python runner in internal mode is intended only for debugging and is not recommended for production. Users are encouraged to deploy in external mode. See: https://docs.n8n.io/hosting/configuration/task-runners/#setting-up-external-mode
+[2Kn8n-1         | 
+[2Kn8n-1         | There are deprecations related to your n8n setup. Please take the recommended actions to update your configuration:
+[2Kn8n-1         |  - WEBHOOK_URL -> Use N8N_WEBHOOK_URL instead, which sets the base URL for both test and production webhooks.
+[2Kn8n-1         |  - N8N_UNVERIFIED_PACKAGES_ENABLED -> The default for this variable will change to `false` in a future version. Set it to `true` explicitly to keep installing unverified community packages.
+[2Kn8n-1         |  - N8N_RUNNERS_MODE -> Internal task runner mode is deprecated and will be removed in a future version. For isolation and scaling, run the task runner launcher as a separate process, set this variable to `external` and share `N8N_RUNNERS_AUTH_TOKEN` with the launcher. See https://docs.n8n.io/deploy/host-n8n/configure-n8n/set-up-task-runners
+[2Kn8n-1         |  - N8N_RUNNERS_TASK_TIMEOUT -> The default for this variable will be reduced from 300 (5 minutes) to 60 (1 minute) in a future version. Set it explicitly to keep your current task timeout.
+[2Kn8n-1         |  - N8N_COMPRESSION_NODE_MAX_DECOMPRESSED_SIZE_BYTES -> The default for this variable will be reduced from 2 GiB to 256 MiB in a future version. Set it explicitly to keep your current limit.
+[2Kn8n-1         |  - N8N_COMPRESSION_NODE_MAX_ZIP_ENTRIES -> The default for this variable will be reduced from 5000 to 1000 in a future version. Set it explicitly to keep your current limit.
+[2Kn8n-1         | 
+[2Kn8n-1         | [license SDK] Skipping renewal on init: license cert is not initialized
+[2Kn8n-1         | [runner:js] (node:19) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+[2Kn8n-1         | (Use `node --trace-warnings ...` to show where the warning was created)
+[2Kn8n-1         | Registered runner "JS Task Runner" (ldIzDThOloIBbx9jzBDf8) 
+[2Kn8n-1         | Instance registered
+[2Kn8n-1         | Discovered 4 cluster checks
+[2Kn8n-1         | Sandbox: enabled=false provider=n8n-sandbox (from env)
+[2Kn8n-1         | Version: 2.45.7
+[2Kn8n-1         | Building workflow dependency index...
+[2Kn8n-1         | Scheduler started
+[2Kn8n-1         | Finished building workflow dependency index. Processed 0 draft workflows, 0 published workflows.
+[2Kn8n-1         | 
+[2Kn8n-1         | Editor is now accessible via:
+[2Kn8n-1         | http://localhost:5678
+[2Kollama-1      | 	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+[2Kollama-1      | 	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+[2Kollama-1      | 	top_k = 64, top_p = 0.950, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.200
+[2Kollama-1      | 	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+[2Kollama-1      | slot launch_slot_: id  0 | task 0 | processing task, is_child = 0
+[2Kollama-1      | slot   operator(): id  0 | task 0 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 328
+[2Kollama-1      | slot   operator(): id  0 | task 0 | cached n_tokens = 0, memory_seq_rm [0, end)
+[2Kollama-1      | sched_reserve: reserving ...
+[2Kollama-1      | sched_reserve:        CPU compute buffer size =   125.03 MiB
+[2Kollama-1      | sched_reserve: graph: nodes = 1499, splits = 1, input objects = 5, input tensors = 14
+[2Kollama-1      | sched_reserve: reserve took 2.88 ms, sched copies = 1
+[2Kollama-1      | [GIN] 2026/11/02 - 12:50:52 | 200 |  29.05µs |       127.0.0.1 | HEAD     "/"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:50:52 | 200 |   2.22ms |       127.0.0.1 | GET      "/api/tags"
+[2Kollama-1      | slot print_timing: id  0 | task 0 | prompt processing, n_tokens =    324, progress = 0.99, t =   4.08 s / 79.47 tokens per second
+[2Kollama-1      | slot   operator(): id  0 | task 0 | cached n_tokens = 324, memory_seq_rm [324, end)
+[2Kollama-1      | slot init_sampler: id  0 | task 0 | init sampler, took 0.04 ms, tokens: text = 328, total = 328
+[2Kollama-1      | slot create_check: id  0 | task 0 | created context checkpoint 1 of 32 (pos_min = 0, pos_max = 323, n_tokens = 324, size = 3.801 MiB)
+[2Kollama-1      | slot print_timing: id  0 | task 0 | prompt eval time =    4231.36 ms /   328 tokens (   12.90 ms per token,    77.52 tokens per second)
+[2Kollama-1      | slot print_timing: id  0 | task 0 |        eval time =    1189.65 ms /    21 tokens (   59.48 ms per token,    16.81 tokens per second)
+[2Kollama-1      | slot print_timing: id  0 | task 0 |       total time =    5421.01 ms /   349 tokens
+[2Kollama-1      | slot print_timing: id  0 | task 0 |    graphs reused =          7
+[2Kollama-1      | slot print_timing: id  0 | task 0 |   graph reallocs =          0    /     0        (same size) / (changed size)
+[2Kollama-1      | slot print_timing: id  0 | task 0 | draft acceptance = 0.61905 (   13 accepted /    21 generated), mean len =  2.86
+[2Kollama-1      | slot print_timing: id  0 | task 0 |      acc per pos = (0.714, 0.571, 0.571)
+[2Kollama-1      | spec common_specu: statistics        draft-mtp: #calls(b,g,a) =    1      7      7, #gen drafts =      7, #acc drafts =     5, #gen tokens =     21, #acc tokens =    13, #mean acc len = 2.86, #acc rate/pos = (0.714, 0.571, 0.571), dur(b,g,a) = 0.009, 313.579, 0.016 ms
+[2Kollama-1      | slot      release: id  0 | task 0 | stop processing: n_tokens = 348, truncated = 0
+[2Kollama-1      | srv  update_slots: all slots are idle
+[2Kollama-1      | [GIN] 2026/11/02 - 12:50:56 | 200 |   12.35s |      172.23.0.3 | POST     "/api/chat"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:51:08 | 200 | 22.806µs |       127.0.0.1 | HEAD     "/"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:51:08 | 200 |   1.26ms |       127.0.0.1 | GET      "/api/tags"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:51:15 | 200 | 980.271µs |      172.23.0.6 | GET      "/api/tags"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:51:23 | 200 | 26.432µs |       127.0.0.1 | HEAD     "/"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:51:23 | 200 |   1.02ms |       127.0.0.1 | GET      "/api/tags"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:51:38 | 200 |  31.04µs |       127.0.0.1 | HEAD     "/"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:51:38 | 200 | 945.452µs |       127.0.0.1 | GET      "/api/tags"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:51:53 | 200 | 17.406µs |       127.0.0.1 | HEAD     "/"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:51:53 | 200 | 953.438µs |       127.0.0.1 | GET      "/api/tags"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:52:08 | 200 | 25.565µs |       127.0.0.1 | HEAD     "/"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:52:08 | 200 |      1ms |       127.0.0.1 | GET      "/api/tags"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:52:23 | 200 | 27.512µs |       127.0.0.1 | HEAD     "/"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:52:23 | 200 | 627.359µs |       127.0.0.1 | GET      "/api/tags"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:52:38 | 200 | 21.015µs |       127.0.0.1 | HEAD     "/"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:52:38 | 200 | 811.546µs |       127.0.0.1 | GET      "/api/tags"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:52:53 | 200 | 26.039µs |       127.0.0.1 | HEAD     "/"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:52:53 | 200 | 907.608µs |       127.0.0.1 | GET      "/api/tags"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:53:08 | 200 | 19.257µs |       127.0.0.1 | HEAD     "/"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:53:08 | 200 |   1.03ms |       127.0.0.1 | GET      "/api/tags"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:53:23 | 200 | 17.971µs |       127.0.0.1 | HEAD     "/"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:53:23 | 200 |   1.11ms |       127.0.0.1 | GET      "/api/tags"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:53:38 | 200 | 21.182µs |       127.0.0.1 | HEAD     "/"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:53:38 | 200 | 910.694µs |       127.0.0.1 | GET      "/api/tags"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:53:53 | 200 | 24.694µs |       127.0.0.1 | HEAD     "/"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:53:53 | 200 | 187.58ms |       127.0.0.1 | GET      "/api/tags"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:54:09 | 200 | 21.988µs |       127.0.0.1 | HEAD     "/"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:54:09 | 200 |   1.01ms |       127.0.0.1 | GET      "/api/tags"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:54:09 | 200 | 990.076µs |      172.23.0.4 | GET      "/api/tags"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:54:24 | 200 | 17.481µs |       127.0.0.1 | HEAD     "/"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:54:24 | 200 | 914.991µs |       127.0.0.1 | GET      "/api/tags"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:54:39 | 200 |  21.87µs |       127.0.0.1 | HEAD     "/"
+[2Kollama-1      | [GIN] 2026/11/02 - 12:54:39 | 200 | 562.445µs |       127.0.0.1 | GET      "/api/tags"
+[2Kn8n-bootstrap-1  | Starting migration AddAgentMessageQueuePosition1790853539575
+[2Kn8n-bootstrap-1  | Finished migration AddAgentMessageQueuePosition1790853539575
+[2Kn8n-bootstrap-1  | Starting migration CreateWorkflowSuggestionTables1790928780672
+[2Kn8n-bootstrap-1  | Finished migration CreateWorkflowSuggestionTables1790928780672
+[2Kn8n-bootstrap-1  | Starting migration AddAgentMessageQueueSteeringPairCheck1790936314732
+[2Kn8n-bootstrap-1  | Finished migration AddAgentMessageQueueSteeringPairCheck1790936314732
+[2Kn8n-bootstrap-1  | Starting migration AddAgentBackgroundJobPause1790937677019
+[2Kn8n-bootstrap-1  | Finished migration AddAgentBackgroundJobPause1790937677019
+[2Kn8n-bootstrap-1  | Starting migration CreateAgentPlanTables1791187410548
+[2Kn8n-bootstrap-1  | Finished migration CreateAgentPlanTables1791187410548
+[2Kn8n-bootstrap-1  | Starting migration AddOAuthSigningKeyIndexToDeploymentKey1791199417265
+[2Kn8n-bootstrap-1  | Finished migration AddOAuthSigningKeyIndexToDeploymentKey1791199417265
+[2Kn8n-bootstrap-1  | Starting migration CreateAgentBudgetSpendTables1791209478293
+[2Kn8n-bootstrap-1  | Finished migration CreateAgentBudgetSpendTables1791209478293
+[2Kn8n-bootstrap-1  | Starting migration AddMetadataToTrustedSource1791276719782
+[2Kn8n-bootstrap-1  | Finished migration AddMetadataToTrustedSource1791276719782
+[2Kn8n-bootstrap-1  | Starting migration AllowWhatsAppAgentChatSubscriptions1791276719783
+[2Kn8n-bootstrap-1  | Finished migration AllowWhatsAppAgentChatSubscriptions1791276719783
+[2Kn8n-bootstrap-1  | Starting migration CreateMigrationWorkflowOwnerTable1791366497000
+[2Kn8n-bootstrap-1  | Finished migration CreateMigrationWorkflowOwnerTable1791366497000
+[2Kn8n-bootstrap-1  | Starting migration AddWorkflowSuggestionReviewState1791374893870
+[2Kn8n-bootstrap-1  | Finished migration AddWorkflowSuggestionReviewState1791374893870
+[2Kn8n-bootstrap-1  | Starting migration AllowGitLabPromotionProvider1791377741439
+[2Kn8n-bootstrap-1  | Finished migration AllowGitLabPromotionProvider1791377741439
+[2Kn8n-bootstrap-1  | Starting migration CreateSelfHealingResultTable1791378361769
+[2Kn8n-bootstrap-1  | Finished migration CreateSelfHealingResultTable1791378361769
+[2Kn8n-bootstrap-1  | Starting migration AddVerdictToAgentEvalResult1791448888000
+[2Kn8n-bootstrap-1  | Finished migration AddVerdictToAgentEvalResult1791448888000
+[2Kn8n-bootstrap-1  | Starting migration AddActivityEventResourceIndex1791463714234
+[2Kn8n-bootstrap-1  | Finished migration AddActivityEventResourceIndex1791463714234
+[2Kn8n-bootstrap-1  | Starting migration CreateIdempotencyKeyTable1791540050944
+[2Kn8n-bootstrap-1  | Finished migration CreateIdempotencyKeyTable1791540050944
+[2Kn8n-bootstrap-1  | Starting migration AddTimeoutSecondsToScheduler1791542683581
+[2Kn8n-bootstrap-1  | Finished migration AddTimeoutSecondsToScheduler1791542683581
+[2Kn8n-bootstrap-1  | Starting migration MigrateAgentMcpToolPermissions1791809300081
+[2Kn8n-bootstrap-1  | [MigrateAgentMcpToolPermissions1791809300081] Processed 0 agents rows; migrated 0; skipped 0 malformed rows.
+[2Kn8n-bootstrap-1  | [MigrateAgentMcpToolPermissions1791809300081] Processed 0 agent_history rows; migrated 0; skipped 0 malformed rows.
+[2Kn8n-bootstrap-1  | Finished migration MigrateAgentMcpToolPermissions1791809300081
+[2Kn8n-bootstrap-1  | Starting migration CreateSkillsHubTables1791818723687
+[2Kn8n-bootstrap-1  | Finished migration CreateSkillsHubTables1791818723687
+[2Kn8n-bootstrap-1  | Starting migration AddInstanceScopeToAgents1792051765225
+[2Kn8n-bootstrap-1  | Finished migration AddInstanceScopeToAgents1792051765225
+[2Kn8n-bootstrap-1  | Starting migration DeleteInstanceAgentsOnRevert1792139680416
+[2Kn8n-bootstrap-1  | Finished migration DeleteInstanceAgentsOnRevert1792139680416
+[2Kn8n-bootstrap-1  | Starting migration CreatePromotionRunAndReviewTables1792139680417
+[2Kn8n-bootstrap-1  | Finished migration CreatePromotionRunAndReviewTables1792139680417
+[2Kn8n-bootstrap-1  | [license SDK] Skipping renewal on init: renewOnInit is disabled in config
+[2Kn8n-bootstrap-1  | [license SDK] Skipping renewal on init: license cert is not initialized
+[2Kn8n-bootstrap-1  | Importing 3 workflows...
+[2Kn8n-bootstrap-1  | Successfully imported 3 workflows.
+[2Kn8n-bootstrap-1  | Publishing workflow with ID: TA4CORE0000000001 (current version)
+[2Kn8n-bootstrap-1  | Note: Changes will not take effect if n8n is running.
+[2Kn8n-bootstrap-1  | Please restart n8n for changes to take effect if n8n is currently running.
+[2Kn8n-bootstrap-1  | Publishing workflow with ID: TA4TEST0000000001 (current version)
+[2Kn8n-bootstrap-1  | Note: Changes will not take effect if n8n is running.
+[2Kn8n-bootstrap-1  | Please restart n8n for changes to take effect if n8n is currently running.
+[2Kn8n-bootstrap-1  | CORE y pruebas publicados. Telegram permanece sin publicar hasta asignar su credencial.
+[2Kn8n-bootstrap-1  | Workflows ya importados; se conservan las ediciones de n8n.
+[2Kn8n-bootstrap-1  | Workflows ya importados; se conservan las ediciones de n8n.
+[2Kn8n-bootstrap-1  | Workflows ya importados; se conservan las ediciones de n8n.

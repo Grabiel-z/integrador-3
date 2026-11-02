@@ -1,0 +1,15 @@
+digraph CHATBOT {
+  graph [rankdir=TB,bgcolor="white",pad="0.25",ranksep="0.32"];
+  node [shape=box,style="rounded,filled",fillcolor="#EDF4F5",color="#183D4B",fontname="DejaVu Sans",fontsize=11];
+  edge [color="#52727B",fontname="DejaVu Sans",fontsize=10];
+  telegram [label="Telegram Trigger: Chat ID dinámico"];
+  local [label="Webhook local / trigger manual de pruebas"];
+  core [label="CORE_CHATBOT\nNormalizar, validar e identificar intención"];
+  kb [label="Base JSON: hechos y precios editables"];
+  contexto [label="Recuperar contexto relevante"];
+  gateway [label="AI Gateway → proveedor elegido"];
+  validar [label="Validar IDs; usar hechos literales\nFallback explícito ante error de IA"];
+  cierre [label="Agregar cierre y devolver respuesta"];
+  envio [label="Telegram Send Message / respuesta local"];
+  telegram -> core; local -> core; kb -> contexto;core -> contexto -> gateway -> validar -> cierre -> envio;
+}

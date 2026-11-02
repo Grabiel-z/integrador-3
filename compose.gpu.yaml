@@ -1,0 +1,10 @@
+# Opcional: requiere GPU NVIDIA y soporte Docker ya configurado por el usuario.
+services:
+  ollama:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

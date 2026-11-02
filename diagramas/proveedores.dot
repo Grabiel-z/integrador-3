@@ -1,0 +1,14 @@
+digraph PROVEEDORES {
+  graph [rankdir=TB,bgcolor="white",pad="0.25"];
+  node [shape=box,style="rounded,filled",fillcolor="#EDF4F5",color="#183D4B",fontname="DejaVu Sans",fontsize=13];
+  edge [color="#52727B",fontname="DejaVu Sans",fontsize=10];
+  n8n [label="n8n: POST /chat"];
+  selector [shape=diamond,label="LLM_PROVIDER"];
+  local [label="ollama (predeterminado)\nGemma exacto en Docker"];
+  cred [shape=diamond,label="¿Clave y modelo?"];
+  error [label="Error de configuración\nSin consumo comercial"];
+  externo [label="Adaptador oficial en Docker\nOpenAI / Gemini / Anthropic"];
+  api [label="API externa del proveedor"];
+  n8n -> selector; selector -> local [label="ollama"]; selector -> cred [label="API elegida"];
+  cred -> error [label="faltan"]; cred -> externo [label="sí"];externo -> api;
+}

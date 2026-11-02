@@ -1,0 +1,15 @@
+.env
+.env.*
+!.env.example
+__pycache__/
+.pytest_cache/
+*.pyc
+*.zip
+tmp/
+evidencias/privadas/
+.agents/
+.codex/
+.aws/
+evidencias/build.log
+evidencias/pull.log
+evidencias/pdf_render.log

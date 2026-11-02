@@ -1,0 +1,30 @@
+{
+  "tipo": "pruebas unitarias con respuestas LLM sintéticas; código real de n8n",
+  "records": [
+    {
+      "name": "JSON válido",
+      "passed": true,
+      "ai_status": "verificado"
+    },
+    {
+      "name": "Hecho inventado y precio contradictorio",
+      "passed": true,
+      "ai_status": "respuesta_invalida"
+    },
+    {
+      "name": "Texto contradictorio fuera del contrato",
+      "passed": true,
+      "ai_status": "respuesta_invalida"
+    },
+    {
+      "name": "JSON vacío",
+      "passed": true,
+      "ai_status": "respuesta_invalida"
+    },
+    {
+      "name": "Error del proveedor",
+      "passed": true,
+      "ai_status": "error_proveedor"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "nombre": "Restaurante Sabor Peruano",
+  "ficticio": true,
+  "descripcion": "Restaurante ficticio de cocina criolla peruana para demostración académica.",
+  "direccion": "Av. Los Sabores 123, Miraflores, Lima (dirección ficticia)",
+  "horario": {"lunes_sabado": "12:00 a 22:00", "domingo": "12:00 a 18:00"},
+  "menu": [
+    {"plato": "Menú del día", "precio": 18, "detalle": "Entrada, plato de fondo y refresco; opciones según el día"},
+    {"plato": "Ceviche clásico", "precio": 32},
+    {"plato": "Lomo saltado", "precio": 35},
+    {"plato": "Ají de gallina", "precio": 26},
+    {"plato": "Arroz con pollo", "precio": 24},
+    {"plato": "Causa limeña", "precio": 16}
+  ],
+  "delivery": {"zona": "Miraflores", "costo": 6, "horario": "12:00 a 21:00 de lunes a sábado; domingos hasta las 17:00", "confirmacion": "El personal confirma cobertura y disponibilidad"},
+  "pagos": ["efectivo", "tarjetas Visa y Mastercard", "Yape", "Plin"],
+  "reservas": "Las reservas deben coordinarse con el personal del restaurante. Este bot informa, pero no registra ni confirma reservas.",
+  "servicios": ["atención en salón", "comida para llevar", "delivery en Miraflores"],
+  "promociones": "No hay promociones registradas en la base de conocimiento.",
+  "alergenos": "El personal debe confirmar ingredientes y alérgenos antes de realizar el pedido.",
+  "cierre": "Gracias por contactar a Sabor Peruano. ¿Puedo ayudarte con otra consulta?"
+}

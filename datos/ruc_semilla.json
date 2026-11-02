@@ -1,0 +1,28 @@
+{
+  "fuente": "https://ww3.sunat.gob.pe/descarga/AgentRet/AgenRet31.html",
+  "fecha_revision": "2026-11-02",
+  "fuentes_adicionales": {"20100053455": "https://ww3.sunat.gob.pe/descarga/AgentRet/AgenRet32.html"},
+  "metodo": "Contraste con publicación oficial de agentes de retención, actualizada al 02/02/2026 y consultada mediante búsqueda web. No acredita vigencia tributaria actual.",
+  "empresas": [
+    ["20377339461", "B.BRAUN MEDICAL PERU S.A."],
+    ["20605820817", "BA & ES SEGURINDUSTRIA S.A.C."],
+    ["20602207138", "BACKUS MARCAS Y PATENTES S.A.C."],
+    ["20342347950", "BADINOTTI PERU S.A."],
+    ["20523491840", "BAEMA TRADE S.A.C."],
+    ["20538658368", "BAGUETERÍA Y PASTELERÍA JIMMY'S S.A.C"],
+    ["20607481491", "BAIKA PERU S.A.C."],
+    ["20517320570", "BAJOPONTINA SOCIEDAD ANONIMA"],
+    ["20102179898", "BAKELS PERU S.A.C."],
+    ["20605530509", "BALDE K S.A.C."],
+    ["20609986442", "BALU S.A.C"],
+    ["20504565794", "BANCO AGROPECUARIO"],
+    ["20100130204", "BANCO BBVA PERU"],
+    ["20608551701", "BANCO BCI PERU S.A. - BANCO BCI"],
+    ["20100053455", "BANCO INTERNACIONAL DEL PERU-INTERBANK"],
+    ["20509507199", "BANCO DE COMERCIO"],
+    ["20100047218", "BANCO DE CREDITO DEL PERU"],
+    ["20100030595", "BANCO DE LA NACION"],
+    ["20330401991", "BANCO FALABELLA PERU S.A"],
+    ["20513074370", "BANCO GNB PERU S.A."]
+  ]
+}

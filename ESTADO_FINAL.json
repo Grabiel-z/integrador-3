@@ -1,0 +1,61 @@
+{
+  "fecha": "2026-11-02T08:02:15-05:00",
+  "tests_unitarios": {
+    "tests": 37,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "sunat": {
+    "total": 20,
+    "completos": 0,
+    "bloqueados": 20,
+    "manuales_importados": null
+  },
+  "modelo": "gemma4:e2b-it-q4_K_M",
+  "docker": {
+    "compose_config": true,
+    "imagenes_construidas": true,
+    "servicios_sanos": true,
+    "reinicio_persistencia": true,
+    "workflows_ids_iguales": true,
+    "modelo_persistente": true,
+    "respuesta_real_despues_reinicio": {
+      "response": "Atendemos de lunes a sábado de 12:00 a 22:00 y domingos de 12:00 a 18:00.\n\nGracias por contactar a Sabor Peruano. ¿Puedo ayudarte con otra consulta?",
+      "ai_status": "verificado",
+      "ai_used": true,
+      "provider": "ollama",
+      "model": "gemma4:e2b-it-q4_K_M",
+      "fact_ids": [
+        "horario"
+      ],
+      "ai_elapsed_seconds": 12.377,
+      "metrics": {
+        "total_duration": 12349889216,
+        "load_duration": 6922348822,
+        "prompt_eval_count": 328,
+        "eval_count": 21,
+        "eval_duration": 1189654000
+      },
+      "conversation_id": ""
+    },
+    "arranque_final_up_d": true,
+    "tareas_puntuales_exited_0": true
+  },
+  "chatbot": {
+    "total": 18,
+    "aprobados": 18
+  },
+  "estados": {
+    "Docker": "VERIFICADO",
+    "Tests unitarios": "VERIFICADO",
+    "SUNAT": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
+    "Gemma": "VERIFICADO",
+    "Chatbot n8n + IA": "VERIFICADO",
+    "APIs comerciales": "IMPLEMENTADO, NO VERIFICADO",
+    "Telegram": "PENDIENTE DE TOKEN TELEGRAM",
+    "Identificación de equipo": "PENDIENTE DE OTRA INTERVENCIÓN",
+    "Cuenta administradora n8n": "PENDIENTE DE OTRA INTERVENCIÓN",
+    "Consigna PDF original": "PENDIENTE DE OTRA INTERVENCIÓN"
+  }
+}

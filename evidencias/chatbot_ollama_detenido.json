@@ -1,0 +1,31 @@
+{
+  "fecha": "2026-11-02T07:48:31-05:00",
+  "tipo": "integracion real via n8n",
+  "total": 1,
+  "passed": 1,
+  "errors": 0,
+  "average_seconds": 0.143,
+  "records": [
+    {
+      "message": "¿Cuál es el horario?",
+      "expected": "IA no está disponible",
+      "response": {
+        "response": "Atendemos de lunes a sábado de 12:00 a 22:00 y domingos de 12:00 a 18:00.\nLa IA no está disponible o no validó su respuesta; esta información procede de nuestra base de conocimiento.\n\nGracias por contactar a Sabor Peruano. ¿Puedo ayudarte con otra consulta?",
+        "ai_status": "error_proveedor",
+        "ai_used": false,
+        "provider": null,
+        "model": null,
+        "fact_ids": [
+          "horario"
+        ],
+        "ai_elapsed_seconds": null,
+        "metrics": {},
+        "conversation_id": ""
+      },
+      "passed": true,
+      "content_ok": true,
+      "ai_ok": true,
+      "elapsed_seconds": 0.143
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "equipo": "Grupo X (identificación pendiente)",
+  "integrantes": [],
+  "fecha": "2026-11-02",
+  "herramientas": "Docker Compose, Python, Playwright/Chromium, openpyxl, n8n, Ollama, Gemma 4 E2B Q4_K_M, FastAPI, Telegram, Graphviz y ReportLab"
+}

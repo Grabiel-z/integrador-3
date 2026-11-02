@@ -1,0 +1,20 @@
+digraph SUNAT {
+  graph [rankdir=TB, bgcolor="white", pad="0.25", nodesep="0.35", ranksep="0.35"];
+  node [shape=box, style="rounded,filled", fillcolor="#EDF4F5", color="#183D4B", fontname="DejaVu Sans", fontsize=11];
+  edge [color="#52727B", fontname="DejaVu Sans", fontsize=10];
+  entrada [label="Excel: 20 RUC con procedencia oficial"];
+  validar [label="Validar texto, 11 dígitos, checksum y duplicados"];
+  navegador [label="Chromium + Playwright dentro de Docker"];
+  control [shape=diamond,label="¿Acceso permitido?"];
+  consulta [label="Formulario oficial: consulta individual"];
+  extraer [label="Razón social / domicilio / condición / inicio"];
+  guardar [label="Guardar checkpoint y Excel por cada fila"];
+  bloqueo [label="Registrar restricción sin eludir controles"];
+  manual [label="Intervención oficial manual documentada"];
+  entrada -> validar -> navegador -> control;
+  control -> consulta [label="sí"];
+  control -> bloqueo [label="no"];
+  consulta -> extraer -> guardar;
+  bloqueo -> guardar;
+  bloqueo -> manual [style=dashed];
+}
