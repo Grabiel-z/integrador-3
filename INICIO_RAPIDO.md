@@ -4,7 +4,7 @@
 
 Estamos construyendo una entrega académica de automatización. Hay dos procesos independientes:
 
-- **SUNAT:** veinte RUC de empresas peruanas → consulta oficial → Excel. El acceso automatizado fue bloqueado con HTTP 403; actualmente hay **cero fichas completas**.
+- **SUNAT:** veinte RUC → SOAP oficial y padrón diario → Excel. Las veinte llamadas reales fueron satisfactorias, sin intervención humana. Faltan diecinueve fechas de inicio, que esas fuentes no publican; ver **[GUIA_SUNAT.md](GUIA_SUNAT.md)**.
 - **Restaurante Sabor Peruano:** pregunta → workflow n8n → conocimiento estructurado → Gemma local → respuesta validada. Este recorrido pasó **18 pruebas reales** sin Telegram.
 
 El negocio del restaurante es ficticio. Las empresas de entrada son reales. No confundir esos dos tipos de datos. La siguiente meta es completar los pendientes con evidencia, conservar la reproducibilidad Docker y preparar la entrega del grupo.
@@ -41,7 +41,7 @@ sh scripts/probar_ia.sh
 sh scripts/probar_chatbot.sh
 ```
 
-En `ps`, n8n, Ollama y ai-gateway deben estar saludables. `Exited (0)` en los dos inicializadores es un final correcto. Las pruebas del chatbot deben aprobar 18/18 casos; revisar `ai_used=true` en los casos que necesitan el modelo. Cinco casos se resuelven deliberadamente mediante reglas.
+En `ps`, n8n, Ollama, ai-gateway y sunat-api deben estar saludables. `Exited (0)` en los dos inicializadores es un final correcto. Las pruebas del chatbot deben aprobar 18/18 casos; revisar `ai_used=true` en los casos que necesitan el modelo. Cinco casos se resuelven deliberadamente mediante reglas.
 
 Para ejecutar solo los tests con fixtures, sin llamar a SUNAT ni a una API comercial:
 
@@ -57,7 +57,7 @@ Los resultados originales están versionados en `evidencias/`. Que un archivo de
 |---|---|
 | Probar el chatbot sin Telegram | Completar las comprobaciones anteriores |
 | Conectar Telegram | Seguir `CONECTAR_TELEGRAM.md`; crear bot y credencial propios |
-| Completar SUNAT | Leer `GUIA_SUNAT_MANUAL.md` y comprobar que el método está permitido antes de reintentar |
+| Probar SUNAT automáticamente | Seguir `GUIA_SUNAT.md`; API sin CAPTCHA y campos pendientes explícitos |
 | Cambiar carta, horarios o precios | Editar `chatbot/conocimiento.json`; ejecutar `sh scripts/importar_workflows.sh` |
 | Completar el informe | Añadir nombres reales a `informe/equipo.json` y revisar pendientes/evidencias |
 | Generar la entrega | `sh scripts/generar_entrega.sh` |

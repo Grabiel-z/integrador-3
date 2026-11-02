@@ -20,9 +20,9 @@ Implementar un proceso que valide veinte RUC y exporte los campos efectivamente 
 
 # 6. Automatización SUNAT
 
-El worker lee RUC como texto, verifica longitud, dígito de control y duplicados, y abre Chromium instalado dentro de la imagen. Utiliza el formulario individual público y extrae razón social, domicilio fiscal, condición e inicio de actividades. La fecha de inscripción y el estado del contribuyente no se sustituyen por los campos solicitados. Cada consulta conserva evidencia y guarda un checkpoint y un Excel de forma progresiva.
+El worker lee RUC como texto y verifica longitud, dígito de control y duplicados. Su ruta principal realiza consultas SOAP oficiales en vivo y descarga el padrón diario de SUNAT para las direcciones. La API interna permite consumir ese resultado desde n8n sin navegador, CAPTCHA ni intervención humana. Cada dato conserva su procedencia y se guarda un checkpoint y un Excel de forma progresiva. La fecha de inicio de actividades no está publicada en estas dos fuentes: queda pendiente y no se sustituye por inscripción ni por fecha de descarga.
 
-La consulta múltiple oficial admite hasta cien RUC mediante TXT comprimido y exige código de seguridad. Su descripción no asegura todos los campos requeridos. La implementación no evade CAPTCHA ni controles de acceso. Si el acceso es impedido, registra la restricción y documenta un procedimiento oficial manual como contingencia; no fabrica resultados. Los RUC de entrada se contrastaron con una publicación oficial de agentes de retención, que no acredita por sí misma la situación tributaria actual.
+El formulario público fue diagnosticado con Chromium actualizado: obtuvo una ficha completa automáticamente y luego mostró una verificación humana. Ese método fue retirado de la ruta operativa por requisito del usuario. El proceso actual no evade CAPTCHA ni controles y no ofrece intervención manual como solución. Se distinguen veinte respuestas SOAP reales de veinte fichas completas con los cinco campos académicos. Los RUC de entrada proceden de una publicación oficial de agentes de retención, contrastados posteriormente mediante las llamadas SOAP.
 
 {{DIAGRAMA_SUNAT}}
 
@@ -38,7 +38,7 @@ Sabor Peruano es un restaurante ficticio. CORE_CHATBOT normaliza el texto, filtr
 
 # 9. Arquitectura Docker
 
-Todos los componentes de ejecución son contenedores. n8n y Ollama conservan datos en volúmenes distintos; SQLite evita añadir un servidor de base de datos innecesario para una única instancia. La red interna conecta servicios por nombre; solo n8n publica un puerto en localhost. El gateway y Ollama no se publican. Los trabajos SUNAT, pruebas e informe terminan al completar su función. Cloudflared y el proxy de webhooks se habilitan opcionalmente para Telegram. No se monta el socket Docker.
+Todos los componentes de ejecución son contenedores. n8n y Ollama conservan datos en volúmenes distintos; SQLite evita añadir un servidor de base de datos innecesario para una única instancia. La red interna conecta servicios por nombre; n8n y SUNAT API publican puertos solo en localhost. El gateway y Ollama no se publican. Los trabajos SUNAT, pruebas e informe terminan al completar su función; SUNAT API permanece disponible para las consultas HTTP. Cloudflared y el proxy de webhooks se habilitan opcionalmente para Telegram. No se monta el socket Docker.
 
 {{DIAGRAMA_DOCKER}}
 

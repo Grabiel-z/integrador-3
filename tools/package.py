@@ -5,7 +5,7 @@ from pathlib import Path
 
 ROOTS={"sunat","gateway","tools","pruebas","chatbot","datos","infra","scripts","investigacion","diagramas","informe","output","evidencias"}
 FILES={"compose.yaml","compose.gpu.yaml","requirements.txt","requirements.lock","pytest.ini",".env.example",".gitattributes",".gitignore",".dockerignore","ESTADO_FINAL.json"}
-DENY={".git",".agents",".aws",".codex","__pycache__",".pytest_cache","privadas","tmp","node_modules",".venv","venv"}
+DENY={".git",".agents",".aws",".codex","__pycache__",".pytest_cache",".cache","privadas","tmp","node_modules",".venv","venv"}
 
 
 def selected():
@@ -14,7 +14,7 @@ def selected():
         if set(path.parts)&DENY:continue
         if path.name.startswith('.env') and path.name!='.env.example':continue
         if path.suffix in {'.zip','.pyc','.db','.sqlite','.sqlite3'}:continue
-        if path.name in {'build.log','pull.log','zip_validacion.json'}:continue
+        if path.name in {'build.log','build_sunat.log','pull.log','zip_validacion.json'}:continue
         if path.parts[0] in ROOTS or path.name in FILES or len(path.parts)==1 and path.suffix=='.md':yield path
 
 

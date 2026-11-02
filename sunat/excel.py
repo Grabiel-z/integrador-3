@@ -1,4 +1,5 @@
 import re
+import textwrap
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -51,7 +52,11 @@ def style_sheet(ws, widths):
     for col, width in widths.items():
         ws.column_dimensions[col].width = width
     for row in ws.iter_rows(min_row=2):
-        ws.row_dimensions[row[0].row].height = 48
+        # openpyxl no calcula AutoFit: reserva altura para las observaciones
+        # extensas y los domicilios, que de otro modo quedan visualmente cortados.
+        lines = max(sum(len(textwrap.wrap(part, max(8, int(ws.column_dimensions[cell.column_letter].width) - 2))) or 1
+                        for part in str(cell.value or '').split('\n')) for cell in row)
+        ws.row_dimensions[row[0].row].height = max(48, lines * 15 + 8)
         for cell in row:
             cell.font = Font(name="Calibri", size=11)
             cell.alignment = Alignment(vertical="top", wrap_text=True)

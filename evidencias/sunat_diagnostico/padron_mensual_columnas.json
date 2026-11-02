@@ -1,0 +1,10 @@
+{
+  "url": "https://www.datosabiertos.gob.pe/sites/default/files/PadronRUC_202610.zip",
+  "http_status_head": 200,
+  "content_length": "262346323",
+  "last_modified": "Fri, 30 Oct 2026 22:10:23 GMT",
+  "http_status_get": 206,
+  "content_range": "bytes 0-262143/262346323",
+  "zip_member": "PadronRUC_202610.csv",
+  "header": "RUC,Estado,Condicion,Tipo,Actividad_Economica_CIIU_revision3_Principal,Actividad_Economica_CIIU_revision3_Secundaria,Actividad_Economica_CIIU_revision4_Principal,NroTrab,TipoFacturacion,TipoContabilidad,ComercioExterior,UBIGEO,Departamento,Provincia,Distrito,PERIODO_PUBLICACION"
+}

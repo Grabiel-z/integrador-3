@@ -1,8 +1,10 @@
 # Acceso oficial y contingencia SUNAT
 
+**Documento histórico.** El usuario exige consultas sin intervención humana. La solución operativa actual es [GUIA_SUNAT.md](GUIA_SUNAT.md), con SOAP oficial y padrón diario. El procedimiento manual de este archivo no cierra ese requisito y no es un paso del chatbot ni de la API.
+
 La consulta individual de https://www.gob.pe/es/565-verificar-el-estado-del-ruc conduce al formulario público. La consulta múltiple de https://www.gob.pe/13397-consultar-el-estado-de-hasta-100-n-meros-de-ruc permite introducir diez RUC o subir un TXT comprimido con hasta cien, e incluye código de seguridad. Su descripción no garantiza que se entregue la fecha de inicio; por eso no se presupone que cubre todos los campos de la tarea.
 
-El worker utiliza el formulario individual normal. No emplea endpoints privados, evasión de huella, resolución automática de CAPTCHA ni servicios de scraping. Ante un bloqueo se conserva la evidencia y se marca el lote pendiente. El checkpoint no vuelve a enviar solicitudes ya completadas. `--retry-errors` permite reintentar después de comprobar el acceso; no debe utilizarse para insistir frente a una prohibición.
+El worker original utilizaba el formulario individual normal; se conserva como diagnóstico separado con `--source formulario`. No emplea endpoints privados, evasión de huella, resolución automática de CAPTCHA ni servicios de scraping. Ante un bloqueo se conserva la evidencia y se marca el lote pendiente. La ruta principal ya no utiliza ese formulario ni espera que una persona resuelva controles.
 
 ## Si el portal requiere intervención
 

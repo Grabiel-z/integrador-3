@@ -1,0 +1,16 @@
+{
+  "ruc": "20517320570",
+  "campos": {
+    "estadoDesc": "ACTIVO",
+    "flag22Desc": "HABIDO",
+    "indError": "0",
+    "nombre": "BAJOPONTINA SOCIEDAD ANONIMA",
+    "numRuc": "20517320570",
+    "ubigeoRuc": "150118"
+  },
+  "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+  "operacion": "buscarRuc",
+  "fecha_consulta": "2026-11-02T09:30:46-05:00",
+  "http_status": 200,
+  "duracion_segundos": 0.157
+}

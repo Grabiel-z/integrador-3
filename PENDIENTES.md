@@ -4,11 +4,11 @@ Este es un plan de trabajo, no una declaración de pruebas nuevas. El estado de 
 
 ## 1. Completar los datos SUNAT
 
-**Estado: BLOQUEADO POR RESTRICCIÓN EXTERNA.** Hay veinte RUC contrastados en publicaciones oficiales y cero fichas completas. El primer acceso al formulario recibió HTTP 403; el resto del lote se registró sin nuevas solicitudes. No es correcto decir que se consultaron exitosamente veinte empresas.
+**Conexión API: VERIFICADO. Cinco campos académicos: PENDIENTE DE OTRA INTERVENCIÓN.** Se efectuaron veinte llamadas SOAP oficiales satisfactorias y se descargó el padrón oficial con las veinte direcciones. Una prueba automática de navegador obtuvo una ficha completa; faltan diecinueve fechas en el Excel. La respuesta SOAP en vivo no incluye fecha de inicio para ningún RUC.
 
-**Siguiente acción:** una persona debe comprobar el acceso y el procedimiento oficial permitido siguiendo [GUIA_SUNAT_MANUAL.md](GUIA_SUNAT_MANUAL.md). Mientras persista el control, no ejecutar reintentos masivos ni cambiar de método para eludirlo. Si se consultan fichas manualmente, guardar HTML, fecha y responsable reales y usar el importador Docker documentado.
+**Siguiente acción:** seguir [GUIA_SUNAT.md](GUIA_SUNAT.md). El usuario exige consultas sin intervención humana. La ruta automática está implementada con SOAP y padrón; se retiró el visor. Para la fecha restante hace falta otra fuente autorizada que publique el dato mediante API y probarla realmente. No contratar un proveedor ni configurar credenciales ajenas automáticamente.
 
-**Para cerrar:** cada fila debe contener datos observados o una limitación explícita; conservar las fuentes y distinguir consultas manuales de RPA. Para afirmar veinte consultas automatizadas satisfactorias se necesitan veinte fichas realmente obtenidas por el worker mediante acceso permitido. Si esto no es posible, informar la limitación al docente; no fabricar ese cumplimiento.
+**Para cerrar:** conservar la consulta SOAP en vivo y completar los cinco campos mediante fuentes automáticas autorizadas, con procedencia por campo. No presentar veinte respuestas parciales como veinte fichas completas, ni pedir resolver CAPTCHA como parte de cada consulta. Informar con precisión el campo pendiente si no se dispone de una API autorizada que lo entregue.
 
 Archivos: `datos/RUC_resultados.xlsx`, `datos/sunat_checkpoint.json`, `evidencias/sunat_resumen.json`, `evidencias/SUNAT_TRAZABILIDAD.md` y las fichas/capturas auténticas disponibles.
 
@@ -50,7 +50,7 @@ sh scripts/probar_chatbot.sh
 sh scripts/generar_entrega.sh
 ```
 
-Estos comandos no ejecutan la consulta SUNAT real. No usar `scripts/probar_todo.sh` hasta revisar el acceso, porque también llama a ese proceso.
+Estos comandos no ejecutan la consulta SUNAT real. `scripts/probar_todo.sh` sí ejecuta el lote SOAP y descargará el padrón si cambia; se detiene con código 2 mientras falten campos académicos.
 
 **Para cerrar:** revisar visualmente el PDF, comprobar sus afirmaciones contra evidencias, abrir el ZIP, verificar que incluye la configuración de ejemplo y las guías, y ensayar con `GUIA_EXPOSICION.md`. La máxima calificación es una aspiración; no se garantiza una nota.
 

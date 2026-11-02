@@ -1,0 +1,26 @@
+{
+  "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+  "http_status": 206,
+  "content_range": "bytes 0-131071/394511100",
+  "zip_member": "padron_reducido_ruc.txt",
+  "compression": 8,
+  "columns": [
+    "RUC",
+    "NOMBRE O RAZÓN SOCIAL",
+    "ESTADO DEL CONTRIBUYENTE",
+    "CONDICIÓN DE DOMICILIO",
+    "UBIGEO",
+    "TIPO DE VÍA",
+    "NOMBRE DE VÍA",
+    "CÓDIGO DE ZONA",
+    "TIPO DE ZONA",
+    "NÚMERO",
+    "INTERIOR",
+    "LOTE",
+    "DEPARTAMENTO",
+    "MANZANA",
+    "KILÓMETRO",
+    ""
+  ],
+  "fecha_inicio_presente": false
+}

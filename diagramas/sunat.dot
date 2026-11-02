@@ -4,17 +4,17 @@ digraph SUNAT {
   edge [color="#52727B", fontname="DejaVu Sans", fontsize=10];
   entrada [label="Excel: 20 RUC con procedencia oficial"];
   validar [label="Validar texto, 11 dígitos, checksum y duplicados"];
-  navegador [label="Chromium + Playwright dentro de Docker"];
-  control [shape=diamond,label="¿Acceso permitido?"];
-  consulta [label="Formulario oficial: consulta individual"];
-  extraer [label="Razón social / domicilio / condición / inicio"];
+  navegador [label="Cliente SOAP oficial dentro de Docker"];
+  control [shape=diamond,label="¿Respuesta válida y RUC correcto?"];
+  consulta [label="SOAP en vivo + padrón diario versionado"];
+  extraer [label="Razón social / domicilio / condición\nInicio pendiente: fuente no lo publica"];
   guardar [label="Guardar checkpoint y Excel por cada fila"];
   bloqueo [label="Registrar restricción sin eludir controles"];
-  manual [label="Intervención oficial manual documentada"];
+  manual [label="Otra API autorizada para inicio\nPendiente: no sustituir por inscripción"];
   entrada -> validar -> navegador -> control;
   control -> consulta [label="sí"];
   control -> bloqueo [label="no"];
   consulta -> extraer -> guardar;
   bloqueo -> guardar;
-  bloqueo -> manual [style=dashed];
+  extraer -> manual [style=dashed,label="inicio pendiente"];
 }

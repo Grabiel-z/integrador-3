@@ -10,12 +10,15 @@ digraph DOCKER {
     ollama [label="Ollama\nGemma 4 E2B Q4_K_M"];
     pesos [shape=cylinder,label="ollama_data\nPesos persistentes"];
     sunat [label="SUNAT Worker\nTarea puntual"];
+    sunatapi [label="SUNAT API\nlocalhost:8001"];
     report [label="Report Builder / tests\nTareas puntuales"];
     tunnel [label="Cloudflared opcional\nProxy solo webhook Telegram"];
     n8n -> ai -> ollama -> pesos; n8n -> db; tunnel -> n8n;
   }
   proveedores [label="Fuera de Docker:\nOpenAI / Gemini / Claude API",fillcolor="#FCF1D7"];
-  portal [label="Portal oficial SUNAT",fillcolor="#FCF1D7"];
+  portal [label="SUNAT SOAP oficial\ny padrón diario",fillcolor="#FCF1D7"];
   ai -> proveedores [label="solo selección explícita"];
   sunat -> portal;
+  sunatapi -> portal;
+  n8n -> sunatapi [label="HTTP disponible"];
 }

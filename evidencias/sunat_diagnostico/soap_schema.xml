@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. --><xs:schema xmlns:tns="http://service.consultarucws.registro.servicio2.sunat.gob.pe/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://service.consultarucws.registro.servicio2.sunat.gob.pe/">
+
+<xs:element name="buscarRuc" type="tns:buscarRuc"/>
+
+<xs:element name="buscarRucByRepreLegal" type="tns:buscarRucByRepreLegal"/>
+
+<xs:element name="buscarRucByRepreLegalResponse" type="tns:buscarRucByRepreLegalResponse"/>
+
+<xs:element name="buscarRucByTitular" type="tns:buscarRucByTitular"/>
+
+<xs:element name="buscarRucByTitularResponse" type="tns:buscarRucByTitularResponse"/>
+
+<xs:element name="buscarRucResponse" type="tns:buscarRucResponse"/>
+
+<xs:complexType name="buscarRucByTitular">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarRucByTitularResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:rucByTitularBean" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="rucByTitularBean">
+<xs:sequence>
+<xs:element name="anhoNac" type="xs:string" minOccurs="0"/>
+<xs:element name="claveSol" type="xs:string" minOccurs="0"/>
+<xs:element name="estado" type="xs:string" minOccurs="0"/>
+<xs:element name="estadoDesc" type="xs:string" minOccurs="0"/>
+<xs:element name="flag22" type="xs:string" minOccurs="0"/>
+<xs:element name="flag22Desc" type="xs:string" minOccurs="0"/>
+<xs:element name="indBueCon" type="xs:string" minOccurs="0"/>
+<xs:element name="indError" type="xs:string" minOccurs="0"/>
+<xs:element name="indMultResult" type="xs:string" minOccurs="0"/>
+<xs:element name="indResDom" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="numReg" type="xs:string" minOccurs="0"/>
+<xs:element name="numRegDesc" type="xs:string" minOccurs="0"/>
+<xs:element name="numRuc" type="xs:string" minOccurs="0"/>
+<xs:element name="sexo" type="xs:string" minOccurs="0"/>
+<xs:element name="ubigeo" type="xs:string" minOccurs="0"/>
+<xs:element name="ubigeoRuc" type="xs:string" minOccurs="0"/>
+<xs:element name="vigDni" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarRucByRepreLegal">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarRucByRepreLegalResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:rucByRucBean" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="rucByRucBean">
+<xs:sequence>
+<xs:element name="claveSol" type="xs:string" minOccurs="0"/>
+<xs:element name="estado" type="xs:string" minOccurs="0"/>
+<xs:element name="estadoDesc" type="xs:string" minOccurs="0"/>
+<xs:element name="flag22" type="xs:string" minOccurs="0"/>
+<xs:element name="flag22Desc" type="xs:string" minOccurs="0"/>
+<xs:element name="indBueCon" type="xs:string" minOccurs="0"/>
+<xs:element name="indError" type="xs:string" minOccurs="0"/>
+<xs:element name="indResDom" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="numReg" type="xs:string" minOccurs="0"/>
+<xs:element name="numRegDesc" type="xs:string" minOccurs="0"/>
+<xs:element name="numRuc" type="xs:string" minOccurs="0"/>
+<xs:element name="ubigeoRuc" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarRuc">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarRucResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:rucByRucBean" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

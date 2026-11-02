@@ -6,6 +6,7 @@
 .env.*
 *.zip
 tmp
+.cache
 __pycache__
 .pytest_cache
 evidencias

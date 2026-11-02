@@ -1,0 +1,14 @@
+{
+  "fecha": "2026-11-02T08:59:46-05:00",
+  "ruc": "20100047218",
+  "url": "https://e-consultaruc.sunat.gob.pe/cl-ti-itmrconsruc/FrameCriterioBusquedaWeb.jsp",
+  "passed": false,
+  "headed": true,
+  "http_status": 200,
+  "browser_version": "156.0.8078.4",
+  "url_final": "https://e-consultaruc.sunat.gob.pe/cl-ti-itmrconsruc/FrameCriterioBusquedaWeb.jsp",
+  "title": "SUNAT - Consulta Ruc",
+  "restriction": "",
+  "error": "TimeoutError: Locator.wait_for: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\".list-group\").first to be visible\n",
+  "elapsed_seconds": 52.24
+}

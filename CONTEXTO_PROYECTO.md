@@ -25,13 +25,13 @@ Los resultados versionados corresponden al equipo original el 2 de noviembre de 
 
 1. `tools/prepare_input.py` prepara el Excel de veinte RUC como texto, a partir de empresas contrastadas en publicaciones oficiales. No consulta sus fichas tributarias.
 2. `sunat/excel.py` valida once dígitos, dígito verificador, vacíos y duplicados.
-3. `sunat/main.py` abre el Chromium de Playwright dentro de Docker y utiliza el formulario individual público.
-4. `sunat/parser.py` separa razón social, domicilio fiscal, condición e inicio de actividades. Estado del contribuyente e inscripción son campos distintos y no los sustituyen.
+3. `sunat/main.py` usa por defecto `sunat/official.py`: POST SOAP oficial en vivo y descarga versionada del padrón diario. No requiere navegador, CAPTCHA ni token comercial. `sunat/api.py` lo expone a n8n en `http://sunat-api:8001/ruc/{ruc}`.
+4. SOAP devuelve razón social, estado, condición y UBIGEO. El padrón aporta domicilio para las empresas del lote. No publican inicio de actividades: se devuelve `null` y un campo pendiente. `sunat/parser.py` se conserva para fichas y diagnósticos históricos; inscripción no sustituye inicio.
 5. El worker conserva `datos/sunat_checkpoint.json` y reescribe el Excel progresivamente. Las filas incompletas y bloqueadas deben ser visibles.
 
-En la ejecución observada, el primer acceso al portal mostró un control de seguridad y HTTP 403. Se detuvieron las solicitudes y se registró el bloqueo del lote. **No se obtuvieron fichas completas.** Las diecinueve filas sin intento conservan vacía la fecha de consulta; el checkpoint distingue el procesamiento. La trazabilidad también explica la sustitución de una entidad pública por Interbank para mantener veinte empresas.
+La primera versión quedó bloqueada por el formulario; sus registros se conservaron como historia. La corrección realizó veinte consultas SOAP HTTP 200 y descargó veinte domicilios. Un navegador actualizado obtuvo una ficha completa automáticamente y luego recibió un control humano. El usuario rechazó esa dependencia y se retiró el visor. El Excel conserva esa ficha con evidencia, sin atribuir su fecha a SOAP; faltan diecinueve fechas. Ver `GUIA_SUNAT.md` y `evidencias/SUNAT_TRAZABILIDAD.md`.
 
-Una persona puede utilizar el procedimiento oficial manual cuando esté permitido, guardar HTML con metadatos y procesarlo mediante `sunat.import_manual`. Ese resultado se etiqueta como consulta manual; no se presenta como veinte consultas RPA automatizadas. Detalles en `GUIA_SUNAT_MANUAL.md`.
+El importador manual se conserva como herramienta histórica, pero no es la solución operativa solicitada. No introducir acciones humanas durante las consultas. Si se añade una fuente API para la fecha de inicio, documentar autenticación, autorización, procedencia, vigencia y pruebas reales antes de cerrar el requisito.
 
 ## Proceso del chatbot
 
@@ -59,13 +59,13 @@ Los adaptadores alternativos son OpenAI Responses, Gemini generateContent y Anth
 
 ## Servicios, puertos y persistencia
 
-- **Permanentes:** `n8n`, `ollama`, `ai-gateway`.
+- **Permanentes:** `n8n`, `ollama`, `ai-gateway`, `sunat-api`.
 - **Inicializadores finitos:** `n8n-bootstrap` importa los workflows; `model-init` descarga o reutiliza Gemma. Su `Exited (0)` es correcto.
 - **Tareas del perfil `tasks`:** `sunat-worker`, `test-runner`, `report-builder` mediante `run --rm`.
 - **Perfil opcional `telegram`:** `webhook-proxy` y `cloudflared`; el túnel solo apunta al proxy de webhook y no publica la administración.
 - **Persistencia:** SQLite n8n en `n8n_data`, pesos en `ollama_data`, Excel/informes/evidencias en carpetas montadas. No se necesita PostgreSQL para esta instancia.
 
-Dentro de Docker, n8n usa `http://ai-gateway:8000` y el gateway `http://ollama:11434`. `localhost` dentro de un contenedor no es otro servicio. Solo `127.0.0.1:5678` se publica para n8n. No se monta el socket Docker.
+Dentro de Docker, n8n usa `http://ai-gateway:8000` y el gateway `http://ollama:11434`. SUNAT API usa el puerto interno 8001. `localhost` dentro de un contenedor no es otro servicio. Se publican `127.0.0.1:5678` para n8n y `127.0.0.1:8001` para consultar la API local. No se monta el socket Docker.
 
 ## Evidencia disponible y criterios de cierre
 

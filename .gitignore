@@ -6,10 +6,12 @@ __pycache__/
 *.pyc
 *.zip
 tmp/
+.cache/
 evidencias/privadas/
 .agents/
 .codex/
 .aws/
 evidencias/build.log
+evidencias/build_sunat.log
 evidencias/pull.log
 evidencias/pdf_render.log

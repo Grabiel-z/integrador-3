@@ -2,7 +2,7 @@
 
 Proyecto académico del Restaurante Sabor Peruano (ficticio) y consulta de veinte RUC. Toda ejecución, pruebas y generación de entregables ocurre en Docker. El modo predeterminado usa **gemma4:e2b-it-q4_K_M** mediante Ollama y no consume APIs comerciales.
 
-**El chatbot local se probó con éxito. La entrega todavía requiere resolver el acceso SUNAT y conectar un bot real de Telegram.** Descargar el repositorio no resuelve esos pendientes ni ejecuta sus pruebas en tu equipo.
+**El chatbot local y veinte consultas SOAP reales a SUNAT se probaron con éxito.** SUNAT funciona automáticamente, sin navegador ni CAPTCHA; faltan fechas de inicio para completar el requisito académico y conectar un bot real de Telegram. Descargar el repositorio no ejecuta sus pruebas en tu equipo.
 
 ## Empieza aquí
 
@@ -28,8 +28,9 @@ Estado respaldado por evidencias del **2 de noviembre de 2026**, en el equipo do
 |---|---|---|
 | Docker, persistencia, n8n, gateway y Gemma | **VERIFICADO** | Arranque real, inferencia y recuperación tras reiniciar |
 | Chatbot local | **VERIFICADO** | 18/18 casos por n8n: 13 con IA y 5 mediante reglas |
-| Tests y manejo de fallos | **VERIFICADO** | 37 tests unitarios, 5 casos sintéticos de nodos y errores provocados |
-| SUNAT | **BLOQUEADO POR RESTRICCIÓN EXTERNA** | Veinte RUC de fuente oficial; cero fichas completas; HTTP 403 |
+| Tests y manejo de fallos | **VERIFICADO** | Suite ampliada de 50 tests, 5 casos sintéticos de nodos y errores provocados |
+| SUNAT: conexión automática | **VERIFICADO** | Veinte respuestas SOAP oficiales HTTP 200; veinte domicilios del padrón diario |
+| SUNAT: cinco campos académicos | **PENDIENTE DE OTRA INTERVENCIÓN** | Falta inicio de actividades en 19 filas; SOAP no publica ese campo |
 | Telegram | **PENDIENTE DE TOKEN TELEGRAM** | Flujo preparado; falta credencial y conversación real |
 | APIs comerciales | **IMPLEMENTADO, NO VERIFICADO** | Adaptadores con tests de contrato; sin llamadas comerciales |
 | Cuenta n8n, nombres del equipo y PDF original | **PENDIENTE DE OTRA INTERVENCIÓN** | Pasos de cierre en [PENDIENTES.md](PENDIENTES.md) |
@@ -52,7 +53,7 @@ docker compose logs -f model-init
 
 La primera descarga puede tardar según la conexión. Cuando termine, abrir http://localhost:5678 y crear la cuenta administradora personal de n8n. Las pruebas locales no necesitan Telegram. Los workflows se importan automáticamente, CORE y pruebas se publican y Telegram queda sin publicar. No se crea una cuenta con contraseña compartida.
 
-Esperar `success` o `Modelo persistente ya presente` y salir del seguimiento de logs con Ctrl+C; los servicios continúan ejecutándose. En `docker compose ps -a`, los tres servicios permanentes deben estar saludables y los dos inicializadores deben finalizar con `Exited (0)`.
+Esperar `success` o `Modelo persistente ya presente` y salir del seguimiento de logs con Ctrl+C; los servicios continúan ejecutándose. En `docker compose ps -a`, los cuatro servicios permanentes deben estar saludables y los dos inicializadores deben finalizar con `Exited (0)`.
 
 Para usos posteriores:
 
@@ -64,7 +65,7 @@ sh scripts/generar_entrega.sh
 sh scripts/detener.sh
 ```
 
-Las pruebas del chatbot deben aprobar 18/18 casos; consultar `ai_used` en el JSON de resultados. Ejecutar SUNAT solo después de comprobar que el acceso oficial está permitido; el bloqueo existente no debe provocar reintentos automáticos indiscriminados.
+Las pruebas del chatbot deben aprobar 18/18 casos; consultar `ai_used` en el JSON de resultados. SUNAT usa ahora una API oficial independiente del formulario bloqueado. No repetir masivamente las solicitudes rechazadas al portal.
 
 ## Cómo funciona
 
@@ -74,15 +75,16 @@ Telegram o webhook local → n8n: CORE_CHATBOT
   → AI Gateway → proveedor elegido (Gemma local por defecto)
   → validación, respuesta con hechos autorizados y cierre
 
-Excel de entrada → SUNAT Worker en Docker → portal oficial
-  → extracción o registro del bloqueo → checkpoint y Excel
+Excel de entrada → SUNAT Worker → SOAP oficial en vivo + padrón diario
+  → datos, procedencia y campos pendientes → checkpoint y Excel
+n8n o cliente HTTP → SUNAT API interna → SOAP oficial (sin navegador)
 ```
 
 n8n orquesta el negocio; el gateway adapta los proveedores. Los precios y horarios salen del JSON, no de texto libre del modelo. Los servicios se comunican por nombres internos. Solo la interfaz de n8n publica un puerto en localhost. n8n y Ollama conservan sus datos en volúmenes independientes. Ver [ARQUITECTURA.md](ARQUITECTURA.md).
 
 ## Contenido
 
-- `sunat/`: Playwright, validación, extracción y exportación con openpyxl.
+- `sunat/`: cliente SOAP, padrón oficial, API HTTP, validación y exportación con openpyxl; navegador como diagnóstico histórico.
 - `datos/`: entrada, procedencia y resultados SUNAT, más checkpoint reanudable.
 - `chatbot/`: base JSON, prompt, código de nodos y tres workflows importables.
 - `gateway/`: contrato FastAPI y adaptadores oficiales de IA.
@@ -102,11 +104,11 @@ Editar `chatbot/conocimiento.json` y ejecutar `sh scripts/importar_workflows.sh`
 
 ```sh
 docker compose run --rm sunat-worker
-# Reintentar solo errores, después de comprobar que el acceso está permitido:
-docker compose run --rm sunat-worker python -m sunat.main --retry-errors
+docker compose up -d --wait sunat-api
+docker compose run --rm --no-deps test-runner python -m tools.probe_sunat_api
 ```
 
-El worker consulta con el formulario público, sin resolver CAPTCHA. Si el portal impide el acceso, revisar `GUIA_SUNAT_MANUAL.md`; no completar datos por deducción. El listado oficial de agentes de retención acredita los RUC de entrada, no el estado actual ni el domicilio de la ficha.
+Ver **[GUIA_SUNAT.md](GUIA_SUNAT.md)**. La consulta por API no necesita intervención humana ni claves comerciales. En n8n se usa `http://sunat-api:8001/ruc/20100047218`; desde el anfitrión, http://localhost:8001/ruc/20100047218. Cada llamada válida consulta realmente el SOAP de SUNAT. El domicilio procede del padrón descargado para las veinte empresas. La fecha de inicio se devuelve como `null`, con `ficha_completa=false`, porque esas fuentes no la publican. El lote devuelve código 2 mientras falten campos académicos; esa limitación no se disfraza como éxito total.
 
 ## Guías
 

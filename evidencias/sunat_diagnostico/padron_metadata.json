@@ -1,0 +1,11 @@
+{
+  "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+  "http_status": 200,
+  "headers": {
+    "content-type": "application/zip",
+    "content-length": "394511100",
+    "last-modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+    "etag": "\"6ae83e14-1783c2fc\"",
+    "accept-ranges": "bytes"
+  }
+}

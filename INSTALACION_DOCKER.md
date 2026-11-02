@@ -7,12 +7,12 @@
 5. Esperar el final de `docker compose logs -f model-init`. La descarga de pesos está en un volumen Docker y no se repite si el modelo ya existe.
 6. Abrir http://localhost:5678 y crear tu cuenta administradora. No se entrega una identidad ficticia ni una contraseña común.
 7. Verificar `docker compose ps -a`, `sh scripts/probar_ia.sh` y `sh scripts/probar_chatbot.sh`.
-8. Ejecutar `sh scripts/probar_sunat.sh`; revisar el código de salida y las filas del Excel. Un bloqueo del portal no es un resultado aprobado.
+8. Seguir `GUIA_SUNAT.md` para probar la API automática. `sh scripts/probar_sunat.sh` consulta SOAP y padrón reales; devuelve código 2 mientras falten fechas de inicio en el requisito académico. No requiere intervención humana durante las consultas.
 9. Seguir `CONECTAR_TELEGRAM.md` para el único secreto externo previsto.
 
 La primera construcción requiere conectividad a Docker Hub, al registro oficial de n8n, a PyPI, Debian y al repositorio de Chromium. Ollama necesita acceso a su registro de modelos. Errores de DNS, proxy, certificados o espacio deben resolverse en el entorno y quedan registrados si ocurren.
 
-Versiones fijadas: Python 3.12.12, Playwright 1.56.0 (Chromium correspondiente descargado durante la construcción), n8n 2.45.7 y Ollama 0.40.13. Dependencias directas en `requirements.txt`; `requirements.lock` fija también todas las transitivas y es el archivo utilizado al construir. La lista realmente instalada se exporta en `evidencias/dependencias.txt`. Las imágenes y sus digest descargados se registran en `evidencias/imagenes.txt`. Para reproducibilidad estricta frente a cambios en repositorios, conservar esos digest y el registro completo de dependencias.
+Versiones fijadas: Python 3.12.12, Playwright 1.64.1 (Chromium correspondiente descargado durante la construcción), n8n 2.45.7 y Ollama 0.40.13. Dependencias directas en `requirements.txt`; `requirements.lock` fija también todas las transitivas y es el archivo utilizado al construir. La lista realmente instalada se exporta en `evidencias/dependencias.txt`. Las imágenes y sus digest descargados se registran en `evidencias/imagenes.txt`. Para reproducibilidad estricta frente a cambios en repositorios, conservar esos digest y el registro completo de dependencias.
 
 ## Diagnóstico
 

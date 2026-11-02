@@ -1,141 +1,864 @@
 [
   {
     "RUC": "20377339461",
-    "Fecha de consulta": "2026-11-02T07:35:39-05:00",
-    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
-    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; duración 1.75s"
+    "Razón social": "B.BRAUN MEDICAL PERU S.A.",
+    "Dirección fiscal": "AV. PASEO DE LA REPUBLICA NRO. 5895 INT. 1602 URB. MIRAFLORES LIMA - LIMA - MIRAFLORES",
+    "Condición del domicilio fiscal": "HABIDO",
+    "Fecha de inicio de actividades": "01/10/1997",
+    "Estado de consulta": "VERIFICADO",
+    "Observaciones": "Ficha obtenida automáticamente en Chromium visible dentro de Docker, sin intervención humana. Diagnóstico histórico; la API actual usa SOAP sin navegador.",
+    "Fecha de consulta": "2026-11-02T09:02:36-05:00",
+    "Ultima comprobacion SOAP": {
+      "ruc": "20377339461",
+      "campos": {
+        "estadoDesc": "ACTIVO",
+        "flag22Desc": "HABIDO",
+        "indError": "0",
+        "nombre": "B.BRAUN MEDICAL PERU S.A.",
+        "numRuc": "20377339461",
+        "ubigeoRuc": "150122"
+      },
+      "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+      "operacion": "buscarRuc",
+      "fecha_consulta": "2026-11-02T09:30:37-05:00",
+      "http_status": 200,
+      "duracion_segundos": 0.663
+    }
   },
   {
     "RUC": "20605820817",
-    "Fecha de consulta": "",
-    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
-    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
-    "Fecha de procesamiento": "2026-11-02T07:35:40-05:00"
+    "Razón social": "BA & ES SEGURINDUSTRIA S.A.C.",
+    "Dirección fiscal": "CAL. ALBARRACIN; NRO. 397A; URB. CHICAGO; UBIGEO 130101",
+    "Condición del domicilio fiscal": "HABIDO",
+    "Fecha de inicio de actividades": "",
+    "Estado de consulta": "PENDIENTE DE OTRA INTERVENCIÓN",
+    "Fecha de consulta": "2026-11-02T09:30:38-05:00",
+    "Observaciones": "Consulta SOAP oficial en vivo; domicilio del padrón oficial diario, no de una ficha en vivo. La fecha de inicio no está publicada en estas dos fuentes; requiere ficha oficial. Versión del padrón: Mon, 02 Nov 2026 07:39:00 GMT.",
+    "Estado del contribuyente": "ACTIVO",
+    "UBIGEO": "130101",
+    "Campos pendientes": [
+      "Fecha de inicio de actividades"
+    ],
+    "Fuentes": {
+      "consulta_en_vivo": {
+        "ruc": "20605820817",
+        "campos": {
+          "estadoDesc": "ACTIVO",
+          "flag22Desc": "HABIDO",
+          "indError": "0",
+          "nombre": "BA & ES SEGURINDUSTRIA S.A.C.",
+          "numRuc": "20605820817",
+          "ubigeoRuc": "130101"
+        },
+        "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+        "operacion": "buscarRuc",
+        "fecha_consulta": "2026-11-02T09:30:38-05:00",
+        "http_status": 200,
+        "duracion_segundos": 0.166
+      },
+      "padron": {
+        "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+        "fecha_descarga": "2026-11-02T08:59:55-05:00",
+        "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+        "etag": "\"6ae83e14-1783c2fc\"",
+        "bytes": 394511100,
+        "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+        "http_status": 200,
+        "cache_reutilizada": true,
+        "comprobacion_version": "2026-11-02T09:30:22-05:00"
+      }
+    }
   },
   {
     "RUC": "20602207138",
-    "Fecha de consulta": "",
-    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
-    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
-    "Fecha de procesamiento": "2026-11-02T07:35:40-05:00"
+    "Razón social": "BACKUS MARCAS Y PATENTES S.A.C.",
+    "Dirección fiscal": "NICOLAS AYLLON; NRO. 3986; UBIGEO 150103",
+    "Condición del domicilio fiscal": "HABIDO",
+    "Fecha de inicio de actividades": "",
+    "Estado de consulta": "PENDIENTE DE OTRA INTERVENCIÓN",
+    "Fecha de consulta": "2026-11-02T09:30:39-05:00",
+    "Observaciones": "Consulta SOAP oficial en vivo; domicilio del padrón oficial diario, no de una ficha en vivo. La fecha de inicio no está publicada en estas dos fuentes; requiere ficha oficial. Versión del padrón: Mon, 02 Nov 2026 07:39:00 GMT.",
+    "Estado del contribuyente": "ACTIVO",
+    "UBIGEO": "150103",
+    "Campos pendientes": [
+      "Fecha de inicio de actividades"
+    ],
+    "Fuentes": {
+      "consulta_en_vivo": {
+        "ruc": "20602207138",
+        "campos": {
+          "estadoDesc": "ACTIVO",
+          "flag22Desc": "HABIDO",
+          "indError": "0",
+          "nombre": "BACKUS MARCAS Y PATENTES S.A.C.",
+          "numRuc": "20602207138",
+          "ubigeoRuc": "150103"
+        },
+        "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+        "operacion": "buscarRuc",
+        "fecha_consulta": "2026-11-02T09:30:39-05:00",
+        "http_status": 200,
+        "duracion_segundos": 0.28
+      },
+      "padron": {
+        "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+        "fecha_descarga": "2026-11-02T08:59:55-05:00",
+        "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+        "etag": "\"6ae83e14-1783c2fc\"",
+        "bytes": 394511100,
+        "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+        "http_status": 200,
+        "cache_reutilizada": true,
+        "comprobacion_version": "2026-11-02T09:30:22-05:00"
+      }
+    }
   },
   {
     "RUC": "20342347950",
-    "Fecha de consulta": "",
-    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
-    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
-    "Fecha de procesamiento": "2026-11-02T07:35:40-05:00"
+    "Razón social": "BADINOTTI PERU S.A.",
+    "Dirección fiscal": "AV. LOS PRECURSORES; NRO. 260; Z.I. VENTANILLA; UBIGEO 070106",
+    "Condición del domicilio fiscal": "HABIDO",
+    "Fecha de inicio de actividades": "",
+    "Estado de consulta": "PENDIENTE DE OTRA INTERVENCIÓN",
+    "Fecha de consulta": "2026-11-02T09:30:41-05:00",
+    "Observaciones": "Consulta SOAP oficial en vivo; domicilio del padrón oficial diario, no de una ficha en vivo. La fecha de inicio no está publicada en estas dos fuentes; requiere ficha oficial. Versión del padrón: Mon, 02 Nov 2026 07:39:00 GMT.",
+    "Estado del contribuyente": "ACTIVO",
+    "UBIGEO": "070106",
+    "Campos pendientes": [
+      "Fecha de inicio de actividades"
+    ],
+    "Fuentes": {
+      "consulta_en_vivo": {
+        "ruc": "20342347950",
+        "campos": {
+          "estadoDesc": "ACTIVO",
+          "flag22Desc": "HABIDO",
+          "indError": "0",
+          "nombre": "BADINOTTI PERU S.A.",
+          "numRuc": "20342347950",
+          "ubigeoRuc": "070106"
+        },
+        "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+        "operacion": "buscarRuc",
+        "fecha_consulta": "2026-11-02T09:30:41-05:00",
+        "http_status": 200,
+        "duracion_segundos": 0.424
+      },
+      "padron": {
+        "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+        "fecha_descarga": "2026-11-02T08:59:55-05:00",
+        "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+        "etag": "\"6ae83e14-1783c2fc\"",
+        "bytes": 394511100,
+        "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+        "http_status": 200,
+        "cache_reutilizada": true,
+        "comprobacion_version": "2026-11-02T09:30:22-05:00"
+      }
+    }
   },
   {
     "RUC": "20523491840",
-    "Fecha de consulta": "",
-    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
-    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
-    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+    "Razón social": "BAEMA TRADE S.A.C.",
+    "Dirección fiscal": "AV. JOSÉ PARDO; NRO. 513; UBIGEO 150122",
+    "Condición del domicilio fiscal": "HABIDO",
+    "Fecha de inicio de actividades": "",
+    "Estado de consulta": "PENDIENTE DE OTRA INTERVENCIÓN",
+    "Fecha de consulta": "2026-11-02T09:30:42-05:00",
+    "Observaciones": "Consulta SOAP oficial en vivo; domicilio del padrón oficial diario, no de una ficha en vivo. La fecha de inicio no está publicada en estas dos fuentes; requiere ficha oficial. Versión del padrón: Mon, 02 Nov 2026 07:39:00 GMT.",
+    "Estado del contribuyente": "ACTIVO",
+    "UBIGEO": "150122",
+    "Campos pendientes": [
+      "Fecha de inicio de actividades"
+    ],
+    "Fuentes": {
+      "consulta_en_vivo": {
+        "ruc": "20523491840",
+        "campos": {
+          "estadoDesc": "ACTIVO",
+          "flag22Desc": "HABIDO",
+          "indError": "0",
+          "nombre": "BAEMA TRADE S.A.C.",
+          "numRuc": "20523491840",
+          "ubigeoRuc": "150122"
+        },
+        "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+        "operacion": "buscarRuc",
+        "fecha_consulta": "2026-11-02T09:30:42-05:00",
+        "http_status": 200,
+        "duracion_segundos": 0.226
+      },
+      "padron": {
+        "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+        "fecha_descarga": "2026-11-02T08:59:55-05:00",
+        "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+        "etag": "\"6ae83e14-1783c2fc\"",
+        "bytes": 394511100,
+        "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+        "http_status": 200,
+        "cache_reutilizada": true,
+        "comprobacion_version": "2026-11-02T09:30:22-05:00"
+      }
+    }
   },
   {
     "RUC": "20538658368",
-    "Fecha de consulta": "",
-    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
-    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
-    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+    "Razón social": "BAGUETERÍA  Y PASTELERÍA JIMMY´S   S.A.C",
+    "Dirección fiscal": "AV. ABANCAY; NRO. 298; UBIGEO 150101",
+    "Condición del domicilio fiscal": "HABIDO",
+    "Fecha de inicio de actividades": "",
+    "Estado de consulta": "PENDIENTE DE OTRA INTERVENCIÓN",
+    "Fecha de consulta": "2026-11-02T09:30:43-05:00",
+    "Observaciones": "Consulta SOAP oficial en vivo; domicilio del padrón oficial diario, no de una ficha en vivo. La fecha de inicio no está publicada en estas dos fuentes; requiere ficha oficial. Versión del padrón: Mon, 02 Nov 2026 07:39:00 GMT.",
+    "Estado del contribuyente": "ACTIVO",
+    "UBIGEO": "150101",
+    "Campos pendientes": [
+      "Fecha de inicio de actividades"
+    ],
+    "Fuentes": {
+      "consulta_en_vivo": {
+        "ruc": "20538658368",
+        "campos": {
+          "estadoDesc": "ACTIVO",
+          "flag22Desc": "HABIDO",
+          "indError": "0",
+          "nombre": "BAGUETERÍA  Y PASTELERÍA JIMMY´S   S.A.C",
+          "numRuc": "20538658368",
+          "ubigeoRuc": "150101"
+        },
+        "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+        "operacion": "buscarRuc",
+        "fecha_consulta": "2026-11-02T09:30:43-05:00",
+        "http_status": 200,
+        "duracion_segundos": 0.317
+      },
+      "padron": {
+        "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+        "fecha_descarga": "2026-11-02T08:59:55-05:00",
+        "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+        "etag": "\"6ae83e14-1783c2fc\"",
+        "bytes": 394511100,
+        "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+        "http_status": 200,
+        "cache_reutilizada": true,
+        "comprobacion_version": "2026-11-02T09:30:22-05:00"
+      }
+    }
   },
   {
     "RUC": "20607481491",
-    "Fecha de consulta": "",
-    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
-    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
-    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+    "Razón social": "BAIKA PERU S.A.C.",
+    "Dirección fiscal": "AV. EL DERBY; NRO. 254; INT. 1702; URB. EL DERBY DE MONTERRICO; UBIGEO 150140",
+    "Condición del domicilio fiscal": "HABIDO",
+    "Fecha de inicio de actividades": "",
+    "Estado de consulta": "PENDIENTE DE OTRA INTERVENCIÓN",
+    "Fecha de consulta": "2026-11-02T09:30:45-05:00",
+    "Observaciones": "Consulta SOAP oficial en vivo; domicilio del padrón oficial diario, no de una ficha en vivo. La fecha de inicio no está publicada en estas dos fuentes; requiere ficha oficial. Versión del padrón: Mon, 02 Nov 2026 07:39:00 GMT.",
+    "Estado del contribuyente": "ACTIVO",
+    "UBIGEO": "150140",
+    "Campos pendientes": [
+      "Fecha de inicio de actividades"
+    ],
+    "Fuentes": {
+      "consulta_en_vivo": {
+        "ruc": "20607481491",
+        "campos": {
+          "estadoDesc": "ACTIVO",
+          "flag22Desc": "HABIDO",
+          "indError": "0",
+          "nombre": "BAIKA PERU S.A.C.",
+          "numRuc": "20607481491",
+          "ubigeoRuc": "150140"
+        },
+        "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+        "operacion": "buscarRuc",
+        "fecha_consulta": "2026-11-02T09:30:45-05:00",
+        "http_status": 200,
+        "duracion_segundos": 0.836
+      },
+      "padron": {
+        "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+        "fecha_descarga": "2026-11-02T08:59:55-05:00",
+        "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+        "etag": "\"6ae83e14-1783c2fc\"",
+        "bytes": 394511100,
+        "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+        "http_status": 200,
+        "cache_reutilizada": true,
+        "comprobacion_version": "2026-11-02T09:30:22-05:00"
+      }
+    }
   },
   {
     "RUC": "20517320570",
-    "Fecha de consulta": "",
-    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
-    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
-    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+    "Razón social": "BAJOPONTINA SOCIEDAD ANONIMA",
+    "Dirección fiscal": "AV. CIRCUNVALACION; LOTE 5; MZ. Ñ; C.P. HUACHIPA; UBIGEO 150118",
+    "Condición del domicilio fiscal": "HABIDO",
+    "Fecha de inicio de actividades": "",
+    "Estado de consulta": "PENDIENTE DE OTRA INTERVENCIÓN",
+    "Fecha de consulta": "2026-11-02T09:30:46-05:00",
+    "Observaciones": "Consulta SOAP oficial en vivo; domicilio del padrón oficial diario, no de una ficha en vivo. La fecha de inicio no está publicada en estas dos fuentes; requiere ficha oficial. Versión del padrón: Mon, 02 Nov 2026 07:39:00 GMT.",
+    "Estado del contribuyente": "ACTIVO",
+    "UBIGEO": "150118",
+    "Campos pendientes": [
+      "Fecha de inicio de actividades"
+    ],
+    "Fuentes": {
+      "consulta_en_vivo": {
+        "ruc": "20517320570",
+        "campos": {
+          "estadoDesc": "ACTIVO",
+          "flag22Desc": "HABIDO",
+          "indError": "0",
+          "nombre": "BAJOPONTINA SOCIEDAD ANONIMA",
+          "numRuc": "20517320570",
+          "ubigeoRuc": "150118"
+        },
+        "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+        "operacion": "buscarRuc",
+        "fecha_consulta": "2026-11-02T09:30:46-05:00",
+        "http_status": 200,
+        "duracion_segundos": 0.157
+      },
+      "padron": {
+        "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+        "fecha_descarga": "2026-11-02T08:59:55-05:00",
+        "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+        "etag": "\"6ae83e14-1783c2fc\"",
+        "bytes": 394511100,
+        "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+        "http_status": 200,
+        "cache_reutilizada": true,
+        "comprobacion_version": "2026-11-02T09:30:22-05:00"
+      }
+    }
   },
   {
     "RUC": "20102179898",
-    "Fecha de consulta": "",
-    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
-    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
-    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+    "Razón social": "BAKELS PERU S.A.C.",
+    "Dirección fiscal": "AV. LA ARBOLEDA; NRO. 298; URB. SANTA RAQUEL 2DA. ETAPA; UBIGEO 150103",
+    "Condición del domicilio fiscal": "HABIDO",
+    "Fecha de inicio de actividades": "",
+    "Estado de consulta": "PENDIENTE DE OTRA INTERVENCIÓN",
+    "Fecha de consulta": "2026-11-02T09:30:47-05:00",
+    "Observaciones": "Consulta SOAP oficial en vivo; domicilio del padrón oficial diario, no de una ficha en vivo. La fecha de inicio no está publicada en estas dos fuentes; requiere ficha oficial. Versión del padrón: Mon, 02 Nov 2026 07:39:00 GMT.",
+    "Estado del contribuyente": "ACTIVO",
+    "UBIGEO": "150103",
+    "Campos pendientes": [
+      "Fecha de inicio de actividades"
+    ],
+    "Fuentes": {
+      "consulta_en_vivo": {
+        "ruc": "20102179898",
+        "campos": {
+          "estadoDesc": "ACTIVO",
+          "flag22Desc": "HABIDO",
+          "indError": "0",
+          "nombre": "BAKELS PERU S.A.C.",
+          "numRuc": "20102179898",
+          "ubigeoRuc": "150103"
+        },
+        "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+        "operacion": "buscarRuc",
+        "fecha_consulta": "2026-11-02T09:30:47-05:00",
+        "http_status": 200,
+        "duracion_segundos": 0.283
+      },
+      "padron": {
+        "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+        "fecha_descarga": "2026-11-02T08:59:55-05:00",
+        "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+        "etag": "\"6ae83e14-1783c2fc\"",
+        "bytes": 394511100,
+        "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+        "http_status": 200,
+        "cache_reutilizada": true,
+        "comprobacion_version": "2026-11-02T09:30:22-05:00"
+      }
+    }
   },
   {
     "RUC": "20605530509",
-    "Fecha de consulta": "",
-    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
-    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
-    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+    "Razón social": "BALDE K S.A.C.",
+    "Dirección fiscal": "AV. BENAVIDES; NRO. 1238; DPTO. 404; UBIGEO 150122",
+    "Condición del domicilio fiscal": "HABIDO",
+    "Fecha de inicio de actividades": "",
+    "Estado de consulta": "PENDIENTE DE OTRA INTERVENCIÓN",
+    "Fecha de consulta": "2026-11-02T09:30:49-05:00",
+    "Observaciones": "Consulta SOAP oficial en vivo; domicilio del padrón oficial diario, no de una ficha en vivo. La fecha de inicio no está publicada en estas dos fuentes; requiere ficha oficial. Versión del padrón: Mon, 02 Nov 2026 07:39:00 GMT.",
+    "Estado del contribuyente": "ACTIVO",
+    "UBIGEO": "150122",
+    "Campos pendientes": [
+      "Fecha de inicio de actividades"
+    ],
+    "Fuentes": {
+      "consulta_en_vivo": {
+        "ruc": "20605530509",
+        "campos": {
+          "estadoDesc": "ACTIVO",
+          "flag22Desc": "HABIDO",
+          "indError": "0",
+          "nombre": "BALDE K S.A.C.",
+          "numRuc": "20605530509",
+          "ubigeoRuc": "150122"
+        },
+        "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+        "operacion": "buscarRuc",
+        "fecha_consulta": "2026-11-02T09:30:49-05:00",
+        "http_status": 200,
+        "duracion_segundos": 0.176
+      },
+      "padron": {
+        "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+        "fecha_descarga": "2026-11-02T08:59:55-05:00",
+        "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+        "etag": "\"6ae83e14-1783c2fc\"",
+        "bytes": 394511100,
+        "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+        "http_status": 200,
+        "cache_reutilizada": true,
+        "comprobacion_version": "2026-11-02T09:30:22-05:00"
+      }
+    }
   },
   {
     "RUC": "20609986442",
-    "Fecha de consulta": "",
-    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
-    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
-    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+    "Razón social": "BALU S.A.C",
+    "Dirección fiscal": "LOTE 8-9; MZ. U1; Z.I. PARQUE INDUSTRIAL LOS AND; UBIGEO 070106",
+    "Condición del domicilio fiscal": "HABIDO",
+    "Fecha de inicio de actividades": "",
+    "Estado de consulta": "PENDIENTE DE OTRA INTERVENCIÓN",
+    "Fecha de consulta": "2026-11-02T09:30:50-05:00",
+    "Observaciones": "Consulta SOAP oficial en vivo; domicilio del padrón oficial diario, no de una ficha en vivo. La fecha de inicio no está publicada en estas dos fuentes; requiere ficha oficial. Versión del padrón: Mon, 02 Nov 2026 07:39:00 GMT.",
+    "Estado del contribuyente": "ACTIVO",
+    "UBIGEO": "070106",
+    "Campos pendientes": [
+      "Fecha de inicio de actividades"
+    ],
+    "Fuentes": {
+      "consulta_en_vivo": {
+        "ruc": "20609986442",
+        "campos": {
+          "estadoDesc": "ACTIVO",
+          "flag22Desc": "HABIDO",
+          "indError": "0",
+          "nombre": "BALU S.A.C",
+          "numRuc": "20609986442",
+          "ubigeoRuc": "070106"
+        },
+        "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+        "operacion": "buscarRuc",
+        "fecha_consulta": "2026-11-02T09:30:50-05:00",
+        "http_status": 200,
+        "duracion_segundos": 0.256
+      },
+      "padron": {
+        "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+        "fecha_descarga": "2026-11-02T08:59:55-05:00",
+        "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+        "etag": "\"6ae83e14-1783c2fc\"",
+        "bytes": 394511100,
+        "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+        "http_status": 200,
+        "cache_reutilizada": true,
+        "comprobacion_version": "2026-11-02T09:30:22-05:00"
+      }
+    }
   },
   {
     "RUC": "20504565794",
-    "Fecha de consulta": "",
-    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
-    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
-    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+    "Razón social": "BANCO AGROPECUARIO",
+    "Dirección fiscal": "AV. REPUBLICA DE PANAMA; NRO. 3531; DPTO. 901; URB. LIMATAMBO; UBIGEO 150131",
+    "Condición del domicilio fiscal": "HABIDO",
+    "Fecha de inicio de actividades": "",
+    "Estado de consulta": "PENDIENTE DE OTRA INTERVENCIÓN",
+    "Fecha de consulta": "2026-11-02T09:30:51-05:00",
+    "Observaciones": "Consulta SOAP oficial en vivo; domicilio del padrón oficial diario, no de una ficha en vivo. La fecha de inicio no está publicada en estas dos fuentes; requiere ficha oficial. Versión del padrón: Mon, 02 Nov 2026 07:39:00 GMT.",
+    "Estado del contribuyente": "ACTIVO",
+    "UBIGEO": "150131",
+    "Campos pendientes": [
+      "Fecha de inicio de actividades"
+    ],
+    "Fuentes": {
+      "consulta_en_vivo": {
+        "ruc": "20504565794",
+        "campos": {
+          "estadoDesc": "ACTIVO",
+          "flag22Desc": "HABIDO",
+          "indError": "0",
+          "nombre": "BANCO AGROPECUARIO",
+          "numRuc": "20504565794",
+          "ubigeoRuc": "150131"
+        },
+        "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+        "operacion": "buscarRuc",
+        "fecha_consulta": "2026-11-02T09:30:51-05:00",
+        "http_status": 200,
+        "duracion_segundos": 0.216
+      },
+      "padron": {
+        "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+        "fecha_descarga": "2026-11-02T08:59:55-05:00",
+        "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+        "etag": "\"6ae83e14-1783c2fc\"",
+        "bytes": 394511100,
+        "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+        "http_status": 200,
+        "cache_reutilizada": true,
+        "comprobacion_version": "2026-11-02T09:30:22-05:00"
+      }
+    }
   },
   {
     "RUC": "20100130204",
-    "Fecha de consulta": "",
-    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
-    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
-    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+    "Razón social": "BANCO BBVA PERU",
+    "Dirección fiscal": "AV. REPUBLICA DE PANAMA; NRO. 3055; URB. EL PALOMAR; UBIGEO 150131",
+    "Condición del domicilio fiscal": "HABIDO",
+    "Fecha de inicio de actividades": "",
+    "Estado de consulta": "PENDIENTE DE OTRA INTERVENCIÓN",
+    "Fecha de consulta": "2026-11-02T09:30:52-05:00",
+    "Observaciones": "Consulta SOAP oficial en vivo; domicilio del padrón oficial diario, no de una ficha en vivo. La fecha de inicio no está publicada en estas dos fuentes; requiere ficha oficial. Versión del padrón: Mon, 02 Nov 2026 07:39:00 GMT.",
+    "Estado del contribuyente": "ACTIVO",
+    "UBIGEO": "150131",
+    "Campos pendientes": [
+      "Fecha de inicio de actividades"
+    ],
+    "Fuentes": {
+      "consulta_en_vivo": {
+        "ruc": "20100130204",
+        "campos": {
+          "estadoDesc": "ACTIVO",
+          "flag22Desc": "HABIDO",
+          "indError": "0",
+          "nombre": "BANCO BBVA PERU",
+          "numRuc": "20100130204",
+          "ubigeoRuc": "150131"
+        },
+        "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+        "operacion": "buscarRuc",
+        "fecha_consulta": "2026-11-02T09:30:52-05:00",
+        "http_status": 200,
+        "duracion_segundos": 0.239
+      },
+      "padron": {
+        "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+        "fecha_descarga": "2026-11-02T08:59:55-05:00",
+        "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+        "etag": "\"6ae83e14-1783c2fc\"",
+        "bytes": 394511100,
+        "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+        "http_status": 200,
+        "cache_reutilizada": true,
+        "comprobacion_version": "2026-11-02T09:30:22-05:00"
+      }
+    }
   },
   {
     "RUC": "20608551701",
-    "Fecha de consulta": "",
-    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
-    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
-    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+    "Razón social": "BANCO BCI PERU S.A. - BANCO BCI",
+    "Dirección fiscal": "AV. CAMINO REAL; NRO. 1053; INT. 1301; URB. FUNDO CONDE DE SAN ISIDRO; UBIGEO 150131",
+    "Condición del domicilio fiscal": "HABIDO",
+    "Fecha de inicio de actividades": "",
+    "Estado de consulta": "PENDIENTE DE OTRA INTERVENCIÓN",
+    "Fecha de consulta": "2026-11-02T09:30:54-05:00",
+    "Observaciones": "Consulta SOAP oficial en vivo; domicilio del padrón oficial diario, no de una ficha en vivo. La fecha de inicio no está publicada en estas dos fuentes; requiere ficha oficial. Versión del padrón: Mon, 02 Nov 2026 07:39:00 GMT.",
+    "Estado del contribuyente": "ACTIVO",
+    "UBIGEO": "150131",
+    "Campos pendientes": [
+      "Fecha de inicio de actividades"
+    ],
+    "Fuentes": {
+      "consulta_en_vivo": {
+        "ruc": "20608551701",
+        "campos": {
+          "estadoDesc": "ACTIVO",
+          "flag22Desc": "HABIDO",
+          "indError": "0",
+          "nombre": "BANCO BCI PERU S.A. - BANCO BCI",
+          "numRuc": "20608551701",
+          "ubigeoRuc": "150131"
+        },
+        "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+        "operacion": "buscarRuc",
+        "fecha_consulta": "2026-11-02T09:30:54-05:00",
+        "http_status": 200,
+        "duracion_segundos": 0.176
+      },
+      "padron": {
+        "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+        "fecha_descarga": "2026-11-02T08:59:55-05:00",
+        "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+        "etag": "\"6ae83e14-1783c2fc\"",
+        "bytes": 394511100,
+        "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+        "http_status": 200,
+        "cache_reutilizada": true,
+        "comprobacion_version": "2026-11-02T09:30:22-05:00"
+      }
+    }
   },
   {
     "RUC": "20100053455",
-    "Fecha de consulta": "",
-    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
-    "Observaciones": "No se intentó consulta: control HTTP 403 ya observado en el portal para el lote; sin datos fiscales inferidos",
-    "Fecha de procesamiento": "2026-11-02T08:01:08-05:00"
+    "Razón social": "BANCO INTERNACIONAL DEL PERU-INTERBANK",
+    "Dirección fiscal": "AV. CARLOS VILLARAN; NRO. 140; URB. SANTA CATALINA; UBIGEO 150115",
+    "Condición del domicilio fiscal": "HABIDO",
+    "Fecha de inicio de actividades": "",
+    "Estado de consulta": "PENDIENTE DE OTRA INTERVENCIÓN",
+    "Fecha de consulta": "2026-11-02T09:30:55-05:00",
+    "Observaciones": "Consulta SOAP oficial en vivo; domicilio del padrón oficial diario, no de una ficha en vivo. La fecha de inicio no está publicada en estas dos fuentes; requiere ficha oficial. Versión del padrón: Mon, 02 Nov 2026 07:39:00 GMT.",
+    "Estado del contribuyente": "ACTIVO",
+    "UBIGEO": "150115",
+    "Campos pendientes": [
+      "Fecha de inicio de actividades"
+    ],
+    "Fuentes": {
+      "consulta_en_vivo": {
+        "ruc": "20100053455",
+        "campos": {
+          "estadoDesc": "ACTIVO",
+          "flag22Desc": "HABIDO",
+          "indError": "0",
+          "nombre": "BANCO INTERNACIONAL DEL PERU-INTERBANK",
+          "numRuc": "20100053455",
+          "ubigeoRuc": "150115"
+        },
+        "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+        "operacion": "buscarRuc",
+        "fecha_consulta": "2026-11-02T09:30:55-05:00",
+        "http_status": 200,
+        "duracion_segundos": 0.253
+      },
+      "padron": {
+        "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+        "fecha_descarga": "2026-11-02T08:59:55-05:00",
+        "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+        "etag": "\"6ae83e14-1783c2fc\"",
+        "bytes": 394511100,
+        "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+        "http_status": 200,
+        "cache_reutilizada": true,
+        "comprobacion_version": "2026-11-02T09:30:22-05:00"
+      }
+    }
   },
   {
     "RUC": "20509507199",
-    "Fecha de consulta": "",
-    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
-    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
-    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+    "Razón social": "BANCO DE COMERCIO",
+    "Dirección fiscal": "AV. CANAVAL Y MOREYRA; NRO. 452; UBIGEO 150131",
+    "Condición del domicilio fiscal": "HABIDO",
+    "Fecha de inicio de actividades": "",
+    "Estado de consulta": "PENDIENTE DE OTRA INTERVENCIÓN",
+    "Fecha de consulta": "2026-11-02T09:30:56-05:00",
+    "Observaciones": "Consulta SOAP oficial en vivo; domicilio del padrón oficial diario, no de una ficha en vivo. La fecha de inicio no está publicada en estas dos fuentes; requiere ficha oficial. Versión del padrón: Mon, 02 Nov 2026 07:39:00 GMT.",
+    "Estado del contribuyente": "ACTIVO",
+    "UBIGEO": "150131",
+    "Campos pendientes": [
+      "Fecha de inicio de actividades"
+    ],
+    "Fuentes": {
+      "consulta_en_vivo": {
+        "ruc": "20509507199",
+        "campos": {
+          "estadoDesc": "ACTIVO",
+          "flag22Desc": "HABIDO",
+          "indError": "0",
+          "nombre": "BANCO DE COMERCIO",
+          "numRuc": "20509507199",
+          "ubigeoRuc": "150131"
+        },
+        "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+        "operacion": "buscarRuc",
+        "fecha_consulta": "2026-11-02T09:30:56-05:00",
+        "http_status": 200,
+        "duracion_segundos": 0.183
+      },
+      "padron": {
+        "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+        "fecha_descarga": "2026-11-02T08:59:55-05:00",
+        "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+        "etag": "\"6ae83e14-1783c2fc\"",
+        "bytes": 394511100,
+        "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+        "http_status": 200,
+        "cache_reutilizada": true,
+        "comprobacion_version": "2026-11-02T09:30:22-05:00"
+      }
+    }
   },
   {
     "RUC": "20100047218",
-    "Fecha de consulta": "",
-    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
-    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
-    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+    "Razón social": "BANCO DE CREDITO DEL PERU",
+    "Dirección fiscal": "JR. CENTENARIO; NRO. 156; URB. LADERAS DE MELGAREJO; UBIGEO 150114",
+    "Condición del domicilio fiscal": "HABIDO",
+    "Fecha de inicio de actividades": "",
+    "Estado de consulta": "PENDIENTE DE OTRA INTERVENCIÓN",
+    "Fecha de consulta": "2026-11-02T09:30:57-05:00",
+    "Observaciones": "Consulta SOAP oficial en vivo; domicilio del padrón oficial diario, no de una ficha en vivo. La fecha de inicio no está publicada en estas dos fuentes; requiere ficha oficial. Versión del padrón: Mon, 02 Nov 2026 07:39:00 GMT.",
+    "Estado del contribuyente": "ACTIVO",
+    "UBIGEO": "150114",
+    "Campos pendientes": [
+      "Fecha de inicio de actividades"
+    ],
+    "Fuentes": {
+      "consulta_en_vivo": {
+        "ruc": "20100047218",
+        "campos": {
+          "estadoDesc": "ACTIVO",
+          "flag22Desc": "HABIDO",
+          "indError": "0",
+          "nombre": "BANCO DE CREDITO DEL PERU",
+          "numRuc": "20100047218",
+          "ubigeoRuc": "150114"
+        },
+        "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+        "operacion": "buscarRuc",
+        "fecha_consulta": "2026-11-02T09:30:57-05:00",
+        "http_status": 200,
+        "duracion_segundos": 0.117
+      },
+      "padron": {
+        "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+        "fecha_descarga": "2026-11-02T08:59:55-05:00",
+        "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+        "etag": "\"6ae83e14-1783c2fc\"",
+        "bytes": 394511100,
+        "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+        "http_status": 200,
+        "cache_reutilizada": true,
+        "comprobacion_version": "2026-11-02T09:30:22-05:00"
+      }
+    }
   },
   {
     "RUC": "20100030595",
-    "Fecha de consulta": "",
-    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
-    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
-    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+    "Razón social": "BANCO DE LA NACION",
+    "Dirección fiscal": "AV. JAVIER PRADO ESTE; NRO. 2499; URB. SAN BORJA; UBIGEO 150130",
+    "Condición del domicilio fiscal": "HABIDO",
+    "Fecha de inicio de actividades": "",
+    "Estado de consulta": "PENDIENTE DE OTRA INTERVENCIÓN",
+    "Fecha de consulta": "2026-11-02T09:30:59-05:00",
+    "Observaciones": "Consulta SOAP oficial en vivo; domicilio del padrón oficial diario, no de una ficha en vivo. La fecha de inicio no está publicada en estas dos fuentes; requiere ficha oficial. Versión del padrón: Mon, 02 Nov 2026 07:39:00 GMT.",
+    "Estado del contribuyente": "ACTIVO",
+    "UBIGEO": "150130",
+    "Campos pendientes": [
+      "Fecha de inicio de actividades"
+    ],
+    "Fuentes": {
+      "consulta_en_vivo": {
+        "ruc": "20100030595",
+        "campos": {
+          "estadoDesc": "ACTIVO",
+          "flag22Desc": "HABIDO",
+          "indError": "0",
+          "nombre": "BANCO DE LA NACION",
+          "numRuc": "20100030595",
+          "ubigeoRuc": "150130"
+        },
+        "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+        "operacion": "buscarRuc",
+        "fecha_consulta": "2026-11-02T09:30:59-05:00",
+        "http_status": 200,
+        "duracion_segundos": 0.297
+      },
+      "padron": {
+        "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+        "fecha_descarga": "2026-11-02T08:59:55-05:00",
+        "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+        "etag": "\"6ae83e14-1783c2fc\"",
+        "bytes": 394511100,
+        "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+        "http_status": 200,
+        "cache_reutilizada": true,
+        "comprobacion_version": "2026-11-02T09:30:22-05:00"
+      }
+    }
   },
   {
     "RUC": "20330401991",
-    "Fecha de consulta": "",
-    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
-    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
-    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+    "Razón social": "BANCO FALABELLA PERU S.A",
+    "Dirección fiscal": "CAL. CARPACCIO; NRO. 250; UBIGEO 150130",
+    "Condición del domicilio fiscal": "HABIDO",
+    "Fecha de inicio de actividades": "",
+    "Estado de consulta": "PENDIENTE DE OTRA INTERVENCIÓN",
+    "Fecha de consulta": "2026-11-02T09:31:00-05:00",
+    "Observaciones": "Consulta SOAP oficial en vivo; domicilio del padrón oficial diario, no de una ficha en vivo. La fecha de inicio no está publicada en estas dos fuentes; requiere ficha oficial. Versión del padrón: Mon, 02 Nov 2026 07:39:00 GMT.",
+    "Estado del contribuyente": "ACTIVO",
+    "UBIGEO": "150130",
+    "Campos pendientes": [
+      "Fecha de inicio de actividades"
+    ],
+    "Fuentes": {
+      "consulta_en_vivo": {
+        "ruc": "20330401991",
+        "campos": {
+          "estadoDesc": "ACTIVO",
+          "flag22Desc": "HABIDO",
+          "indError": "0",
+          "nombre": "BANCO FALABELLA PERU S.A",
+          "numRuc": "20330401991",
+          "ubigeoRuc": "150130"
+        },
+        "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+        "operacion": "buscarRuc",
+        "fecha_consulta": "2026-11-02T09:31:00-05:00",
+        "http_status": 200,
+        "duracion_segundos": 0.213
+      },
+      "padron": {
+        "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+        "fecha_descarga": "2026-11-02T08:59:55-05:00",
+        "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+        "etag": "\"6ae83e14-1783c2fc\"",
+        "bytes": 394511100,
+        "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+        "http_status": 200,
+        "cache_reutilizada": true,
+        "comprobacion_version": "2026-11-02T09:30:22-05:00"
+      }
+    }
   },
   {
     "RUC": "20513074370",
-    "Fecha de consulta": "",
-    "Estado de consulta": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
-    "Observaciones": "Servicio oficial requiere intervención o restringe acceso: 403; no se intentó eludir el control; duración 0.00s",
-    "Fecha de procesamiento": "2026-11-02T07:35:41-05:00"
+    "Razón social": "BANCO GNB PERU S.A.",
+    "Dirección fiscal": "CAL. LAS BEGONIAS; NRO. 415; UBIGEO 150131",
+    "Condición del domicilio fiscal": "HABIDO",
+    "Fecha de inicio de actividades": "",
+    "Estado de consulta": "PENDIENTE DE OTRA INTERVENCIÓN",
+    "Fecha de consulta": "2026-11-02T09:31:01-05:00",
+    "Observaciones": "Consulta SOAP oficial en vivo; domicilio del padrón oficial diario, no de una ficha en vivo. La fecha de inicio no está publicada en estas dos fuentes; requiere ficha oficial. Versión del padrón: Mon, 02 Nov 2026 07:39:00 GMT.",
+    "Estado del contribuyente": "ACTIVO",
+    "UBIGEO": "150131",
+    "Campos pendientes": [
+      "Fecha de inicio de actividades"
+    ],
+    "Fuentes": {
+      "consulta_en_vivo": {
+        "ruc": "20513074370",
+        "campos": {
+          "estadoDesc": "ACTIVO",
+          "flag22Desc": "HABIDO",
+          "indError": "0",
+          "nombre": "BANCO GNB PERU S.A.",
+          "numRuc": "20513074370",
+          "ubigeoRuc": "150131"
+        },
+        "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+        "operacion": "buscarRuc",
+        "fecha_consulta": "2026-11-02T09:31:01-05:00",
+        "http_status": 200,
+        "duracion_segundos": 0.172
+      },
+      "padron": {
+        "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+        "fecha_descarga": "2026-11-02T08:59:55-05:00",
+        "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+        "etag": "\"6ae83e14-1783c2fc\"",
+        "bytes": 394511100,
+        "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+        "http_status": 200,
+        "cache_reutilizada": true,
+        "comprobacion_version": "2026-11-02T09:30:22-05:00"
+      }
+    }
   }
 ]

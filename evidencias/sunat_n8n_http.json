@@ -1,0 +1,111 @@
+{
+  "fecha": "2026-11-02T14:20:00.611Z",
+  "contexto": "HTTP real desde el runtime de n8n; no se afirma ejecución de workflow",
+  "intervencion_humana": false,
+  "passed": true,
+  "invalido_http_status": 422,
+  "resultados": [
+    {
+      "ruc": "20100047218",
+      "http_status": 200,
+      "passed": true,
+      "respuesta": {
+        "estado_consulta_api": "VERIFICADO",
+        "intervencion_humana": false,
+        "ficha_completa": false,
+        "campos_pendientes": [
+          "Fecha de inicio de actividades"
+        ],
+        "datos": {
+          "ruc": "20100047218",
+          "razon_social": "BANCO DE CREDITO DEL PERU",
+          "estado": "ACTIVO",
+          "condicion": "HABIDO",
+          "direccion_fiscal": "JR. CENTENARIO; NRO. 156; URB. LADERAS DE MELGAREJO; UBIGEO 150114",
+          "ubigeo": "150114",
+          "fecha_inicio_actividades": null
+        },
+        "fuentes": {
+          "consulta_en_vivo": {
+            "ruc": "20100047218",
+            "campos": {
+              "estadoDesc": "ACTIVO",
+              "flag22Desc": "HABIDO",
+              "indError": "0",
+              "nombre": "BANCO DE CREDITO DEL PERU",
+              "numRuc": "20100047218",
+              "ubigeoRuc": "150114"
+            },
+            "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+            "operacion": "buscarRuc",
+            "fecha_consulta": "2026-11-02T09:19:59-05:00",
+            "http_status": 200,
+            "duracion_segundos": 1.656
+          },
+          "padron": {
+            "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+            "fecha_descarga": "2026-11-02T08:59:55-05:00",
+            "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+            "etag": "\"6ae83e14-1783c2fc\"",
+            "bytes": 394511100,
+            "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+            "http_status": 200,
+            "cache_reutilizada": false
+          }
+        },
+        "aviso": "SOAP en vivo; domicilio del padrón descargado para el lote. La API oficial consultada no entrega fecha de inicio de actividades."
+      }
+    },
+    {
+      "ruc": "20100130204",
+      "http_status": 200,
+      "passed": true,
+      "respuesta": {
+        "estado_consulta_api": "VERIFICADO",
+        "intervencion_humana": false,
+        "ficha_completa": false,
+        "campos_pendientes": [
+          "Fecha de inicio de actividades"
+        ],
+        "datos": {
+          "ruc": "20100130204",
+          "razon_social": "BANCO BBVA PERU",
+          "estado": "ACTIVO",
+          "condicion": "HABIDO",
+          "direccion_fiscal": "AV. REPUBLICA DE PANAMA; NRO. 3055; URB. EL PALOMAR; UBIGEO 150131",
+          "ubigeo": "150131",
+          "fecha_inicio_actividades": null
+        },
+        "fuentes": {
+          "consulta_en_vivo": {
+            "ruc": "20100130204",
+            "campos": {
+              "estadoDesc": "ACTIVO",
+              "flag22Desc": "HABIDO",
+              "indError": "0",
+              "nombre": "BANCO BBVA PERU",
+              "numRuc": "20100130204",
+              "ubigeoRuc": "150131"
+            },
+            "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+            "operacion": "buscarRuc",
+            "fecha_consulta": "2026-11-02T09:20:00-05:00",
+            "http_status": 200,
+            "duracion_segundos": 0.799
+          },
+          "padron": {
+            "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+            "fecha_descarga": "2026-11-02T08:59:55-05:00",
+            "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+            "etag": "\"6ae83e14-1783c2fc\"",
+            "bytes": 394511100,
+            "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+            "http_status": 200,
+            "cache_reutilizada": false
+          }
+        },
+        "aviso": "SOAP en vivo; domicilio del padrón descargado para el lote. La API oficial consultada no entrega fecha de inicio de actividades."
+      }
+    }
+  ]
+}

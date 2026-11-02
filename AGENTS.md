@@ -21,7 +21,8 @@ El objetivo de la petición actual determina el trabajo a realizar. La existenci
 - n8n mantiene la lógica de negocio. El gateway solo adapta los proveedores. Telegram y las pruebas locales deben invocar el mismo `CORE_CHATBOT`.
 - Los datos del restaurante proceden de `chatbot/conocimiento.json`. No inventar precios, horarios, promociones ni disponibilidad; no confirmar pagos o reservas.
 - SUNAT: respetar el acceso oficial. No eludir CAPTCHA, verificaciones de seguridad o restricciones. No insistir automáticamente ante el bloqueo HTTP 403 documentado.
-- Veinte RUC validados en una fuente pública **no equivalen** a veinte fichas SUNAT consultadas. Actualmente hay cero fichas completas; ver `evidencias/SUNAT_TRAZABILIDAD.md`.
+- Veinte respuestas SOAP reales **no equivalen** a veinte fichas con los cinco campos. La API es automática y no entrega fecha de inicio; consultar `GUIA_SUNAT.md` y `evidencias/sunat_resumen.json`.
+- No introducir intervención humana en las consultas: el usuario la descartó expresamente. SUNAT usa SOAP oficial y padrón diario; noVNC fue retirado. No activar un proveedor de pago sin selección y credenciales del usuario.
 - No inventar benchmarks, capturas, nombres de integrantes ni pruebas. Distinguir fixtures, respuestas por reglas, fallback e inferencia real.
 - No leer ni mostrar secretos salvo que sea estrictamente necesario para una operación autorizada. `.env`, credenciales, `evidencias/privadas/` y volúmenes no se publican. No sustituir la clave de cifrado de una instancia existente.
 - No borrar volúmenes ni ejecutar `docker compose down -v`. Conservar cambios del usuario y respaldar workflows antes de reimportar versiones que haya editado en n8n.
@@ -61,7 +62,7 @@ Para cambios de nodos, importar mediante `sh scripts/importar_workflows.sh` desp
 docker compose exec -T n8n node --input-type=module < pruebas/test_core.mjs
 ```
 
-No ejecutar la consulta SUNAT ni `scripts/probar_todo.sh` indiscriminadamente mientras el acceso siga bloqueado. `scripts/probar_errores.sh` detiene Ollama temporalmente; ejecutarlo solo cuando no interrumpa otro trabajo y comprobar su restauración.
+La consulta SUNAT principal usa SOAP y padrón sin navegador; `GUIA_SUNAT.md` explica la prueba real y los campos pendientes. No insistir contra el formulario bloqueado. `scripts/probar_errores.sh` detiene Ollama temporalmente; ejecutarlo solo cuando no interrumpa otro trabajo y comprobar su restauración.
 
 Los cambios de documentación requieren revisar enlaces, comandos y coherencia con el código; no requieren repetir toda la inferencia. Si se actualiza la entrega, regenerar el ZIP con `docker compose run --rm --no-deps report-builder python -m tools.package` o el flujo completo documentado, y verificar su contenido.
 

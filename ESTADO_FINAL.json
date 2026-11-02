@@ -1,16 +1,19 @@
 {
-  "fecha": "2026-11-02T08:02:15-05:00",
+  "fecha": "2026-11-02T09:32:21-05:00",
   "tests_unitarios": {
-    "tests": 37,
+    "tests": 50,
     "failures": 0,
     "errors": 0,
     "skipped": 0
   },
   "sunat": {
     "total": 20,
-    "completos": 0,
-    "bloqueados": 20,
-    "manuales_importados": null
+    "completos": 1,
+    "bloqueados": 0,
+    "manuales_importados": null,
+    "soap_exitosas": 20,
+    "domicilios_con_datos": 20,
+    "fechas_inicio_obtenidas": 1
   },
   "modelo": "gemma4:e2b-it-q4_K_M",
   "docker": {
@@ -49,7 +52,8 @@
   "estados": {
     "Docker": "VERIFICADO",
     "Tests unitarios": "VERIFICADO",
-    "SUNAT": "BLOQUEADO POR RESTRICCIÓN EXTERNA",
+    "API SUNAT automática": "VERIFICADO",
+    "SUNAT": "PENDIENTE DE OTRA INTERVENCIÓN",
     "Gemma": "VERIFICADO",
     "Chatbot n8n + IA": "VERIFICADO",
     "APIs comerciales": "IMPLEMENTADO, NO VERIFICADO",

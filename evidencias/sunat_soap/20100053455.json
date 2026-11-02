@@ -1,0 +1,16 @@
+{
+  "ruc": "20100053455",
+  "campos": {
+    "estadoDesc": "ACTIVO",
+    "flag22Desc": "HABIDO",
+    "indError": "0",
+    "nombre": "BANCO INTERNACIONAL DEL PERU-INTERBANK",
+    "numRuc": "20100053455",
+    "ubigeoRuc": "150115"
+  },
+  "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+  "operacion": "buscarRuc",
+  "fecha_consulta": "2026-11-02T09:30:55-05:00",
+  "http_status": 200,
+  "duracion_segundos": 0.253
+}

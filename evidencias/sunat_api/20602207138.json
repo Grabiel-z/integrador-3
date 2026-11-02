@@ -1,0 +1,56 @@
+{
+  "fecha": "2026-11-02T09:31:47-05:00",
+  "peticion": {
+    "metodo": "GET",
+    "ruc": "20602207138"
+  },
+  "http_status": 200,
+  "respuesta": {
+    "estado_consulta_api": "VERIFICADO",
+    "intervencion_humana": false,
+    "ficha_completa": false,
+    "campos_pendientes": [
+      "Fecha de inicio de actividades"
+    ],
+    "datos": {
+      "ruc": "20602207138",
+      "razon_social": "BACKUS MARCAS Y PATENTES S.A.C.",
+      "estado": "ACTIVO",
+      "condicion": "HABIDO",
+      "direccion_fiscal": "NICOLAS AYLLON; NRO. 3986; UBIGEO 150103",
+      "ubigeo": "150103",
+      "fecha_inicio_actividades": null
+    },
+    "fuentes": {
+      "consulta_en_vivo": {
+        "ruc": "20602207138",
+        "campos": {
+          "estadoDesc": "ACTIVO",
+          "flag22Desc": "HABIDO",
+          "indError": "0",
+          "nombre": "BACKUS MARCAS Y PATENTES S.A.C.",
+          "numRuc": "20602207138",
+          "ubigeoRuc": "150103"
+        },
+        "fuente": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+        "operacion": "buscarRuc",
+        "fecha_consulta": "2026-11-02T09:31:47-05:00",
+        "http_status": 200,
+        "duracion_segundos": 0.181
+      },
+      "padron": {
+        "url": "https://www2.sunat.gob.pe/padron_reducido_ruc.zip",
+        "fecha_descarga": "2026-11-02T08:59:55-05:00",
+        "last_modified": "Mon, 02 Nov 2026 07:39:00 GMT",
+        "etag": "\"6ae83e14-1783c2fc\"",
+        "bytes": 394511100,
+        "sha256": "fa5b8283e176ff95c34778a49eadc2ccae4cfdc28796beb8adb82f2dd96189b5",
+        "http_status": 200,
+        "cache_reutilizada": true,
+        "comprobacion_version": "2026-11-02T09:30:22-05:00"
+      }
+    },
+    "aviso": "SOAP en vivo; domicilio del padrón descargado para el lote. La API oficial consultada no entrega fecha de inicio de actividades."
+  },
+  "passed": true
+}

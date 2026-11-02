@@ -1,0 +1,15 @@
+{
+  "url": "https://ww1.sunat.gob.pe/cl-ti-iaconsultaruc-ws/ServicioRucAdmColService.htm",
+  "ruc": "20100047218",
+  "http_status": 200,
+  "content_type": "text/xml;charset=\"utf-8\"",
+  "bytes": 698,
+  "campos_publicos": {
+    "estado": "00",
+    "estadoDesc": "ACTIVO",
+    "indError": "0",
+    "nombre": "BANCO DE CREDITO DEL PERU                                                                           ",
+    "numRuc": "20100047218",
+    "ubigeoRuc": "150114"
+  }
+}
