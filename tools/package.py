@@ -4,7 +4,7 @@ import zipfile
 from pathlib import Path
 
 ROOTS={"sunat","gateway","tools","pruebas","chatbot","datos","infra","scripts","investigacion","diagramas","informe","output","evidencias"}
-FILES={"compose.yaml","compose.gpu.yaml","requirements.txt","requirements.lock","pytest.ini",".env.example",".gitignore",".dockerignore","ESTADO_FINAL.json"}
+FILES={"compose.yaml","compose.gpu.yaml","requirements.txt","requirements.lock","pytest.ini",".env.example",".gitattributes",".gitignore",".dockerignore","ESTADO_FINAL.json"}
 DENY={".git",".agents",".aws",".codex","__pycache__",".pytest_cache","privadas","tmp","node_modules",".venv","venv"}
 
 
